@@ -1,0 +1,146 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #4a4031;
+    scroll-behavior: smooth;
+    padding-top: 70px;
+    background-color: var(--color-fondo);
+}
+
+:root {
+    --color-principal: #F2C9A0;
+    /* color carne suave */
+    --color-secundario: #F7E7CE;
+    /* beige claro */
+    --color-fondo: #FFF9F3;
+    /* blanco cálido crema */
+    --color-gris-claro: #EFE9E4;
+    /* gris-beige suave */
+    --color-texto: #4a4031;
+    /* marrón grisáceo */
+    --color-linea: #D6C6B8;
+    /* beige medio */
+}
+
+.navbar {
+    background-color: #ffffffcc;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+}
+
+.navbar-brand {
+    color: var(--color-principal) !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    color: #6b6255;
+    margin-left: 1rem;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-principal);
+    text-decoration: underline;
+}
+
+.hero {
+    background-color: var(--color-secundario);
+    min-height: 100vh;
+}
+
+.hero-img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--color-texto);
+}
+
+.subtitulo {
+    color: #5e5343;
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn-outline-secundario {
+    border-color: var(--color-principal);
+    color: var(--color-principal);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.btn-outline-secundario:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.servicios {
+    background-color: var(--color-principal);
+}
+
+.servicios h2 {
+    font-weight: 500;
+    color: #3f3428;
+}
+
+.icono-servicio {
+    width: 60px;
+    height: 60px;
+}
+
+.card {
+    transition: transform 0.2s ease;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.contacto {
+    background-color: var(--color-gris-claro);
+}
+
+.contacto h2 {
+    font-weight: 500;
+    color: #3f3428;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #cbbfb2;
+    background-color: #fffaf6;
+}
+
+.btn-principal {
+    background-color: var(--color-secundario);
+    border: none;
+    color: #3f3428;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #f3d5b4;
+}
+
+.divisor {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-linea);
+    margin: 0;
+}

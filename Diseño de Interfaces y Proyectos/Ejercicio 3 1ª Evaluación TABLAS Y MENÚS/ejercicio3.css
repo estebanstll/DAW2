@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e2d5d5;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin: 30px 40px 20px;
+}
+
+section {
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  max-width: 950px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* tabla */
+.tablaContenedor {
+  margin: 25px 0;
+  overflow-x: auto;
+}
+
+.tablaBonita {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tablaBonita th, .tablaBonita td {
+  border: 1px solid black;
+  padding: 14px 18px;
+  text-align: center;
+}
+.tablaBonita th {
+  background: green;
+  color: #e2d5d5;
+}
+
+
+/* menu lateral */
+.menu-lateral {
+  background: #333;
+  width: 220px;
+  float: left;
+  margin: 20px;
+  padding: 15px 0;
+  border-radius: 4px;
+}
+.menu-lateral a {
+  color: white;
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+.menu-lateral a:hover {
+  background: #444;
+  color: #aaffaa;
+  transition: background 0.2s, color 0.2s;
+}
+.contenido {
+  margin-left: 260px;
+  padding: 25px;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+/* menu pantalla */
+.pantalla-menu {
+  background: rgba(0, 0, 0, .85);
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 25px;
+  margin: 30px 0;
+  border-radius: 6px;
+}
+.pantalla-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+.pantalla-menu a:hover {
+  background: #444;
+  color: #aaffaa;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* menu vertical */
+.menuVertical {
+  width: 220px;
+  background: #f9f9f9;
+  margin: 25px 0;
+  padding: 10px 0;
+  border-radius: 4px;
+}
+.menuVertical a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+.menuVertical a:hover {
+  background: #444;
+  color: #aaffaa;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* menu abajo */
+.menuAbajo {
+  background: #333;
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+  padding: 14px 0;
+  border-radius: 4px;
+}
+.menuAbajo a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+.menuAbajo a:hover {
+  background: #444;
+  color: #aaffaa;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* menu desplegable */
+.navegador {
+  background: #333;
+  margin: 25px 0;
+  padding: 12px;
+  border-radius: 4px;
+}
+.botonmenu {
+  background: #333;
+  color: #fff;
+  padding: 12px 16px;
+  border: none;
+}
+.botonmenu:hover {
+  background: #444;
+  color: #aaffaa;
+  transition: background 0.2s, color 0.2s;
+}
+.cajita { float: left; position: relative; }
+.cosasDentro {
+  display: none;
+  position: absolute;
+  background: white;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.cosasDentro a {
+  display: block;
+  padding: 10px 14px;
+}
+.cosasDentro a:hover {
+  background: #444;
+  color: #aaffaa;
+  transition: background 0.2s, color 0.2s;
+}
+.cajita:hover .cosasDentro { display: block; }
+
+/* barra arriba */
+.barra-arriba {
+  position: sticky;
+  top: 0;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 18px;
+  z-index: 100;
+}
+.barra-arriba a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+.barra-arriba a:hover { color: lime; }
+
+.scrolleo {
+  height: 900px;
+  padding: 30px;
+}

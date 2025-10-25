@@ -1,0 +1,88 @@
+/* Bordes */
+.borde-solido {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+
+.borde-punteado {
+  border: 2px dotted blue;
+  padding: 10px;
+  margin: 5px;
+}
+
+.borde-redondeado {
+  border: 2px solid green;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.caja-margen-padding {
+  background: lightgray;
+  margin: 20px;
+  padding: 20px;
+}
+
+.caja {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+}
+
+.rojo { background: red; }
+.azul { background: blue; }
+.verde { background: green; }
+
+div p {
+  color: purple;
+  font-weight: bold;
+}
+
+.lista-cuadrados {
+  list-style-type: square;
+}
+
+.lista-sin-vinetas {
+  list-style: none;
+}
+
+.caja-inline {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+}
+
+.posicion-superior {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: orange;
+  padding: 10px;
+}
+
+.caja-transicion {
+  width: 150px;
+  height: 150px;
+  background: gray;
+  transition: background 0.5s ease;
+  margin: 20px 0;
+}
+
+.caja-transicion:hover {
+  background: pink;
+}
+
+@media (max-width: 600px) {
+  body {
+    background: lightblue;
+  }
+}

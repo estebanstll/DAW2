@@ -1,0 +1,200 @@
+/* Fuentes y tamaños */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  text-align: center;
+  color: red;
+  margin-top: 40px;
+}
+
+/* Enlaces */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+a:visited {
+  color: red;
+}
+a:hover {
+  color: green;
+  text-decoration: underline;
+}
+
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 15px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+}
+.grid-item {
+  background-color: #e0e0e0;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  min-height: 100px;
+}
+.grid-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Botón animado */
+.animated-button {
+  display: block;
+  margin: 0 auto 50px auto;
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.animated-button:hover {
+  background-color: #19692c;
+}
+
+/* Menú desplegable */
+.menu-principal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #333;
+  display: flex;
+}
+.menu-principal > li {
+  position: relative;
+}
+.menu-principal > li > a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+}
+.menu-principal > li > a:hover {
+  background-color: #555;
+}
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  display: none;
+  min-width: 150px;
+  z-index: 1000;
+}
+.submenu li a {
+  padding: 10px 15px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+.submenu li a:hover {
+  background-color: #666;
+}
+.menu-principal > li:hover > .submenu {
+  display: block;
+}
+
+/* Círculo animado */
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  border-radius: 50%;
+  position: relative;
+  animation: moveSideToSide 3s linear infinite;
+  margin: 40px auto;
+}
+@keyframes moveSideToSide {
+  0% { left: 0; }
+  50% { left: 200px; }
+  100% { left: 0; }
+}
+
+/* Card */
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto 50px auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card h3 {
+  margin: 15px 0 10px 0;
+}
+.card p {
+  padding: 0 15px 15px 15px;
+  color: #555;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto 50px auto;
+  text-align: center;
+}
+#modal-toggle:checked + .modal {
+  display: flex;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}

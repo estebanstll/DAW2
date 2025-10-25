@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Entrenamiento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Registro de Entrenamiento</h2>
+
+        <form action="entrenamiento.php" method="POST" enctype="multipart/form-data">
+            <label for="nombre">Nombre del entrenamiento:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="duracion">Duración (minutos):</label>
+            <input type="number" id="duracion" name="duracion" required>
+
+            <label for="calorias">Calorías (kcal):</label>
+            <input type="number" step="0.01" id="calorias" name="calorias" required>
+
+            <label for="fecha">Fecha del entrenamiento:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="material">¿Tienes material propio?</label>
+            <input type="checkbox" id="material" name="material">
+
+             <label>Sube tu archivo PDF:</label>
+            <input type="file" name="mi_archivo" accept="application/pdf" required><br>
+
+            <input type="hidden" id="control" name="control" value="1">
+
+            <input type="submit" value="Guardar Entrenamiento">
+
+            <!-- Mensaje desde la URL -->
+            <p class="mensaje">
+                <script>
+                    const params = new URLSearchParams(window.location.search);
+                    const msg = params.get("mensaje");
+                    if (msg) document.write(decodeURIComponent(msg));
+                </script>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

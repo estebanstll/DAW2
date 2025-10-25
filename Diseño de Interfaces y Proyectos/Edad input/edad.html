@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Validación</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Formulario</h1>
+
+    <form>
+        <label>Edad:
+            <input type="number" id="edad" name="edad" min="18" max="65" title="Debes tener entre 18 y 65 años."
+                required placeholder="Edad">
+        </label>
+
+        <label>Nombre:
+            <input type="text" id="nombre" name="nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"
+                title="Solo letras y espacios." required placeholder="Nombre">
+        </label>
+
+        <label>DNI:
+            <input type="text" id="dni" name="dni" pattern="^\d{8}$" title="8 números exactos." required
+                placeholder="DNI">
+        </label>
+
+        <p>Deportes:</p>
+
+        <label>
+            <input type="radio" name="deporte" value="futbol" required> Fútbol
+        </label>
+
+        <label>
+            <input type="radio" name="deporte" value="natacion"> Natación
+        </label>
+
+        <label>
+            <input type="radio" name="deporte" value="karate"> Karate
+        </label>
+
+        <label>
+            <input type="radio" name="deporte" value="F1"> F1
+        </label>
+
+        <p>Animales:</p>
+        <label>
+            <input type="checkbox" name="animal" value="Perro"> Perro
+        </label>
+
+        <label>
+            <input type="checkbox" name="animal" value="Gato"> Gato
+        </label>
+
+        <label>
+            <input type="checkbox" name="animal" value="Conejo"> Conejo
+        </label>
+
+        <button type="submit">Validar Datos</button>
+    </form>
+</body>
+
+</html>
