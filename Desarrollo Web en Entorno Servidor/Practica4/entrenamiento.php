@@ -121,10 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </html>";
 
         } else {
-            echo "⚠️ El archivo debe ser un PDF y pesar menos de 2 MB.";
+            echo " El archivo debe ser un PDF y pesar menos de 2 MB.";
         }
     } else {
-        echo "⚠️ No se ha subido ningún archivo válido.";
+        echo " No se ha subido ningún archivo válido.";
     }
 }
 ?>
