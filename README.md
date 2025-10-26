@@ -26,7 +26,7 @@ daw/
 │   ├── base_datos/
 │   └── PHP/
 │
-└── Desarrollo de Interfaces y Proyectos/
+└── DIseño de Interfaces y Proyectos/
     ├── pruebas/
     ├── informes/
     └── versiones/
@@ -48,7 +48,7 @@ Se incluyen proyectos, recursos visuales y ejercicios de maquetación.
 Dedicada al **backend** y la lógica de servidor.  
 Incluye código relacionado con **bases de datos, APIs, autenticación** y la conexión con el cliente.
 
-### Desarrollo de Interfaces y Proyectos
+### Diseño de Interfaces y Proyectos
 Espacio para **proyectos integradores**, prácticas completas y versiones finales de desarrollos.  
 También se guarda la **documentación de pruebas, informes técnicos y versiones de entregas**.
 
