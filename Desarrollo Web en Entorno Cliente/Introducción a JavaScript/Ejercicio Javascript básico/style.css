@@ -1,0 +1,34 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+section {
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px black;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical */
+  align-items: center; /* horizontal */
+  padding: 50px;
+  padding-bottom: 40px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+#calcular {
+  margin-top: 25px;
+  height: 25%;
+  width: 50%;
+  background-color: beige;
+  border-radius: 10px;
+}
+
+#calcular:hover {
+  background-color: bisque;
+}
