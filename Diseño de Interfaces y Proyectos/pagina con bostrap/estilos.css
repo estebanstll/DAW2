@@ -8,17 +8,11 @@ body {
 
 :root {
     --color-principal: #F2C9A0;
-    /* color carne suave */
     --color-secundario: #F7E7CE;
-    /* beige claro */
     --color-fondo: #FFF9F3;
-    /* blanco cálido crema */
     --color-gris-claro: #EFE9E4;
-    /* gris-beige suave */
     --color-texto: #4a4031;
-    /* marrón grisáceo */
     --color-linea: #D6C6B8;
-    /* beige medio */
 }
 
 .navbar {
