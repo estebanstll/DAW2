@@ -2,7 +2,8 @@ const numeroIntroducido = document.getElementById("factorial");
 const boton = document.getElementById("calcular");
 const output = document.getElementById("resultado");
 
-boton.addEventListener("click", () => {
+boton.addEventListener("click", (e) => {
+  e.preventDefault();
   if (parseInt(numeroIntroducido.value) > 0) {
     let resultado = 1;
 

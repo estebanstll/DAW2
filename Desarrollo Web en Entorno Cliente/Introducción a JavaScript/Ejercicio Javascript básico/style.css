@@ -12,8 +12,8 @@ section {
   background-color: antiquewhite;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertical */
-  align-items: center; /* horizontal */
+  justify-content: center; 
+  align-items: center; 
   padding: 50px;
   padding-bottom: 40px;
   width: fit-content;
