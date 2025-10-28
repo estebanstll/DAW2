@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+#contenedor {
+  width: 350px;
+  height: 600px;
+  background: white;
+  border: 1px solid black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+}
+
+#cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15%;
+  padding: 0 20px;
+}
+
+#icono {
+  height: 80%;
+  width: auto;
+}
+
+#nombre {
+  font-size: smaller;
+  margin: 0;
+}
+
+#imagenBiblioteca {
+  height: 50%;
+  width: 100%;
+}
+
+#biblio {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#contenedorBotones {
+  height: 35%;
+  width: 100%;
+  background-color: cadetblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 90px;
+  width: 90px;
+}
+
+#crear {
+  background-color: yellow;
+}
+
+#consultar {
+  background-color: darksalmon;
+}
