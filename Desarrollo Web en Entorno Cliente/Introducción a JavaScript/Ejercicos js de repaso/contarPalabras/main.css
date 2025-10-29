@@ -1,0 +1,26 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+}
+
+#contenedor {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 30px;
+  background-color: aquamarine;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+button {
+  margin-top: 20px;
+  border-radius: 5px;
+}
