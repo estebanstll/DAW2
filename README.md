@@ -26,7 +26,7 @@ daw/
 │   ├── base_datos/
 │   └── PHP/
 │
-└── DIseño de Interfaces y Proyectos/
+└── Diseño de Interfaces y Proyectos/
     ├── pruebas/
     ├── informes/
     └── versiones/
