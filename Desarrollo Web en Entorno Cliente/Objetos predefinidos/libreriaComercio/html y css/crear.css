@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: small;
+  font-size: 15px;
   margin-right: 15px;
 }
 
@@ -87,4 +87,8 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
+}
+a {
+  height: 80%;
+  width: auto;
 }

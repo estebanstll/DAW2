@@ -31,9 +31,12 @@ body {
   height: 15%;
   padding: 0 20px;
 }
-
-#icono {
+a {
   height: 80%;
+  width: auto;
+}
+#icono {
+  height: 100%;
   width: auto;
 }
 
