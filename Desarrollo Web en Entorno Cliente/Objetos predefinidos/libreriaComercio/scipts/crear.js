@@ -1,4 +1,4 @@
-import Libro from "./libro.js"; // ✅ Importa la exportación por defecto
+import Libro from "./libro.js";
 
 const btn = document.getElementById("crear");
 const nombre = document.getElementById("nombre");
