@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REMARK - Marketplace</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a2e0f1c5b4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <div class="logo">REMARK</div>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#destacados">Destacados</a></li>
+          <li><a href="#testimonios">Opiniones</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button id="themeToggle" title="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="outline">Registrarse</button>
+        <button class="filled">Iniciar sesión</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Compra, vende y gana con REMARK</h1>
+        <p>Descubre miles de productos, al mejor precio y de forma segura.</p>
+        <button onclick="scrollToSearch()">Explorar ahora</button>
+      </div>
+    </section>
+
+    <!-- BÚSQUEDA -->
+    <section class="search-section" id="busqueda">
+      <h2>Encuentra lo que necesitas</h2>
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="Buscar productos..." />
+        <button id="btnBuscar"><i class="fas fa-search"></i> Buscar</button>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories" id="categorias">
+      <h2>Categorías</h2>
+      <div class="category-grid">
+        <div class="category" data-cat="ropa">
+          <i class="fas fa-tshirt"></i> Ropa
+        </div>
+        <div class="category" data-cat="moviles">
+          <i class="fas fa-mobile-alt"></i> Móviles
+        </div>
+        <div class="category" data-cat="electronica">
+          <i class="fas fa-laptop"></i> Electrónica
+        </div>
+        <div class="category" data-cat="hogar">
+          <i class="fas fa-couch"></i> Hogar
+        </div>
+        <div class="category" data-cat="deportes">
+          <i class="fas fa-football-ball"></i> Deportes
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section class="featured" id="destacados">
+      <h2>Productos destacados</h2>
+      <div class="results" id="results"></div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials" id="testimonios">
+      <h2>Lo que dicen nuestros usuarios</h2>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <p>
+            “Vendí mi teléfono en menos de 2 días, el proceso fue súper fácil.”
+          </p>
+          <h4>- Laura G.</h4>
+        </div>
+        <div class="testimonial">
+          <p>
+            “Excelente plataforma, encontré una bici usada en perfecto estado.”
+          </p>
+          <h4>- Marcos R.</h4>
+        </div>
+        <div class="testimonial">
+          <p>
+            “Lo mejor es que puedes chatear directamente con los vendedores.”
+          </p>
+          <h4>- Ana P.</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-links">
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Contacto</a>
+      </div>
+      <div class="social">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+      <p>© 2025 REMARK. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
