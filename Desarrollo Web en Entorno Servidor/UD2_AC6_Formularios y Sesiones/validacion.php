@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -7,11 +8,11 @@ $contraseña=$_POST['password'];
 
 
     if ($usuario === 'admin' && $contraseña === '1234') {
-        echo "<h2>Bienvenido, $usuario ✅</h2>";
-        echo "<p>Inicio de sesión correcto.</p>";
+        $_SESSION['usuario_autenticado'] = $usuario;
+        header('Location: calculos.php');
     } else {
-        echo "<p style='color:red;'>Usuario o contraseña incorrectos.</p>";
-        echo "<a href='index.php'>Volver a intentar</a>";
+            header('Location: error.php');
+
     }
 }
 ?>
