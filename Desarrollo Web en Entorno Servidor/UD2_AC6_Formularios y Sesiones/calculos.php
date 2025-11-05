@@ -43,6 +43,7 @@ if (!isset($_SESSION['usuario_autenticado'])) {
         <?php
             if (isset($_SESSION['resultado'])) {
                 echo "<h2>Resultado: " . $_SESSION['resultado'] . "</h2>";
+                echo "<h2>Contador de sesiones: " . $_SESSION['contador_operaciones'] . "</h2>";
             }
         ?>
     </div>

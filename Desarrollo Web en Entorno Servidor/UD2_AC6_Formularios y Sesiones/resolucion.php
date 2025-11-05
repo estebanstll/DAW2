@@ -34,12 +34,12 @@ session_start();
     if (!isset($_SESSION['contador_operaciones'])) {
         $_SESSION['contador_operaciones'] = 0;
     }
-
     if ($resultado < 1000) {
         $_SESSION['contador_operaciones']++;
     }
-    if($resultado>10){
-    header('Location: index.php');
+    if($_SESSION['contador_operaciones']>10){
+        header('Location: ecuaciones.php');
+        exit();
     }
 
     header('Location: calculos.php');
