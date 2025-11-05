@@ -1,18 +1,15 @@
 <?php
 session_start();
 
-// 6.1) Eliminar o resetear la sesión que gestiona el contador de cálculos
 if (isset($_SESSION['contador'])) {
     unset($_SESSION['contador']);
 }
 
-// Variables iniciales
 $a = isset($_GET['a']) ? (float) $_GET['a'] : "";
 $b = isset($_GET['b']) ? (float) $_GET['b'] : "";
 $c = isset($_GET['c']) ? (float) $_GET['c'] : "";
 $resultado = "";
 
-// 6.2) Resolver la ecuación de segundo grado (solo mostrar resultado)
 if (isset($_GET['a']) && isset($_GET['b']) && isset($_GET['c'])) {
     if ($a == 0) {
         $resultado = "No es una ecuación cuadrática.";
