@@ -131,8 +131,14 @@ async function registrar() {
     body: JSON.stringify({ nombre, email, contrasena: pass }),
   });
   const data = await res.json();
-  alert(data.mensaje);
-  if (data.ok) cerrarModal("modalRegistro");
+
+  if (data.status === "ok") {
+    cerrarModal("modalRegistro");
+    localStorage.setItem("usuario", nombre);
+    actualizarBotonesUsuario(nombre);
+  } else {
+    alert(data.mensaje);
+  }
 }
 
 // ---------- LOGIN ----------
@@ -149,11 +155,70 @@ async function login() {
   });
   const data = await res.json();
 
-  if (data.ok) {
-    alert(`Bienvenido, ${data.usuario}`);
-    localStorage.setItem("usuario", data.usuario);
+  if (data.status === "ok") {
     cerrarModal("modalLogin");
+    localStorage.setItem("usuario", data.usuario.nombre);
+    actualizarBotonesUsuario(data.usuario.nombre);
   } else {
     alert(data.mensaje);
   }
 }
+
+// ---------- CERRAR SESIÓN ----------
+function logout() {
+  localStorage.removeItem("usuario");
+  actualizarBotonesUsuario(null);
+}
+
+// ---------- ACTUALIZAR BOTONES ----------
+function actualizarBotonesUsuario(usuario) {
+  const actions = document.querySelector(".actions");
+  actions.innerHTML = ""; // Limpiamos los botones
+
+  const themeBtn = document.createElement("button");
+  themeBtn.id = "themeToggle";
+  themeBtn.title = "Cambiar tema";
+  themeBtn.innerHTML = `<i class="fas ${
+    document.body.classList.contains("dark") ? "fa-sun" : "fa-moon"
+  }"></i>`;
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
+    actualizarIconoTema();
+  });
+  actions.appendChild(themeBtn);
+
+  if (usuario) {
+    // Si hay usuario logueado, mostramos el botón de logout
+    const btnLogout = document.createElement("button");
+    btnLogout.className = "filled";
+    btnLogout.textContent = `Cerrar sesión (${usuario})`;
+    btnLogout.onclick = logout;
+    actions.appendChild(btnLogout);
+  } else {
+    // Si no hay usuario, mostramos los botones normales
+    const btnRegistro = document.createElement("button");
+    btnRegistro.id = "btnRegistro";
+    btnRegistro.className = "outline";
+    btnRegistro.textContent = "Registrarse";
+    btnRegistro.onclick = () => abrirModal("modalRegistro");
+
+    const btnLogin = document.createElement("button");
+    btnLogin.id = "btnLogin";
+    btnLogin.className = "filled";
+    btnLogin.textContent = "Iniciar sesión";
+    btnLogin.onclick = () => abrirModal("modalLogin");
+
+    actions.appendChild(btnRegistro);
+    actions.appendChild(btnLogin);
+  }
+}
+
+// ---------- AUTO-LOGIN ----------
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = localStorage.getItem("usuario");
+  if (usuario) actualizarBotonesUsuario(usuario);
+});
