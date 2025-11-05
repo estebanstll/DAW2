@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario_autenticado'])) {
     <title>Calculadora</title>
     <body>
 
-    <div class="login-box">
+    <div class="calcu">
         <h2>Calculadora</h2>
 
         <form action="resolucion.php" method="GET">
@@ -43,7 +43,7 @@ if (!isset($_SESSION['usuario_autenticado'])) {
         <?php
             if (isset($_SESSION['resultado'])) {
                 echo "<h2>Resultado: " . $_SESSION['resultado'] . "</h2>";
-                echo "<h2>Contador de sesiones: " . $_SESSION['contador_operaciones'] . "</h2>";
+                echo "<h2>Contador de sesiones: " . $_SESSION['contador'] . "</h2>";
             }
         ?>
     </div>

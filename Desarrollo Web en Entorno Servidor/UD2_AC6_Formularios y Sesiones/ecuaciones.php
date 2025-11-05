@@ -39,7 +39,7 @@ if (isset($_GET['a']) && isset($_GET['b']) && isset($_GET['c'])) {
     <title>Ecuación de segundo grado</title>
 </head>
 <body>
-    <h1>Resolver ecuación de segundo grado</h1>
+    <h1>ecuación de segundo grado</h1>
 
     <form method="get" action="">
         <label for="a">a:</label>
