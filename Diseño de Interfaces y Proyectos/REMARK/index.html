@@ -26,8 +26,8 @@
         <button id="themeToggle" title="Cambiar tema">
           <i class="fas fa-moon"></i>
         </button>
-        <button class="outline">Registrarse</button>
-        <button class="filled">Iniciar sesión</button>
+        <button id="btnRegistro" class="outline">Registrarse</button>
+        <button id="btnLogin" class="filled">Iniciar sesión</button>
       </div>
     </header>
 
@@ -117,6 +117,30 @@
       </div>
       <p>© 2025 REMARK. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- MODALES -->
+    <div id="modalRegistro" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modalRegistro')"
+          >&times;</span
+        >
+        <h2>Registrarse</h2>
+        <input type="text" id="regNombre" placeholder="Nombre de usuario" />
+        <input type="email" id="regEmail" placeholder="Correo electrónico" />
+        <input type="password" id="regPass" placeholder="Contraseña" />
+        <button onclick="registrar()">Crear cuenta</button>
+      </div>
+    </div>
+
+    <div id="modalLogin" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modalLogin')">&times;</span>
+        <h2>Iniciar sesión</h2>
+        <input type="text" id="logNombre" placeholder="Nombre de usuario" />
+        <input type="password" id="logPass" placeholder="Contraseña" />
+        <button onclick="login()">Entrar</button>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

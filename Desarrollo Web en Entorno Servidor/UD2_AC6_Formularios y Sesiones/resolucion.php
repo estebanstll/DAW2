@@ -38,6 +38,9 @@ session_start();
     if ($resultado < 1000) {
         $_SESSION['contador_operaciones']++;
     }
+    if($resultado>10){
+    header('Location: index.php');
+    }
 
     header('Location: calculos.php');
     exit();
