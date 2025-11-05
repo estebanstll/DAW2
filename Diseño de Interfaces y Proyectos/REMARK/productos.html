@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REMARK - Todos los productos</title>
+    <link rel="stylesheet" href="productos.css" />
+    <script src="https://kit.fontawesome.com/a2e0f1c5b4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo" onclick="location.href='index.html'">REMARK</div>
+    </header>
+
+    <main class="productos-layout">
+        <!-- PANEL LATERAL -->
+        <aside class="filtros">
+            <h3>Búsqueda de filtros</h3>
+            <input type="text" id="filtroBusqueda" placeholder="Buscar filtros" />
+
+            <div class="filtro-precio">
+                <h4>Precio</h4>
+                <input type="range" id="rangoPrecio" min="0" max="2000" step="10" value="2000" />
+                <div><span id="precioMin">0€</span> - <span id="precioMax">2000€</span></div>
+            </div>
+
+            <div id="filtroCategorias">
+                <h4>Categorías</h4>
+            </div>
+
+            <div id="filtroMarcas">
+                <h4>Marcas</h4>
+            </div>
+        </aside>
+
+        <!-- RESULTADOS -->
+        <section class="resultados">
+            <h2>Todos los productos</h2>
+            <div id="gridProductos" class="grid-productos"></div>
+        </section>
+    </main>
+
+    <script src="productos.js"></script>
+</body>
+
+</html>
