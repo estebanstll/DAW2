@@ -1,163 +1,223 @@
 :root {
-    --bg: #f5f6fa;
-    --text: #2c3e50;
-    --primary: #00c3a5;
-    --secondary: #1e1e2f;
-    --card: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.1);
+  --bg: #f5f6fa;
+  --text: #2c3e50;
+  --primary: #00c3a5;
+  --secondary: #1e1e2f;
+  --card: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
 }
 
 /* HEADER */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondary);
-    color: white;
-    padding: 15px 40px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  display: flex;
+  justify-content: flex-start; /* logo a la izquierda */
+  align-items: center;
+  background-color: var(--secondary);
+  color: white;
+  /* reducir padding lateral para que el logo quede más a la izquierda */
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--primary);
-    cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
+  cursor: pointer;
 }
 
-/* LAYOUT */
+/* LAYOUT PRINCIPAL */
 .productos-layout {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 3rem;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start; /* alinea todo arriba */
 }
 
-/* PANEL LATERAL */
+/* PANEL DE FILTROS FIJO */
 .filtros {
-    flex: 0 0 260px;
-    background-color: var(--card);
-    color: var(--text);
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px var(--shadow);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  /* mantener ancho fijo pero fijarlo al viewport en pantallas grandes */
+  width: 260px;
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px var(--shadow);
+  position: fixed; /* fijado al viewport, a la izquierda */
+  left: 20px;
+  top: 80px; /* debajo del header */
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* si el contenido es más alto que la pantalla, permitir scroll interno */
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 .filtros h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--primary);
-    display: inline-block;
-    padding-bottom: 4px;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 4px;
 }
 
 .filtros input[type="text"] {
-    width: 100%;
-    padding: 0.6rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-/* PRECIO */
+/* FILTRO PRECIO */
 .filtro-precio {
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filtro-precio .rango-manual {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filtro-precio input[type="number"] {
+  width: 70px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .filtro-precio input[type="range"] {
-    width: 100%;
-    accent-color: var(--primary);
+  width: 100%;
+  accent-color: var(--primary);
 }
 
-.filtro-precio div {
-    display: flex;
-    justify-content: space-between;
+.rango-precio-valores {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: var(--primary);
 }
 
-/* CATEGORÍAS Y MARCAS */
-#filtroCategorias,
-#filtroMarcas {
-    width: 100%;
-    margin-top: 1rem;
+/* FILTROS CATEGORÍAS Y MARCAS */
+details {
+  width: 100%;
 }
 
-#filtroCategorias h4,
-#filtroMarcas h4 {
-    color: var(--primary);
+summary h4 {
+  color: var(--primary);
+  cursor: pointer;
 }
 
-#filtroCategorias label,
-#filtroMarcas label {
-    display: flex;
-    align-items: center;
-    margin: 4px 0;
+.opciones-filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 0.5rem;
 }
 
-/* PRODUCTOS */
+.opciones-filtro label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* RESULTADOS / PRODUCTOS */
 .resultados {
-    flex: 1;
-    text-align: center;
+  flex: 1;
+  text-align: left;
+}
+
+/* Evitar que el contenido quede detrás del panel fijo */
+.resultados {
+  margin-left: 300px; /* espacio suficiente para el panel de filtros */
 }
 
 .grid-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
 }
 
+/* PRODUCT CARD */
 .product-card {
-    background-color: var(--card);
-    border-radius: 15px;
-    box-shadow: 0 4px 10px var(--shadow);
-    padding: 1rem;
-    width: 220px;
-    text-align: center;
-    transition: transform 0.2s;
+  background-color: var(--card);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 0.8rem;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
 }
 
 .product-card h3 {
-    font-size: 1rem;
-    color: var(--text);
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
 }
 
 .product-card p {
-    color: var(--primary);
-    font-weight: bold;
+  color: var(--primary);
+  font-weight: bold;
 }
 
 /* RESPONSIVE */
 @media (max-width: 1000px) {
-    .productos-layout {
-        flex-direction: column;
-        align-items: center;
-    }
+  .productos-layout {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
 
-    .filtros {
-        width: 90%;
-        order: 1;
-    }
+  .filtros {
+    width: 90%;
+    position: relative; /* volver a comportamiento normal en móviles */
+    top: 0;
+    order: 1;
+    align-self: center;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .resultados {
+    text-align: center;
+  }
+
+  .grid-productos {
+    justify-items: center;
+  }
+
+  /* quitar margen creado para escritorio */
+  .resultados {
+    margin-left: 0;
+  }
 }

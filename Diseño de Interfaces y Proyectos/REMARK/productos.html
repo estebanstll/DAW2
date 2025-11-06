@@ -1,48 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REMARK - Todos los productos</title>
-    <link rel="stylesheet" href="productos.css" />
-    <script src="https://kit.fontawesome.com/a2e0f1c5b4.js" crossorigin="anonymous"></script>
-</head>
 
-<body>
+    <link rel="stylesheet" href="productos.css" />
+    <script
+      src="https://kit.fontawesome.com/a2e0f1c5b4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- CABECERA (logo a la izquierda, sin cambios visuales) -->
     <header>
-        <div class="logo" onclick="location.href='index.html'">REMARK</div>
+      <div class="logo" onclick="location.href='index.html'">REMARK</div>
     </header>
 
     <main class="productos-layout">
-        <!-- PANEL LATERAL -->
-        <aside class="filtros">
-            <h3>Búsqueda de filtros</h3>
-            <input type="text" id="filtroBusqueda" placeholder="Buscar filtros" />
+      <!-- PANEL DE FILTROS -->
+      <aside class="filtros" aria-label="Panel de filtros de productos">
+        <h3>Filtrar productos</h3>
 
-            <div class="filtro-precio">
-                <h4>Precio</h4>
-                <input type="range" id="rangoPrecio" min="0" max="2000" step="10" value="2000" />
-                <div><span id="precioMin">0€</span> - <span id="precioMax">2000€</span></div>
+        <!-- BUSCADOR -->
+        <div class="filtro-busqueda">
+          <label for="filtroBusqueda" class="visually-hidden"
+            >Buscar filtros</label
+          >
+          <input
+            type="text"
+            id="filtroBusqueda"
+            placeholder="Buscar filtros..."
+            aria-label="Buscar filtros"
+          />
+        </div>
+
+        <!-- FILTRO PRECIO -->
+        <details open>
+          <summary><h4>Precio</h4></summary>
+          <div class="filtro-precio">
+            <div class="rango-manual">
+              <label for="precioMinInput">Desde:</label>
+              <input
+                type="number"
+                id="precioMinInput"
+                min="0"
+                max="2000"
+                step="10"
+                value="0"
+              />
+              €
+
+              <label for="precioMaxInput">Hasta:</label>
+              <input
+                type="number"
+                id="precioMaxInput"
+                min="0"
+                max="2000"
+                step="10"
+                value="2000"
+              />
+              €
             </div>
 
-            <div id="filtroCategorias">
-                <h4>Categorías</h4>
+            <input
+              type="range"
+              id="rangoPrecio"
+              min="0"
+              max="2000"
+              step="10"
+              value="2000"
+              aria-label="Rango de precio"
+            />
+            <div class="rango-precio-valores">
+              <span id="precioMin">0€</span> - <span id="precioMax">2000€</span>
             </div>
+          </div>
+        </details>
 
-            <div id="filtroMarcas">
-                <h4>Marcas</h4>
-            </div>
-        </aside>
+        <!-- FILTRO CATEGORÍAS (se rellenará desde la BBDD) -->
+        <details open id="filtroCategorias">
+          <summary><h4>Categorías</h4></summary>
+          <div class="opciones-filtro" id="categoriasContainer">
+            <!-- categorías cargadas dinámicamente -->
+          </div>
+        </details>
 
-        <!-- RESULTADOS -->
-        <section class="resultados">
-            <h2>Todos los productos</h2>
-            <div id="gridProductos" class="grid-productos"></div>
-        </section>
+        <!-- FILTRO MARCAS (se rellenará desde la BBDD) -->
+        <details open id="filtroMarcas">
+          <summary><h4>Marcas</h4></summary>
+          <div class="opciones-filtro" id="marcasContainer">
+            <!-- marcas cargadas dinámicamente -->
+          </div>
+        </details>
+      </aside>
+
+      <!-- RESULTADOS -->
+      <section class="resultados" aria-label="Listado de productos">
+        <h2>Todos los productos</h2>
+        <div id="gridProductos" class="grid-productos">
+          <!-- Los productos se insertan dinámicamente desde productos.js -->
+        </div>
+      </section>
     </main>
 
     <script src="productos.js"></script>
-</body>
-
+  </body>
 </html>

@@ -135,6 +135,23 @@ header nav ul li a:hover {
   transform: scale(1.05);
 }
 
+/* Estilo para el enlace 'Explorar ahora' en el hero (reemplaza al botón) */
+.hero-content .explorar-btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero-content .explorar-btn:hover {
+  background-color: #00a68c;
+  transform: scale(1.05);
+}
+
 /* SEARCH */
 .search-section {
   text-align: center;
@@ -357,5 +374,3 @@ footer {
   font-size: 1.5em;
   cursor: pointer;
 }
-
-
