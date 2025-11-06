@@ -1,5 +1,5 @@
 <?php
-// Endpoint: devuelve categorías distintas
+// Devuelve categorías distintas
 include "db.php";
 error_log("get_categories.php: iniciando consulta de categorías");
 

@@ -1,4 +1,4 @@
-// ---------- PRODUCTOS DE EJEMPLO ----------
+// Productos de ejemplo
 const PRODUCTS = [
   {
     nombre: "iPhone 13",
@@ -87,7 +87,7 @@ function scrollToSearch() {
   document.getElementById("busqueda").scrollIntoView({ behavior: "smooth" });
 }
 
-// ---------- TEMA ----------
+// Tema (modo claro/oscuro)
 const themeBtn = document.getElementById("themeToggle");
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
@@ -104,7 +104,7 @@ function actualizarIconoTema() {
   icon.classList.toggle("fa-moon", !document.body.classList.contains("dark"));
 }
 
-// ---------- MODALES ----------
+// Modales (registro/login)
 document.getElementById("btnRegistro").onclick = () =>
   abrirModal("modalRegistro");
 document.getElementById("btnLogin").onclick = () => abrirModal("modalLogin");
@@ -117,7 +117,7 @@ function cerrarModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-// ---------- REGISTRO ----------
+// Registro
 async function registrar() {
   const nombre = document.getElementById("regNombre").value.trim();
   const email = document.getElementById("regEmail").value.trim();
@@ -141,7 +141,7 @@ async function registrar() {
   }
 }
 
-// ---------- LOGIN ----------
+// Login
 async function login() {
   const nombre = document.getElementById("logNombre").value.trim();
   const pass = document.getElementById("logPass").value.trim();
@@ -164,16 +164,16 @@ async function login() {
   }
 }
 
-// ---------- CERRAR SESIÓN ----------
+// Cerrar sesión
 function logout() {
   localStorage.removeItem("usuario");
   actualizarBotonesUsuario(null);
 }
 
-// ---------- ACTUALIZAR BOTONES ----------
+// UI: actualizar botones según estado de usuario
 function actualizarBotonesUsuario(usuario) {
   const actions = document.querySelector(".actions");
-  actions.innerHTML = ""; // Limpiamos los botones
+  actions.innerHTML = "";
 
   const themeBtn = document.createElement("button");
   themeBtn.id = "themeToggle";
@@ -217,7 +217,7 @@ function actualizarBotonesUsuario(usuario) {
   }
 }
 
-// ---------- AUTO-LOGIN ----------
+// Auto-login (restaurar estado si hay usuario en localStorage)
 document.addEventListener("DOMContentLoaded", () => {
   const usuario = localStorage.getItem("usuario");
   if (usuario) actualizarBotonesUsuario(usuario);

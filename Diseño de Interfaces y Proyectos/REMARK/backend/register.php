@@ -1,7 +1,8 @@
 <?php
+// Endpoint: registro de usuario (POST JSON)
 include "db.php";
 
-// Obtener datos desde el frontend (fetch)
+// leer payload
 $data = json_decode(file_get_contents("php://input"), true);
 
 $nombre = $conn->real_escape_string($data["nombre"]);

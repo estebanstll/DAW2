@@ -1,9 +1,9 @@
 <?php
-// Endpoint: devuelve marcas distintas
+// Devuelve marcas únicas (extraídas de 'etiquetas')
 include "db.php";
 error_log("get_brands.php: iniciando consulta de marcas");
 
-// No existe la columna 'marca' en la tabla; extraer marcas a partir de 'etiquetas'
+// extraer marcas desde 'etiquetas'
 $result = $conn->query("SELECT etiquetas FROM productos");
 if ($result === false) {
     error_log("get_brands.php: error en consulta SQL: " . $conn->error);

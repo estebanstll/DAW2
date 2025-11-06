@@ -1,11 +1,6 @@
-/*
-  productos.js - comportamiento
-  - solicita /backend/get_products.php para obtener todos los productos
-  - muestra los productos en #gridProductos
-  - solicita /backend/get_categories.php y /backend/get_brands.php para poblar los filtros
-  - aplicarFiltros() filtra en el cliente usando sessionStorage (productosCache)
-  Debug: este archivo imprime trazas en consola para ayudar al diagnóstico.
-*/
+// productos.js
+// Carga productos desde el backend y construye filtros (categorías y marcas).
+// Filtrado en cliente usando sessionStorage (productosCache).
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -18,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       `[productos.js] get_products.php -> status: ${res.status} ${res.statusText}`
     );
 
-    // Leer el body como texto una sola vez (evita "body already used")
+    // Leer body como texto (evita el error 'body already used')
     const raw = await res.text();
 
     if (!res.ok) {
@@ -93,10 +88,8 @@ function generarFiltros(productos) {
   // Esta función ya no se usa; los filtros se cargan desde la BBDD
 }
 
-/**
- * Genera los checkboxes de categorías y marcas a partir del array de productos
- * y establece la relación para que las marcas se filtren según categorías seleccionadas.
- */
+// Crear checkboxes de categorías y marcas a partir del array `productos`.
+// Mantiene un mapa categoria -> marcas para actualizar la vista al cambiar categoría.
 function generarFiltrosDesdeProductos(productos) {
   const categoriasContainer = document.getElementById("categoriasContainer");
   const marcasContainer = document.getElementById("marcasContainer");
@@ -153,10 +146,8 @@ function generarFiltrosDesdeProductos(productos) {
   });
 }
 
-/**
- * Actualiza el listado de marcas mostrado según las categorías seleccionadas.
- * Si no hay categorías seleccionadas, muestra todas las marcas.
- */
+// Actualiza marcas mostradas según las categorías seleccionadas.
+// Si no hay categorías seleccionadas muestra todas las marcas.
 function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
   const marcasContainer = document.getElementById("marcasContainer");
   const selectedCats = Array.from(
@@ -199,10 +190,8 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
     });
 }
 
-/**
- * Carga categorías y marcas desde los endpoints PHP y las inserta
- * en los contenedores `#categoriasContainer` y `#marcasContainer`.
- */
+// Carga categorías y marcas desde los endpoints PHP y las inserta en el DOM.
+// Se usa como fallback cuando no hay productos locales cargados.
 async function cargarFiltrosDesdeBD() {
   try {
     console.log("[productos.js] fetch: get_categories.php y get_brands.php");

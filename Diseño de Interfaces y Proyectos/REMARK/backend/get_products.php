@@ -1,9 +1,9 @@
 <?php
-// Endpoint: devuelve todos los productos en JSON
+// Devuelve todos los productos en JSON (marca derivada de 'etiquetas')
 header("Content-Type: application/json; charset=utf-8");
 include "db.php";
 
-// Debug: registrar en el log del servidor que entramos al script
+// log: inicio
 error_log("get_products.php: iniciando consulta de productos");
 
 $sql = "SELECT nombre, categoria, etiquetas, precio, imagen FROM productos";
@@ -23,7 +23,7 @@ $brands_from_row = [];
 if ($result && $result->num_rows > 0) {
     error_log("get_products.php: filas obtenidas = " . $result->num_rows);
     while ($row = $result->fetch_assoc()) {
-        // intentar extraer una 'marca' a partir de la columna 'etiquetas' (primer token)
+    // Extraer 'marca' desde 'etiquetas' (primer token)
         $marca = '';
         if (!empty($row['etiquetas'])) {
             $parts = explode(',', $row['etiquetas']);
