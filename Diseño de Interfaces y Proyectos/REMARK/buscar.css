@@ -12,7 +12,6 @@
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
@@ -32,7 +31,6 @@ header {
   top: 0;
   z-index: 100;
 }
-
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -50,7 +48,7 @@ header {
   align-items: flex-start;
 }
 
-/* PANEL DE FILTROS */
+/* FILTROS */
 .filtros {
   width: 260px;
   background-color: var(--card);
@@ -67,20 +65,30 @@ header {
   max-height: calc(100vh - 100px);
   overflow-y: auto;
 }
+.filtros h3 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 4px;
+}
+.filtros input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 
 /* RESULTADOS */
 .resultados {
   flex: 1;
   margin-left: 300px;
 }
-
 .grid-productos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1.5rem;
 }
 
-/* TARJETA DE PRODUCTO */
+/* TARJETAS PRODUCTO */
 .product-card {
   background-color: var(--card);
   border-radius: 15px;
@@ -92,20 +100,15 @@ header {
   overflow: hidden;
   cursor: pointer;
 }
-
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
-
-/* IMAGEN */
 .product-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-
-/* INFO BAJO LA IMAGEN */
 .product-info {
   background: white;
   padding: 1rem;
@@ -114,18 +117,15 @@ header {
   gap: 0.4rem;
   align-items: center;
 }
-
 .product-info h3 {
   font-size: 1rem;
   color: var(--text);
   margin: 0;
 }
-
 .product-info .marca {
   font-size: 0.9rem;
   color: #666;
 }
-
 .product-info .precio {
   color: var(--primary);
   font-weight: bold;
@@ -139,7 +139,6 @@ header {
     align-items: center;
     padding: 1rem 2rem;
   }
-
   .filtros {
     width: 90%;
     position: relative;
@@ -148,12 +147,10 @@ header {
     max-height: none;
     overflow: visible;
   }
-
   .resultados {
     margin-left: 0;
     text-align: center;
   }
-
   .grid-productos {
     justify-items: center;
   }

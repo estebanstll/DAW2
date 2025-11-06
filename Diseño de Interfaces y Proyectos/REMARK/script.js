@@ -53,7 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("btnBuscar").addEventListener("click", () => {
   const query = document.getElementById("search").value.trim();
-  buscarProductos(query);
+  if (query) {
+    window.location.href = `buscar.html?q=${encodeURIComponent(query)}`;
+  }
 });
 
 document.querySelectorAll(".category").forEach((cat) => {

@@ -1,59 +1,33 @@
-// productos.js
-// Carga productos desde el backend y construye filtros (categorías y marcas).
-// Filtrado en cliente usando sessionStorage (productosCache).
-
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    console.log(
-      "[productos.js] Iniciando carga de productos desde backend/get_products.php..."
-    );
     const res = await fetch("backend/get_products.php");
-
-    console.log(
-      `[productos.js] get_products.php -> status: ${res.status} ${res.statusText}`
-    );
-
-    // Leer body como texto (evita el error 'body already used')
     const raw = await res.text();
 
     if (!res.ok) {
-      console.error(
-        `get_products.php HTTP error: ${res.status} ${res.statusText}`
-      );
-      console.error("Respuesta del servidor:", raw);
       document.getElementById("gridProductos").innerHTML =
         "<p>Error cargando productos desde el servidor.</p>";
+      console.error("Error HTTP:", res.status, raw);
       return;
     }
 
-    // intentar parsear JSON a partir del texto recibido
     let productos;
     try {
       productos = JSON.parse(raw);
-    } catch (parseErr) {
-      console.error("No se pudo parsear JSON de get_products.php:", parseErr);
-      console.error("Respuesta cruda:", raw);
+    } catch (err) {
+      console.error("Error parseando JSON:", err, raw);
       document.getElementById("gridProductos").innerHTML =
-        "<p>Respuesta inesperada del servidor al solicitar productos.</p>";
+        "<p>Respuesta inesperada del servidor.</p>";
       return;
     }
 
-    console.log("[productos.js] Productos cargados (array):", productos);
-
     if (!productos || productos.length === 0) {
-      console.warn("[productos.js] No se encontraron productos en la BBDD.");
       document.getElementById("gridProductos").innerHTML =
-        "<p>No hay productos en la base de datos.</p>";
-      // Aún intentamos cargar filtros para ver si hay categorías/marcas
+        "<p>No hay productos disponibles.</p>";
       await cargarFiltrosDesdeBD();
       return;
     }
 
     mostrarProductos(productos);
-    // generar filtros dinámicamente a partir de los productos cargados
-    console.log(
-      "[productos.js] Generando filtros de categorías y marcas desde los productos..."
-    );
     generarFiltrosDesdeProductos(productos);
     sessionStorage.setItem("productosCache", JSON.stringify(productos));
 
@@ -63,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       aplicarFiltros();
     });
   } catch (error) {
-    console.error("Error cargando productos:", error);
+    console.error("Error general al cargar productos:", error);
   }
 });
 
@@ -71,30 +45,34 @@ function mostrarProductos(lista) {
   const grid = document.getElementById("gridProductos");
   grid.innerHTML = "";
 
+  if (!lista || lista.length === 0) {
+    grid.innerHTML = "<p>No se encontraron productos.</p>";
+    return;
+  }
+
   lista.forEach((p) => {
     const card = document.createElement("div");
     card.classList.add("product-card");
+
+    const rutaImagen = p.imagen.replace(/^REMARK\//, "");
+
     card.innerHTML = `
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <h3>${p.nombre}</h3>
-      <p>${p.marca}</p>
-      <p>${p.precio} €</p>
+      <img src="${rutaImagen}" alt="${p.nombre}">
+      <div class="product-info">
+        <h3>${p.nombre}</h3>
+        <p class="marca">${p.marca || ""}</p>
+        <p class="precio">${parseFloat(p.precio).toFixed(2)} €</p>
+      </div>
     `;
+
     grid.appendChild(card);
   });
 }
 
-function generarFiltros(productos) {
-  // Esta función ya no se usa; los filtros se cargan desde la BBDD
-}
-
-// Crear checkboxes de categorías y marcas a partir del array `productos`.
-// Mantiene un mapa categoria -> marcas para actualizar la vista al cambiar categoría.
 function generarFiltrosDesdeProductos(productos) {
   const categoriasContainer = document.getElementById("categoriasContainer");
   const marcasContainer = document.getElementById("marcasContainer");
 
-  // construir conjunto de categorías y mapa de categoria -> set de marcas
   const categoriasSet = new Set();
   const marcasPorCategoria = {};
   const todasMarcasSet = new Set();
@@ -110,51 +88,41 @@ function generarFiltrosDesdeProductos(productos) {
         todasMarcasSet.add(marca);
       }
     } else if (marca) {
-      // productos sin categoria explícita -> añadir marca a global
       todasMarcasSet.add(marca);
     }
   });
 
-  // limpiar contenedores
   categoriasContainer.innerHTML = "";
   marcasContainer.innerHTML = "";
 
-  // crear checkbox para cada categoría
   Array.from(categoriasSet)
     .sort()
     .forEach((cat) => {
       const div = document.createElement("div");
-      const id = `cat_${cat.replace(/\s+/g, "_")}`;
-      div.innerHTML = `<label><input type="checkbox" id="${id}" value="${cat}"> ${cat}</label>`;
-      categoriasContainer.appendChild(div);
-      // attach change handler
-      const input = div.querySelector("input");
-      input.addEventListener("change", () => {
+      div.innerHTML = `<label><input type="checkbox" value="${cat}"> ${cat}</label>`;
+      div.querySelector("input").addEventListener("change", () => {
         actualizarMarcasSegunCategorias(productos, marcasPorCategoria);
         aplicarFiltros();
       });
+      categoriasContainer.appendChild(div);
     });
 
-  // inicialmente mostrar todas las marcas
-  const todasMarcas = Array.from(todasMarcasSet).sort();
-  todasMarcas.forEach((marca) => {
-    const div = document.createElement("div");
-    div.innerHTML = `<label><input type="checkbox" value="${marca}"> ${marca}</label>`;
-    // attach handler
-    div.querySelector("input").addEventListener("change", aplicarFiltros);
-    marcasContainer.appendChild(div);
-  });
+  Array.from(todasMarcasSet)
+    .sort()
+    .forEach((marca) => {
+      const div = document.createElement("div");
+      div.innerHTML = `<label><input type="checkbox" value="${marca}"> ${marca}</label>`;
+      div.querySelector("input").addEventListener("change", aplicarFiltros);
+      marcasContainer.appendChild(div);
+    });
 }
 
-// Actualiza marcas mostradas según las categorías seleccionadas.
-// Si no hay categorías seleccionadas muestra todas las marcas.
 function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
   const marcasContainer = document.getElementById("marcasContainer");
   const selectedCats = Array.from(
     document.querySelectorAll("#filtroCategorias input:checked")
   ).map((i) => i.value);
 
-  // recordar marcas seleccionadas actualmente para reaplicar si siguen disponibles
   const previouslyChecked = new Set(
     Array.from(document.querySelectorAll("#filtroMarcas input:checked")).map(
       (i) => i.value
@@ -163,7 +131,6 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
 
   let marcasToShow = new Set();
   if (selectedCats.length === 0) {
-    // ninguna cat seleccionada -> mostrar todas las marcas presentes en productos
     productos.forEach((p) => {
       if (p.marca) marcasToShow.add(p.marca);
     });
@@ -176,7 +143,6 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
     });
   }
 
-  // reconstruir marcasContainer
   marcasContainer.innerHTML = "";
   Array.from(marcasToShow)
     .sort()
@@ -184,109 +150,41 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
       const div = document.createElement("div");
       const checked = previouslyChecked.has(marca) ? "checked" : "";
       div.innerHTML = `<label><input type="checkbox" value="${marca}" ${checked}> ${marca}</label>`;
-      // attach handler to apply filters when brand changed
       div.querySelector("input").addEventListener("change", aplicarFiltros);
       marcasContainer.appendChild(div);
     });
 }
 
-// Carga categorías y marcas desde los endpoints PHP y las inserta en el DOM.
-// Se usa como fallback cuando no hay productos locales cargados.
 async function cargarFiltrosDesdeBD() {
   try {
-    console.log("[productos.js] fetch: get_categories.php y get_brands.php");
     const [catRes, marRes] = await Promise.all([
       fetch("backend/get_categories.php"),
       fetch("backend/get_brands.php"),
     ]);
 
-    console.log(
-      `[productos.js] get_categories.php status: ${catRes.status} ${catRes.statusText}`
-    );
-    console.log(
-      `[productos.js] get_brands.php status: ${marRes.status} ${marRes.statusText}`
-    );
-
-    // Leer bodies como texto una sola vez
     const [catRaw, marRaw] = await Promise.all([catRes.text(), marRes.text()]);
-
-    if (!catRes.ok) {
-      console.error(
-        "[productos.js] Error en get_categories.php:",
-        catRes.status,
-        catRaw
-      );
-    }
-    if (!marRes.ok) {
-      console.error(
-        "[productos.js] Error en get_brands.php:",
-        marRes.status,
-        marRaw
-      );
-    }
-
-    // parsear JSON desde los textos
-    let categorias = [];
-    let marcas = [];
-    try {
-      categorias = JSON.parse(catRaw);
-    } catch (err) {
-      console.error(
-        "[productos.js] No se pudo parsear JSON de get_categories.php:",
-        err
-      );
-      console.error(
-        "[productos.js] Respuesta cruda get_categories.php:",
-        catRaw
-      );
-      categorias = [];
-    }
-    try {
-      marcas = JSON.parse(marRaw);
-    } catch (err) {
-      console.error(
-        "[productos.js] No se pudo parsear JSON de get_brands.php:",
-        err
-      );
-      console.error("[productos.js] Respuesta cruda get_brands.php:", marRaw);
-      marcas = [];
-    }
-
-    console.log("[productos.js] Categorías recibidas:", categorias);
-    console.log("[productos.js] Marcas recibidas:", marcas);
+    const categorias = JSON.parse(catRaw);
+    const marcas = JSON.parse(marRaw);
 
     const catCont = document.getElementById("categoriasContainer");
     const marCont = document.getElementById("marcasContainer");
 
-    // limpiar contenedores previos
     catCont.innerHTML = "";
     marCont.innerHTML = "";
 
-    // Poblar categorías
-    if (Array.isArray(categorias)) {
-      categorias.forEach((cat) => {
-        const div = document.createElement("div");
-        // escapar sencillo para valores
-        const v = String(cat).replace(/"/g, "&quot;");
-        div.innerHTML = `<label><input type="checkbox" value="${v}" onchange="aplicarFiltros()"> ${cat}</label>`;
-        catCont.appendChild(div);
-      });
-    }
+    categorias.forEach((cat) => {
+      const div = document.createElement("div");
+      div.innerHTML = `<label><input type="checkbox" value="${cat}" onchange="aplicarFiltros()"> ${cat}</label>`;
+      catCont.appendChild(div);
+    });
 
-    // Poblar marcas
-    if (Array.isArray(marcas)) {
-      marcas.forEach((marca) => {
-        const div = document.createElement("div");
-        const v = String(marca).replace(/"/g, "&quot;");
-        div.innerHTML = `<label><input type="checkbox" value="${v}" onchange="aplicarFiltros()"> ${marca}</label>`;
-        marCont.appendChild(div);
-      });
-    }
-    console.log(
-      "[productos.js] Filtros insertados en el DOM (categorías/marcas). Fin cargarFiltrosDesdeBD()."
-    );
+    marcas.forEach((marca) => {
+      const div = document.createElement("div");
+      div.innerHTML = `<label><input type="checkbox" value="${marca}" onchange="aplicarFiltros()"> ${marca}</label>`;
+      marCont.appendChild(div);
+    });
   } catch (error) {
-    console.error("[productos.js] Error cargando filtros desde BBDD:", error);
+    console.error("Error cargando filtros desde la BD:", error);
   }
 }
 

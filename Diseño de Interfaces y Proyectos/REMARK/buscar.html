@@ -3,37 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>REMARK - Todos los productos</title>
-
-    <link rel="stylesheet" href="productos.css" />
+    <title>REMARK - Resultados de búsqueda</title>
+    <link rel="stylesheet" href="buscar.css" />
     <script
       src="https://kit.fontawesome.com/a2e0f1c5b4.js"
       crossorigin="anonymous"
     ></script>
   </head>
-
   <body>
-    <!-- CABECERA -->
     <header>
       <div class="logo" onclick="location.href='index.html'">REMARK</div>
     </header>
 
     <main class="productos-layout">
-      <!-- PANEL DE FILTROS -->
       <aside class="filtros" aria-label="Panel de filtros de productos">
         <h3>Filtrar productos</h3>
 
-        <!-- BUSCADOR -->
         <div class="filtro-busqueda">
+          <label for="inputBusqueda" class="visually-hidden">Buscar</label>
           <input
             type="text"
-            id="filtroBusqueda"
-            placeholder="Buscar filtros..."
-            aria-label="Buscar filtros"
+            id="inputBusqueda"
+            placeholder="Buscar productos..."
+            aria-label="Buscar productos"
           />
+          <button id="btnBuscar"><i class="fas fa-search"></i></button>
         </div>
 
-        <!-- FILTRO PRECIO -->
         <details open>
           <summary><h4>Precio</h4></summary>
           <div class="filtro-precio">
@@ -57,42 +53,21 @@
                 value="2000"
               />€
             </div>
-
-            <input
-              type="range"
-              id="rangoPrecio"
-              min="0"
-              max="2000"
-              step="10"
-              value="2000"
-              aria-label="Rango de precio"
-            />
-            <div class="rango-precio-valores">
-              <span id="precioMin">0€</span> - <span id="precioMax">2000€</span>
-            </div>
           </div>
         </details>
 
-        <!-- FILTRO CATEGORÍAS -->
         <details open id="filtroCategorias">
           <summary><h4>Categorías</h4></summary>
           <div class="opciones-filtro" id="categoriasContainer"></div>
         </details>
-
-        <!-- FILTRO MARCAS -->
-        <details open id="filtroMarcas">
-          <summary><h4>Marcas</h4></summary>
-          <div class="opciones-filtro" id="marcasContainer"></div>
-        </details>
       </aside>
 
-      <!-- RESULTADOS -->
       <section class="resultados" aria-label="Listado de productos">
-        <h2>Todos los productos</h2>
+        <h2 id="tituloResultados">Resultados de búsqueda</h2>
         <div id="gridProductos" class="grid-productos"></div>
       </section>
     </main>
 
-    <script src="productos.js"></script>
+    <script src="buscar.js"></script>
   </body>
 </html>
