@@ -44,34 +44,66 @@ document.addEventListener("DOMContentLoaded", () => {
     if (arr.length === 0) {
       resultado.textContent = "El array está vacío.";
     } else {
-      resultado.textContent = "Contenido del array: " + arr.join(", ");
+      resultado.textContent =
+        "Contenido del array (" +
+        arr.length +
+        "): " +
+        arr.map((v, i) => `[${i}]: ${v}`).join(", ");
     }
   });
 
-  // Modificar el primer elemento
+  // Modificar elemento según posición ingresada
   btnModificar.addEventListener("click", () => {
-    const arr = obtenerArray();
-    if (arr.length === 0) {
-      resultado.textContent = "No hay elementos para modificar.";
+    const posicion = parseInt(input.value.trim(), 10);
+
+    if (isNaN(posicion)) {
+      resultado.textContent =
+        "Debes escribir una posición numérica válida para modificar.";
       return;
     }
 
-    arr[0] = prompt("Nuevo valor para el primer elemento:", arr[0]) || arr[0];
+    const arr = obtenerArray();
+
+    if (posicion < 0 || posicion >= arr.length) {
+      resultado.textContent = `La posición ${posicion} no existe.`;
+      return;
+    }
+
+    const nuevoValor = prompt(
+      `Nuevo valor para la posición [${posicion}] (actual: "${arr[posicion]}"):`,
+      arr[posicion]
+    );
+
+    if (nuevoValor === null || nuevoValor.trim() === "") {
+      resultado.textContent = "Operación cancelada o valor vacío.";
+      return;
+    }
+
+    arr[posicion] = nuevoValor.trim();
     guardarArray(arr);
-    resultado.textContent = "Primer elemento modificado.";
+    resultado.textContent = `Elemento en posición [${posicion}] modificado a "${nuevoValor}".`;
+    input.value = "";
   });
 
-  // Eliminar el último elemento
+  // Eliminar elemento por valor
   btnEliminar.addEventListener("click", () => {
-    const arr = obtenerArray();
-    if (arr.length === 0) {
-      resultado.textContent = "No hay elementos para eliminar.";
+    const valor = input.value.trim();
+    if (valor === "") {
+      resultado.textContent = "Debes escribir el valor que deseas eliminar.";
       return;
     }
 
-    const eliminado = arr.pop();
-    guardarArray(arr);
-    resultado.textContent = `Elemento "${eliminado}" eliminado.`;
+    const arr = obtenerArray();
+    const nuevoArr = arr.filter((item) => item !== valor);
+
+    if (nuevoArr.length === arr.length) {
+      resultado.textContent = `El valor "${valor}" no se encontró en el array.`;
+      return;
+    }
+
+    guardarArray(nuevoArr);
+    resultado.textContent = `Elemento(s) "${valor}" eliminado(s) del array.`;
+    input.value = "";
   });
 
   // Vaciar el array
