@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ver Pokémon</title>
+</head>
+
+<body>
+    <h2>Lista de Trenes</h2>
+
+    <label>Filtrar por tipo:</label>
+    <select id="filtroTipo">
+        <option value="todos">Todos</option>
+        <option value="Vapor">Vapor</option>
+        <option value="Diésel">Diésel</option>
+        <option value="Eléctrico">Eléctrico</option>
+        <option value="Maglev">Maglev</option>
+    </select>
+
+    
+
+    <button id="aplicarFiltro">Filtrar</button>
+    <button onclick="location.href='index.html'">Volver al inicio</button>
+
+    <div id="lista"></div>
+    <button id="borrar">Borrar todos</button>
+
+    <script src="js/ver.js"></script>
+</body>
+
+</html>

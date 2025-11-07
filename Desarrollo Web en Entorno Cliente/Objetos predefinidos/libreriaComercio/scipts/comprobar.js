@@ -1,24 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const mostrarDatos = document.getElementById("mostrarDatos");
-  const array = sessionStorage;
+const mostrarDatos = document.getElementById("mostrarDatos");
+const array = sessionStorage;
 
-  // Recorre todos los elementos del sessionStorage
-  for (let i = 0; i < array.length; i++) {
-    const clave = array.key(i);
-    let valor;
+// Recorre todos los elementos del sessionStorage
+for (let i = 0; i < array.length; i++) {
+  const clave = array.key(i);
+  let valor;
 
-    valor = JSON.parse(array.getItem(clave));
+  valor = JSON.parse(array.getItem(clave));
 
-    // Validar que sea un objeto libro
-    if (
-      typeof valor.nombre === "undefined" ||
-      typeof valor.autor === "undefined" ||
-      typeof valor.paginas === "undefined" ||
-      typeof valor.estaPrestado === "undefined"
-    ) {
-      continue;
-    }
-    const fichaHTML = `
+  // Validar que sea un objeto libro
+  if (
+    typeof valor.nombre === "undefined" ||
+    typeof valor.autor === "undefined" ||
+    typeof valor.paginas === "undefined" ||
+    typeof valor.estaPrestado === "undefined"
+  ) {
+    continue;
+  }
+  const fichaHTML = `
       <div class="ficha">
         <div class="ficha-header">
          ${valor.nombre}
@@ -31,6 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    mostrarDatos.insertAdjacentHTML("beforeend", fichaHTML);
-  }
-});
+  mostrarDatos.insertAdjacentHTML("beforeend", fichaHTML);
+}
