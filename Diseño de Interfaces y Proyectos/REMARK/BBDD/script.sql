@@ -77,26 +77,26 @@ CREATE TABLE opiniones (
 -- PRODUCTOS
 -- =========================
 INSERT INTO productos (id_usuario, nombre, categoria, descripcion, precio, imagen) VALUES
-(1, 'iPhone 13', 'moviles', 'iPhone 13 en excelente estado, color negro. 128GB.', 750, 'https://via.placeholder.com/220'),
-(1, 'Samsung Galaxy S22', 'moviles', 'Galaxy S22 prácticamente nuevo, color blanco.', 680, 'https://via.placeholder.com/220'),
-(1, 'Xiaomi Redmi Note 12', 'moviles', 'Nuevo Redmi Note 12 con 128GB de almacenamiento.', 299, 'https://via.placeholder.com/220'),
-(4, 'Portátil HP 15s', 'electronica', 'Laptop HP con 16GB RAM, SSD 512GB y pantalla de 15".', 800, 'https://via.placeholder.com/220'),
-(4, 'Auriculares Sony WH-1000XM4', 'electronica', 'Auriculares con cancelación activa de ruido.', 220, 'https://via.placeholder.com/220'),
-(5, 'Monitor LG UltraWide 29"', 'electronica', 'Pantalla UltraWide Full HD de 29 pulgadas.', 180, 'https://via.placeholder.com/220'),
-(5, 'Teclado Mecánico Logitech G Pro', 'electronica', 'Teclado RGB mecánico para gaming.', 95, 'https://via.placeholder.com/220'),
-(6, 'Camiseta Nike Dri-FIT', 'ropa', 'Camiseta deportiva Nike, talla M.', 25, 'https://via.placeholder.com/220'),
-(6, 'Zapatillas Adidas Ultraboost 22', 'ropa', 'Zapatillas de running Adidas, talla 41.', 120, 'https://via.placeholder.com/220'),
-(5, 'Silla Gamer Drift DR111', 'hogar', 'Silla ergonómica ajustable con cojín lumbar.', 130, 'https://via.placeholder.com/220'),
-(5, 'Cafetera Nespresso Essenza Mini', 'hogar', 'Cafetera de cápsulas Nespresso compacta.', 89, 'https://via.placeholder.com/220'),
-(6, 'Bicicleta Orbea MX 40', 'deportes', 'Bicicleta de montaña con frenos hidráulicos.', 540, 'https://via.placeholder.com/220'),
-(6, 'Guantes de boxeo Everlast 12oz', 'deportes', 'Guantes de boxeo profesionales.', 40, 'https://via.placeholder.com/220'),
-(1, 'The Legend of Zelda: Tears of the Kingdom', 'videojuegos', 'Juego de aventura para Nintendo Switch.', 59, 'https://via.placeholder.com/220'),
-(4, 'Mando Xbox Series X', 'videojuegos', 'Mando inalámbrico original Xbox.', 55, 'https://via.placeholder.com/220'),
-(5, 'Kindle Paperwhite 11ª Gen', 'libros', 'Lector de libros electrónicos con luz ajustable.', 110, 'https://via.placeholder.com/220'),
-(5, 'El Señor de los Anillos - Trilogía', 'libros', 'Edición tapa dura con las tres partes de Tolkien.', 65, 'https://via.placeholder.com/220'),
-(6, 'Reloj Casio G-Shock GA-2100', 'accesorios', 'Reloj resistente al agua, color azul.', 99, 'https://via.placeholder.com/220'),
-(4, 'Mochila North Face Borealis', 'accesorios', 'Mochila 28L, resistente al agua, ideal para viajes.', 75, 'https://via.placeholder.com/220'),
-(1, 'Tablet iPad Air 5 M1', 'electronica', 'iPad Air 5 con chip M1 y 64GB de almacenamiento.', 630, 'https://via.placeholder.com/220');
+(1, 'iPhone 13', 'moviles', 'iPhone 13 en excelente estado, color negro. 128GB.', 750, 'REMARK/resources/defecto.jpg'),
+(1, 'Samsung Galaxy S22', 'moviles', 'Galaxy S22 prácticamente nuevo, color blanco.', 680, 'REMARK/resources/defecto.jpg'),
+(1, 'Xiaomi Redmi Note 12', 'moviles', 'Nuevo Redmi Note 12 con 128GB de almacenamiento.', 299, 'REMARK/resources/defecto.jpg'),
+(4, 'Portátil HP 15s', 'electronica', 'Laptop HP con 16GB RAM, SSD 512GB y pantalla de 15".', 800, 'REMARK/resources/defecto.jpg'),
+(4, 'Auriculares Sony WH-1000XM4', 'electronica', 'Auriculares con cancelación activa de ruido.', 220, 'REMARK/resources/defecto.jpg'),
+(5, 'Monitor LG UltraWide 29"', 'electronica', 'Pantalla UltraWide Full HD de 29 pulgadas.', 180, 'REMARK/resources/defecto.jpg'),
+(5, 'Teclado Mecánico Logitech G Pro', 'electronica', 'Teclado RGB mecánico para gaming.', 95, 'REMARK/resources/defecto.jpg'),
+(6, 'Camiseta Nike Dri-FIT', 'ropa', 'Camiseta deportiva Nike, talla M.', 25, 'REMARK/resources/defecto.jpg'),
+(6, 'Zapatillas Adidas Ultraboost 22', 'ropa', 'Zapatillas de running Adidas, talla 41.', 120, 'REMARK/resources/defecto.jpg'),
+(5, 'Silla Gamer Drift DR111', 'hogar', 'Silla ergonómica ajustable con cojín lumbar.', 130, 'REMARK/resources/defecto.jpg'),
+(5, 'Cafetera Nespresso Essenza Mini', 'hogar', 'Cafetera de cápsulas Nespresso compacta.', 89, 'REMARK/resources/defecto.jpg'),
+(6, 'Bicicleta Orbea MX 40', 'deportes', 'Bicicleta de montaña con frenos hidráulicos.', 540, 'REMARK/resources/defecto.jpg'),
+(6, 'Guantes de boxeo Everlast 12oz', 'deportes', 'Guantes de boxeo profesionales.', 40, 'REMARK/resources/defecto.jpg'),
+(1, 'The Legend of Zelda: Tears of the Kingdom', 'videojuegos', 'Juego de aventura para Nintendo Switch.', 59, 'REMARK/resources/defecto.jpg'),
+(4, 'Mando Xbox Series X', 'videojuegos', 'Mando inalámbrico original Xbox.', 55, 'REMARK/resources/defecto.jpg'),
+(5, 'Kindle Paperwhite 11ª Gen', 'libros', 'Lector de libros electrónicos con luz ajustable.', 110, 'REMARK/resources/defecto.jpg'),
+(5, 'El Señor de los Anillos - Trilogía', 'libros', 'Edición tapa dura con las tres partes de Tolkien.', 65, 'REMARK/resources/defecto.jpg'),
+(6, 'Reloj Casio G-Shock GA-2100', 'accesorios', 'Reloj resistente al agua, color azul.', 99, 'REMARK/resources/defecto.jpg'),
+(4, 'Mochila North Face Borealis', 'accesorios', 'Mochila 28L, resistente al agua, ideal para viajes.', 75, 'REMARK/resources/defecto.jpg'),
+(1, 'Tablet iPad Air 5 M1', 'electronica', 'iPad Air 5 con chip M1 y 64GB de almacenamiento.', 630, 'REMARK/resources/defecto.jpg');
 
 -- =========================
 -- ETIQUETAS
