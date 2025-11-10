@@ -55,12 +55,14 @@ function mostrarProductos(lista) {
     card.classList.add("product-card");
 
     const rutaImagen = p.imagen.replace(/^REMARK\//, "");
+    const primeraMarca =
+      Array.isArray(p.marca) && p.marca.length ? p.marca[0] : "";
 
     card.innerHTML = `
       <img src="${rutaImagen}" alt="${p.nombre}">
       <div class="product-info">
         <h3>${p.nombre}</h3>
-        <p class="marca">${p.marca || ""}</p>
+        <p class="marca">${primeraMarca}</p>
         <p class="precio">${parseFloat(p.precio).toFixed(2)} €</p>
       </div>
     `;
@@ -79,17 +81,18 @@ function generarFiltrosDesdeProductos(productos) {
 
   productos.forEach((p) => {
     const cat = p.categoria || "";
-    const marca = (p.marca || "").trim();
-    if (cat) {
-      categoriasSet.add(cat);
-      if (!marcasPorCategoria[cat]) marcasPorCategoria[cat] = new Set();
-      if (marca) {
-        marcasPorCategoria[cat].add(marca);
-        todasMarcasSet.add(marca);
-      }
-    } else if (marca) {
+    if (cat) categoriasSet.add(cat);
+
+    const marcas = Array.isArray(p.marca) ? p.marca : [];
+    marcas.forEach((m) => {
+      const marca = m.trim();
+      if (!marca) return;
       todasMarcasSet.add(marca);
-    }
+      if (cat) {
+        if (!marcasPorCategoria[cat]) marcasPorCategoria[cat] = new Set();
+        marcasPorCategoria[cat].add(marca);
+      }
+    });
   });
 
   categoriasContainer.innerHTML = "";
@@ -132,14 +135,13 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
   let marcasToShow = new Set();
   if (selectedCats.length === 0) {
     productos.forEach((p) => {
-      if (p.marca) marcasToShow.add(p.marca);
+      const marcas = Array.isArray(p.marca) ? p.marca : [];
+      marcas.forEach((m) => marcasToShow.add(m));
     });
   } else {
     selectedCats.forEach((cat) => {
       const set = marcasPorCategoria[cat];
-      if (set && set.size) {
-        set.forEach((m) => marcasToShow.add(m));
-      }
+      if (set && set.size) set.forEach((m) => marcasToShow.add(m));
     });
   }
 
@@ -200,10 +202,11 @@ function aplicarFiltros() {
   ).map((i) => i.value);
 
   const filtrados = productos.filter((p) => {
+    const pMarcas = Array.isArray(p.marca) ? p.marca : [];
     return (
       p.precio <= precioMax &&
       (cats.length === 0 || cats.includes(p.categoria)) &&
-      (marcas.length === 0 || marcas.includes(p.marca))
+      (marcas.length === 0 || pMarcas.some((m) => marcas.includes(m)))
     );
   });
 

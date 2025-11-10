@@ -1,15 +1,28 @@
 <?php
-// Conexión a la base de datos
+// Configuración de conexión
 $host = "localhost";
-$user = "root"; 
-$pass = ""; 
+$user = "root";
+$pass = "";
 $dbname = "remark_db";
 
+// Crear conexión
 $conn = new mysqli($host, $user, $pass, $dbname);
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+// Comprobar errores de conexión
+if ($conn->connect_errno) {
+    http_response_code(500);
+    die(json_encode([
+        "status" => "error",
+        "mensaje" => "Error de conexión a la base de datos: " . $conn->connect_error
+    ]));
 }
 
-$conn->set_charset("utf8");
+// Forzar UTF-8 para evitar problemas con acentos y emojis
+if (!$conn->set_charset("utf8mb4")) {
+    http_response_code(500);
+    die(json_encode([
+        "status" => "error",
+        "mensaje" => "Error al configurar el conjunto de caracteres UTF-8"
+    ]));
+}
 ?>

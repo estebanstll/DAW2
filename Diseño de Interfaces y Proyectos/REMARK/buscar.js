@@ -55,13 +55,14 @@ function mostrarResultados(lista) {
     const card = document.createElement("div");
     card.classList.add("product-card");
 
-    const rutaImagen = p.imagen.replace(/^REMARK\//, "");
+    const rutaImagen = p.imagen ? p.imagen.replace(/^REMARK\//, "") : "";
+    const primeraMarca = Array.isArray(p.marca) ? p.marca[0] : p.marca || "";
 
     card.innerHTML = `
       <img src="${rutaImagen}" alt="${p.nombre}">
       <div class="product-info">
         <h3>${p.nombre}</h3>
-        <p class="marca">${p.marca || ""}</p>
+        <p class="marca">${primeraMarca}</p>
         <p class="precio">${parseFloat(p.precio).toFixed(2)} €</p>
       </div>
     `;

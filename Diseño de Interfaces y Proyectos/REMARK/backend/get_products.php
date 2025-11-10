@@ -1,47 +1,46 @@
 <?php
-// Devuelve todos los productos en JSON (marca derivada de 'etiquetas')
-header("Content-Type: application/json; charset=utf-8");
-include "db.php";
+header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/db.php';
 
-// log: inicio
-error_log("get_products.php: iniciando consulta de productos");
+$sql = "
+    SELECT 
+        p.id,
+        p.nombre,
+        p.categoria,
+        p.descripcion,
+        p.precio,
+        p.imagen,
+        p.estado,
+        p.fecha_publicacion,
+        GROUP_CONCAT(e.nombre SEPARATOR ',') AS marcas
+    FROM productos p
+    LEFT JOIN producto_etiqueta pe ON p.id = pe.id_producto
+    LEFT JOIN etiquetas e ON pe.id_etiqueta = e.id
+    GROUP BY p.id
+    ORDER BY p.fecha_publicacion DESC
+";
 
-$sql = "SELECT nombre, categoria, etiquetas, precio, imagen FROM productos";
 $result = $conn->query($sql);
 
-if ($result === false) {
-    // registrar error de consulta en el log
-    error_log("get_products.php: error en consulta SQL: " . $conn->error);
-    echo json_encode([], JSON_UNESCAPED_UNICODE);
-    $conn->close();
+if (!$result) {
+    echo json_encode([]);
     exit;
 }
 
 $productos = [];
-
-$brands_from_row = [];
-if ($result && $result->num_rows > 0) {
-    error_log("get_products.php: filas obtenidas = " . $result->num_rows);
-    while ($row = $result->fetch_assoc()) {
-    // Extraer 'marca' desde 'etiquetas' (primer token)
-        $marca = '';
-        if (!empty($row['etiquetas'])) {
-            $parts = explode(',', $row['etiquetas']);
-            $marca = trim($parts[0]);
-        }
-
-        $productos[] = [
-            'nombre' => $row['nombre'],
-            'categoria' => $row['categoria'],
-            'marca' => $marca,
-            'precio' => $row['precio'],
-            'imagen' => $row['imagen']
-        ];
-    }
-} else {
-    error_log("get_products.php: ninguna fila devuelta");
+while ($row = $result->fetch_assoc()) {
+    $productos[] = [
+        "id" => (int)$row["id"],
+        "nombre" => $row["nombre"],
+        "categoria" => $row["categoria"],
+        "descripcion" => $row["descripcion"],
+        "precio" => (float)$row["precio"],
+        "imagen" => $row["imagen"],
+        "estado" => $row["estado"],
+        "fecha_publicacion" => $row["fecha_publicacion"],
+        "marca" => $row["marcas"] ? explode(',', $row["marcas"]) : []
+    ];
 }
 
 echo json_encode($productos, JSON_UNESCAPED_UNICODE);
-$conn->close();
 ?>

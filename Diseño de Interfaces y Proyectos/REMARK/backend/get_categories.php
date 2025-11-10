@@ -1,22 +1,19 @@
 <?php
-// Devuelve categorías distintas
-include "db.php";
-error_log("get_categories.php: iniciando consulta de categorías");
+header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/db.php';
 
-$result = $conn->query("SELECT DISTINCT categoria FROM productos");
-if ($result === false) {
-    error_log("get_categories.php: error en consulta SQL: " . $conn->error);
+$sql = "SELECT DISTINCT categoria FROM productos WHERE categoria IS NOT NULL AND categoria <> '' ORDER BY categoria ASC";
+$result = $conn->query($sql);
+
+if (!$result) {
     echo json_encode([]);
-    $conn->close();
     exit;
 }
 
 $categorias = [];
-
 while ($row = $result->fetch_assoc()) {
     $categorias[] = $row["categoria"];
 }
 
-error_log("get_categories.php: categorías obtenidas = " . count($categorias));
-echo json_encode($categorias);
+echo json_encode($categorias, JSON_UNESCAPED_UNICODE);
 ?>

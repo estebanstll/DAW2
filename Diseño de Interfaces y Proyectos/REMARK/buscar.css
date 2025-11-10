@@ -155,3 +155,27 @@ header {
     justify-items: center;
   }
 }
+
+/* Estilo para el botón de búsqueda */
+#btnBuscar {
+  padding: 8px 16px;
+  /* Menos espacio dentro del botón */
+  font-size: 1rem;
+  /* Texto un poco más pequeño */
+  border-radius: 6px;
+  /* Bordes ligeramente redondeados */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnBuscar:hover {
+  background-color: #0056b3;
+}
+
+#btnBuscar i {
+  font-size: 1rem;
+  /* Ícono ligeramente más pequeño */
+}
