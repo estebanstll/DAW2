@@ -1,0 +1,111 @@
+:root {
+  --primary: #1e1e2f;
+  --bg: #f5f6fa;
+  --text: #2c3e50;
+  --card: #fff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+/* HEADER */
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+}
+
+.checkout-header h1 {
+  cursor: pointer;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #00c3a5;
+}
+
+/* MAIN */
+.checkout {
+  max-width: 900px;
+  margin: 3rem auto;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* TARJETA PRODUCTO */
+.resumen {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px var(--shadow);
+  width: 320px;
+  text-align: center;
+}
+
+.producto-resumen img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+/* FORMULARIO */
+.formulario {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px var(--shadow);
+  flex: 1;
+  min-width: 300px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.campo input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 5px rgba(0, 195, 165, 0.3);
+  outline: none;
+}
+
+/* BOTÓN */
+.btn-pago {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-pago:hover {
+  background: #00b097;
+  transform: scale(1.03);
+}

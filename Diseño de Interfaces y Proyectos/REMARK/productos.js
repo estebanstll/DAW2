@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+/* ============================================================
+   FUNCIÓN PRINCIPAL: MOSTRAR PRODUCTOS
+============================================================ */
 function mostrarProductos(lista) {
   const grid = document.getElementById("gridProductos");
   grid.innerHTML = "";
@@ -54,12 +57,17 @@ function mostrarProductos(lista) {
     const card = document.createElement("div");
     card.classList.add("product-card");
 
-    const rutaImagen = p.imagen.replace(/^REMARK\//, "");
+    // ✅ Corregir ruta de imagen
+    const rutaImagen = p.imagen
+      ? p.imagen.replace(/^REMARK\//, "")
+      : "resources/defecto.jpg";
+
     const primeraMarca =
       Array.isArray(p.marca) && p.marca.length ? p.marca[0] : "";
 
     card.innerHTML = `
-      <img src="${rutaImagen}" alt="${p.nombre}">
+      <img src="${rutaImagen}" alt="${p.nombre}" 
+           onerror="this.src='resources/defecto.jpg'">
       <div class="product-info">
         <h3>${p.nombre}</h3>
         <p class="marca">${primeraMarca}</p>
@@ -67,10 +75,73 @@ function mostrarProductos(lista) {
       </div>
     `;
 
+    // ✅ Abrir modal al hacer clic
+    card.addEventListener("click", () => mostrarProductoAmpliado(p));
     grid.appendChild(card);
   });
 }
 
+/* ============================================================
+   MODAL DE PRODUCTO AMPLIADO
+============================================================ */
+function mostrarProductoAmpliado(producto) {
+  const modal = document.createElement("div");
+  modal.className = "modal-producto";
+
+  const rutaImagen = producto.imagen
+    ? producto.imagen.replace(/^REMARK\//, "")
+    : "resources/defecto.jpg";
+
+  modal.innerHTML = `
+    <div class="modal-contenido">
+      <button class="cerrar-modal">&times;</button>
+      <img src="${rutaImagen}" alt="${producto.nombre}" 
+           onerror="this.src='resources/defecto.jpg'">
+      <h2>${producto.nombre}</h2>
+      <p class="precio">${parseFloat(producto.precio).toFixed(2)} €</p>
+      <p><strong>Categoría:</strong> ${producto.categoria}</p>
+      <button id="btnComprar" class="btn-comprar">Comprar ahora</button>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // 🟢 Forzar render y luego mostrar con transición
+  requestAnimationFrame(() => {
+    modal.classList.add("visible");
+  });
+
+  // Cerrar al hacer clic en el botón
+  modal.querySelector(".cerrar-modal").addEventListener("click", () => {
+    modal.classList.remove("visible");
+    setTimeout(() => modal.remove(), 250); // Espera transición
+  });
+
+  // Cerrar al hacer clic fuera del contenido
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("visible");
+      setTimeout(() => modal.remove(), 250);
+    }
+  });
+
+  modal.querySelector("#btnComprar").addEventListener("click", () => {
+    const usuario = localStorage.getItem("usuario");
+    if (!usuario) {
+      alert("Debes iniciar sesión para comprar.");
+      modal.remove();
+      abrirModal("modalLogin");
+      return;
+    }
+
+    localStorage.setItem("productoSeleccionado", JSON.stringify(producto));
+    window.location.href = "checkout.html";
+  });
+}
+
+/* ============================================================
+   FILTROS DINÁMICOS
+============================================================ */
 function generarFiltrosDesdeProductos(productos) {
   const categoriasContainer = document.getElementById("categoriasContainer");
   const marcasContainer = document.getElementById("marcasContainer");
@@ -157,6 +228,9 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
     });
 }
 
+/* ============================================================
+   CARGAR FILTROS DESDE LA BASE DE DATOS (SI FALLA FETCH)
+============================================================ */
 async function cargarFiltrosDesdeBD() {
   try {
     const [catRes, marRes] = await Promise.all([
@@ -190,6 +264,9 @@ async function cargarFiltrosDesdeBD() {
   }
 }
 
+/* ============================================================
+   APLICAR FILTROS
+============================================================ */
 function aplicarFiltros() {
   const productos = JSON.parse(sessionStorage.getItem("productosCache")) || [];
 

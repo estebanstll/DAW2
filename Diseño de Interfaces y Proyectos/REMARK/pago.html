@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pasarela de pago - REMARK</title>
+    <link rel="stylesheet" href="pago.css" />
+    <script
+      src="https://kit.fontawesome.com/a2e0f1c5b4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="pago">
+      <h2>💳 Confirmar pago</h2>
+      <div id="resumenPago" class="resumen-pago"></div>
+
+      <button id="btnConfirmar" class="btn-confirmar">
+        <i class="fas fa-check-circle"></i> Confirmar pago
+      </button>
+    </main>
+
+    <div id="overlay-exito" class="overlay-exito">
+      <div class="card-exito">
+        <i class="fas fa-check-circle"></i>
+        <h3>Pago realizado con éxito</h3>
+        <p>Redirigiendo al inicio...</p>
+      </div>
+    </div>
+
+    <script src="pago.js"></script>
+  </body>
+</html>

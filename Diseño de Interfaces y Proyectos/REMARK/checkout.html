@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finalizar compra - REMARK</title>
+    <link rel="stylesheet" href="checkout.css" />
+    <script
+      src="https://kit.fontawesome.com/a2e0f1c5b4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="checkout-header">
+      <h1 onclick="location.href='index.html'">REMARK</h1>
+      <span>🛒 Finalizar compra</span>
+    </header>
+
+    <main class="checkout">
+      <section class="resumen">
+        <h2>Resumen del producto</h2>
+        <div id="productoResumen" class="producto-resumen"></div>
+      </section>
+
+      <form id="formCheckout" class="formulario">
+        <h2>Datos de envío</h2>
+
+        <div class="campo">
+          <label for="direccion"
+            ><i class="fas fa-map-marker-alt"></i> Dirección</label
+          >
+          <input
+            type="text"
+            id="direccion"
+            placeholder="Calle, número..."
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="ciudad"><i class="fas fa-city"></i> Ciudad</label>
+          <input type="text" id="ciudad" placeholder="Ej. Madrid" required />
+        </div>
+
+        <div class="campo">
+          <label for="cp"><i class="fas fa-mail-bulk"></i> Código Postal</label>
+          <input type="text" id="cp" placeholder="Ej. 28001" required />
+        </div>
+
+        <button type="submit" class="btn-pago">Continuar al pago</button>
+      </form>
+    </main>
+
+    <script src="checkout.js"></script>
+  </body>
+</html>

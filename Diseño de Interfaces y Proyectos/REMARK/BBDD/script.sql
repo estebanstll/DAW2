@@ -69,7 +69,7 @@ CREATE TABLE opiniones (
     comentario TEXT NOT NULL,
     puntuacion INT CHECK (puntuacion BETWEEN 1 AND 5),
     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_producto) REFERENCES productos(id),
+    FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
