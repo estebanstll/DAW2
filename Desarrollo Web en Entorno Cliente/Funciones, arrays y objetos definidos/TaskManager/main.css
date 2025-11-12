@@ -1,0 +1,212 @@
+/* ------------------------------
+   Estilos generales
+--------------------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ------------------------------
+   Encabezado
+--------------------------------*/
+header {
+    background-color: #2a6cf4;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+/* ------------------------------
+   Secciones principales
+--------------------------------*/
+main {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* ------------------------------
+   Formulario de tareas
+--------------------------------*/
+#task-form-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#task-form input,
+#task-form textarea,
+#task-form select {
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#task-form button {
+    padding: 0.8rem;
+    background-color: #2a6cf4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#task-form button:hover {
+    background-color: #1e54c2;
+}
+
+/* ------------------------------
+   Filtros
+--------------------------------*/
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#filters label {
+    font-weight: 600;
+}
+
+#filters select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ------------------------------
+   Lista de tareas
+--------------------------------*/
+#task-list-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: #f0f4ff;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-title {
+    font-weight: 600;
+}
+
+.task-priority.high {
+    color: #e74c3c;
+}
+
+.task-priority.normal {
+    color: #f39c12;
+}
+
+.task-priority.low {
+    color: #27ae60;
+}
+
+.task-actions button {
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.task-actions .done-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.task-actions .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* ------------------------------
+   Footer
+--------------------------------*/
+footer {
+    margin-top: auto;
+    background-color: #2a6cf4;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ------------------------------
+   Responsive
+--------------------------------*/
+@media (max-width: 600px) {
+    #filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #task-form input,
+    #task-form textarea,
+    #task-form select,
+    #task-form button {
+        width: 100%;
+    }
+}

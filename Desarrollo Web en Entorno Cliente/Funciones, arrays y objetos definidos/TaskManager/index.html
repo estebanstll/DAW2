@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager Pro</title>
+    <link rel="stylesheet" href="main.css" />
+   
+</head>
+
+<body>
+    <header>
+        <h1>Task Manager Pro</h1>
+    </header>
+
+    <main>
+        <!-- Formulario de creación de tareas -->
+        <section id="task-form-section">
+            <h2>Nueva tarea</h2>
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Título de la tarea" required />
+                <textarea id="task-desc" placeholder="Descripción"></textarea>
+                <select id="task-priority" required>
+                    <option value="normal" selected>Prioridad: Normal</option>
+                    <option value="low">Prioridad: Baja</option>
+                    <option value="high">Prioridad: Alta</option>
+                </select>
+                <button type="submit">Agregar tarea</button>
+            </form>
+        </section>
+
+        <!-- Filtros -->
+        <section id="filters">
+            <label for="filter-priority">Filtrar por prioridad:</label>
+            <select id="filter-priority">
+                <option value="all">Todas</option>
+                <option value="low">Baja</option>
+                <option value="normal">Normal</option>
+                <option value="high">Alta</option>
+            </select>
+
+            <label for="filter-status">Filtrar por estado:</label>
+            <select id="filter-status">
+                <option value="all">Todas</option>
+                <option value="done">Completadas</option>
+                <option value="pending">Pendientes</option>
+            </select>
+        </section>
+
+        <!-- Lista de tareas -->
+        <section id="task-list-section">
+            <h2>Mis tareas</h2>
+            <ul id="task-list"></ul>
+        </section>
+    </main>
+
+<script src="main.js" type="module" defer></script>
+
+</body>
+
+</html>
