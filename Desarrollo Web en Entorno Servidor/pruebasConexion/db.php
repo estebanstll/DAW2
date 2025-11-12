@@ -2,7 +2,7 @@
 // Configuración de conexión
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "mysql";
 $dbname = "pruebas";
 
 // Crear conexión
