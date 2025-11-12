@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de usuario</title>
+</head>
+
+<body>
+    <h2>Registro de Usuario</h2>
+
+    <form action="insertarALaBaseDeDatos.php" method="post">
+        <label for="nombre_usuario">Nombre de usuario:</label><br>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" required><br><br>
+
+        <label for="contrasena">Contraseña:</label><br>
+        <input type="password" id="contrasena" name="contrasena" required><br><br>
+
+        <label for="rol">Rol:</label><br>
+        <select id="rol" name="rol" required>
+            <option value="comprador">Comprador</option>
+            <option value="vendedor">Vendedor</option>
+            <option value="admin">Administrador</option>
+        </select><br><br>
+
+        <input type="submit" value="Registrar">
+    </form>
+</body>
+
+</html>
