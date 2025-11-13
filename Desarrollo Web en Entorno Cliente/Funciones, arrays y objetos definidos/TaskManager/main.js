@@ -1,5 +1,6 @@
 import * as CRUD from "./js/patterns/CRUD.js";
 import { Task } from "./js/models/task.js";
+import { TaskFactory } from "./js/patterns/Factory.js";
 
 // Referencias a elementos del DOM
 const taskForm = document.getElementById("task-form");
@@ -71,14 +72,7 @@ taskForm.addEventListener("submit", (e) => {
 
   if (!title) return;
 
-  const newTask = new Task(
-    Date.now(),
-    title,
-    description,
-    priority,
-    false,
-    new Date()
-  );
+  const newTask = TaskFactory.create({ title, description, priority });
 
   CRUD.createTask(newTask);
   renderTasks();
