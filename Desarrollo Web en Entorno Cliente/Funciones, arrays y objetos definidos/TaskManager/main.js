@@ -29,7 +29,6 @@ function filterByStatus(tasks, status) {
 function renderTasks() {
   let tasks = CRUD.getAllTasks();
 
-  // Aplica filtros
   tasks = filterByPriority(tasks, filteredByPriority);
   tasks = filterByStatus(tasks, filteredByStatus);
 
@@ -51,7 +50,6 @@ function renderTasks() {
   });
 }
 
-// Eventos para actualizar filtros y renderizar
 filterPriority.addEventListener("change", (e) => {
   filteredByPriority = e.target.value;
   renderTasks();
@@ -62,7 +60,6 @@ filterStatus.addEventListener("change", (e) => {
   renderTasks();
 });
 
-// Formulario y lista sin cambios
 taskForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -98,5 +95,4 @@ taskList.addEventListener("click", (e) => {
   }
 });
 
-// Render inicial
 renderTasks();
