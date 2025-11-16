@@ -37,3 +37,27 @@ Stack trace:
 )
 
 [16-Nov-2025 09:25:32 UTC] Imagen guardada en: ../resources/img/e_20251116_092532.png
+[16-Nov-2025 17:27:56 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 222
+    [categoria] => moviles
+    [descripcion] => 22222
+    [precio] => 2222
+    [usuario] => as
+)
+
+[16-Nov-2025 17:27:56 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => ChatGPT Image 4 oct 2025, 16_31_44.png
+            [full_path] => ChatGPT Image 4 oct 2025, 16_31_44.png
+            [type] => image/png
+            [tmp_name] => C:\Program Files\Ampps\tmp\php63E4.tmp
+            [error] => 0
+            [size] => 2049529
+        )
+
+)
+
+[16-Nov-2025 17:27:56 UTC] Imagen guardada en: ../resources/img/as_20251116_172756.png
