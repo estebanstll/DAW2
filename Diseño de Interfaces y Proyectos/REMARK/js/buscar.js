@@ -1,3 +1,5 @@
+// buscar.js - VERSION COMPLETA Y ACTUALIZADA
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const query = params.get("q");
@@ -12,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (q) buscarProductos(q);
   });
 
-  // Actualizar filtros de precio
   document
     .getElementById("precioMinInput")
     .addEventListener("input", aplicarFiltrosBusqueda);
@@ -21,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("input", aplicarFiltrosBusqueda);
 });
 
-// ============================================================
-// BÚSQUEDA DE PRODUCTOS
-// ============================================================
+// ===============================
+// BUSCAR PRODUCTOS
+// ===============================
 async function buscarProductos(query) {
   try {
     const res = await fetch(
@@ -56,9 +57,9 @@ async function buscarProductos(query) {
   }
 }
 
-// ============================================================
+// ===============================
 // MOSTRAR RESULTADOS
-// ============================================================
+// ===============================
 function mostrarResultados(lista) {
   const contenedor = document.getElementById("gridProductos");
   contenedor.innerHTML = "";
@@ -93,17 +94,18 @@ function mostrarResultados(lista) {
   });
 }
 
-// ============================================================
+// ===============================
 // MOSTRAR ERROR
-// ============================================================
+// ===============================
 function mostrarError(msg) {
-  const contenedor = document.getElementById("gridProductos");
-  contenedor.innerHTML = `<p class="error">${msg}</p>`;
+  document.getElementById(
+    "gridProductos"
+  ).innerHTML = `<p class="error">${msg}</p>`;
 }
 
-// ============================================================
-// MODAL DE PRODUCTO AMPLIADO
-// ============================================================
+// ===============================
+// MODAL DEL PRODUCTO
+// ===============================
 function mostrarProductoAmpliado(producto) {
   const modal = document.createElement("div");
   modal.className = "modal-producto";
@@ -151,14 +153,15 @@ function mostrarProductoAmpliado(producto) {
       abrirModal("modalLogin");
       return;
     }
+
     localStorage.setItem("productoSeleccionado", JSON.stringify(producto));
     window.location.href = "checkout.html";
   });
 }
 
-// ============================================================
-// GENERAR FILTROS DINÁMICOS PARA BÚSQUEDA
-// ============================================================
+// ===============================
+// GENERAR FILTROS
+// ===============================
 function generarFiltrosDesdeProductosBusqueda(productos) {
   const categoriasContainer = document.getElementById("categoriasContainer");
   const marcasContainer = document.getElementById("marcasContainer");
@@ -201,9 +204,9 @@ function generarFiltrosDesdeProductosBusqueda(productos) {
   actualizarMarcasSegunCategoriasBusqueda(productos, marcasPorCategoria);
 }
 
-// ============================================================
-// ACTUALIZAR MARCAS SEGÚN CATEGORÍAS
-// ============================================================
+// ===============================
+// MARCAS SEGÚN CATEGORÍAS
+// ===============================
 function actualizarMarcasSegunCategoriasBusqueda(
   productos,
   marcasPorCategoria
@@ -233,7 +236,6 @@ function actualizarMarcasSegunCategoriasBusqueda(
     });
   }
 
-  // Excluir nombres de categorías de marcas
   selectedCats.forEach((cat) => marcasToShow.delete(cat));
 
   marcasContainer.innerHTML = "";
@@ -250,9 +252,9 @@ function actualizarMarcasSegunCategoriasBusqueda(
     });
 }
 
-// ============================================================
-// APLICAR FILTROS A RESULTADOS DE BÚSQUEDA
-// ============================================================
+// ===============================
+// APLICAR FILTROS
+// ===============================
 function aplicarFiltrosBusqueda() {
   const productos =
     JSON.parse(sessionStorage.getItem("resultadosBusqueda")) || [];
