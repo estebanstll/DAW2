@@ -44,83 +44,163 @@ const PRODUCTS = [
   },
 ];
 
-// script.js - VERSION ADAPTADA PARA INDEX.HTML
-
 document.addEventListener("DOMContentLoaded", () => {
-  const btnBuscar = document.getElementById("btnBuscar");
-  const input = document.getElementById("search");
+  mostrarResultados(PRODUCTS.slice(0, 4));
+  if (localStorage.getItem("theme") === "dark")
+    document.body.classList.add("dark");
+  actualizarIconoTema();
 
-  // Al hacer clic en Buscar desde index.html
-  btnBuscar.addEventListener("click", () => {
-    const texto = input.value.trim();
-    if (texto.length === 0) return;
+  const usuario = localStorage.getItem("usuario");
+  actualizarBotonesUsuario(usuario);
+});
 
-    // Redirige a la página de resultados
-    window.location.href = `buscar.html?q=${encodeURIComponent(texto)}`;
+// Mostrar resultados
+function mostrarResultados(lista) {
+  const contenedor = document.getElementById("results");
+  contenedor.innerHTML = "";
+  if (lista.length === 0)
+    return (contenedor.innerHTML = "<p>No se encontraron resultados.</p>");
+  lista.forEach((p) => {
+    const card = document.createElement("div");
+    card.classList.add("product-card");
+    card.innerHTML = `<img src="${p.imagen}" alt="${p.nombre}"><h3>${p.nombre}</h3><p><strong>${p.precio} €</strong></p>`;
+    contenedor.appendChild(card);
   });
+}
 
-  // Permitir buscar con Enter
-  input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") btnBuscar.click();
-  });
+// ==========================
+// BÚSQUEDA (ACTUALIZADA)
+// ==========================
+// AHORA REDIRIGE A buscar.html EN VEZ DE BUSCAR EN INDEX
+document.getElementById("btnBuscar").addEventListener("click", () => {
+  const query = document.getElementById("search").value.trim();
+  if (!query) return;
 
-  // Abrir modales de registro y login
-  document.getElementById("btnRegistro").addEventListener("click", () => {
-    abrirModal("modalRegistro");
-  });
+  window.location.href = `buscar.html?q=${encodeURIComponent(query)}`;
+});
 
-  document.getElementById("btnLogin").addEventListener("click", () => {
-    abrirModal("modalLogin");
-  });
-
-  // Cambio de tema
-  document.getElementById("themeToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+// Categorías
+document.querySelectorAll(".category").forEach((cat) => {
+  cat.addEventListener("click", () => {
+    const resultados = PRODUCTS.filter((p) => p.categoria === cat.dataset.cat);
+    mostrarResultados(resultados);
   });
 });
 
-// ===================================================================
-// MANEJO DE MODALES
-// ===================================================================
+// Tema
+const themeBtn = document.getElementById("themeToggle");
+function actualizarIconoTema() {
+  const icon = themeBtn?.querySelector("i");
+  if (!icon) return;
+  icon.classList.toggle("fa-sun", document.body.classList.contains("dark"));
+  icon.classList.toggle("fa-moon", !document.body.classList.contains("dark"));
+}
+themeBtn?.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+  actualizarIconoTema();
+});
+
+// Modales
 function abrirModal(id) {
   document.getElementById(id).style.display = "flex";
 }
-
 function cerrarModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-// ===================================================================
-// LOGIN / REGISTRO (VERSIÓN SIMPLE PARA DEMO)
-// ===================================================================
-function registrar() {
+// Registro/Login
+async function registrar() {
   const nombre = document.getElementById("regNombre").value.trim();
   const email = document.getElementById("regEmail").value.trim();
   const pass = document.getElementById("regPass").value.trim();
+  if (!nombre || !email || !pass) return alert("Completa todos los campos");
 
-  if (!nombre || !email || !pass) {
-    alert("Rellena todos los campos.");
-    return;
-  }
-
-  const datos = { nombre, email, pass };
-  localStorage.setItem("usuario", JSON.stringify(datos));
-
-  alert("Cuenta creada con éxito.");
-  cerrarModal("modalRegistro");
+  const res = await fetch("backend/register.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, email, contrasena: pass }),
+  });
+  const data = await res.json();
+  if (data.status === "ok") {
+    cerrarModal("modalRegistro");
+    localStorage.setItem("usuario", nombre);
+    actualizarBotonesUsuario(nombre);
+  } else alert(data.mensaje);
 }
 
-function login() {
+async function login() {
   const nombre = document.getElementById("logNombre").value.trim();
   const pass = document.getElementById("logPass").value.trim();
+  if (!nombre || !pass) return alert("Completa todos los campos");
 
-  const user = JSON.parse(localStorage.getItem("usuario"));
+  const res = await fetch("backend/login.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, contrasena: pass }),
+  });
+  const data = await res.json();
+  if (data.status === "ok") {
+    cerrarModal("modalLogin");
+    localStorage.setItem("usuario", data.usuario.nombre);
+    actualizarBotonesUsuario(data.usuario.nombre);
+  } else alert(data.mensaje);
+}
 
-  if (!user || user.nombre !== nombre || user.pass !== pass) {
-    alert("Credenciales incorrectas");
-    return;
+function logout() {
+  localStorage.removeItem("usuario");
+  actualizarBotonesUsuario(null);
+}
+
+// Botones dinámicos según usuario
+function actualizarBotonesUsuario(usuario) {
+  const actions = document.querySelector(".actions");
+  actions.innerHTML = "";
+
+  // Botón tema
+  const themeBtn = document.createElement("button");
+  themeBtn.id = "themeToggle";
+  themeBtn.title = "Cambiar tema";
+  themeBtn.innerHTML = `<i class="fas ${
+    document.body.classList.contains("dark") ? "fa-sun" : "fa-moon"
+  }"></i>`;
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
+    actualizarIconoTema();
+  });
+  actions.appendChild(themeBtn);
+
+  // Usuario logueado
+  if (usuario) {
+    const btnVender = document.createElement("button");
+    btnVender.className = "filled";
+    btnVender.textContent = "Vender";
+    btnVender.onclick = () => (window.location.href = "vender.html");
+    actions.appendChild(btnVender);
+
+    const btnLogout = document.createElement("button");
+    btnLogout.className = "filled";
+    btnLogout.textContent = `Cerrar sesión (${usuario})`;
+    btnLogout.onclick = logout;
+    actions.appendChild(btnLogout);
+  } else {
+    const btnRegistro = document.createElement("button");
+    btnRegistro.className = "outline";
+    btnRegistro.textContent = "Registrarse";
+    btnRegistro.onclick = () => abrirModal("modalRegistro");
+    actions.appendChild(btnRegistro);
+
+    const btnLogin = document.createElement("button");
+    btnLogin.className = "filled";
+    btnLogin.textContent = "Iniciar sesión";
+    btnLogin.onclick = () => abrirModal("modalLogin");
+    actions.appendChild(btnLogin);
   }
-
-  alert("Inicio de sesión correcto.");
-  cerrarModal("modalLogin");
 }

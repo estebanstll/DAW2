@@ -61,3 +61,27 @@ Stack trace:
 )
 
 [16-Nov-2025 17:27:56 UTC] Imagen guardada en: ../resources/img/as_20251116_172756.png
+[16-Nov-2025 21:39:17 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 222
+    [categoria] => ropa
+    [descripcion] => 21
+    [precio] => 12
+    [usuario] => e
+)
+
+[16-Nov-2025 21:39:17 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => unnamed.png
+            [full_path] => unnamed.png
+            [type] => image/png
+            [tmp_name] => C:\Program Files\Ampps\tmp\php818F.tmp
+            [error] => 0
+            [size] => 106127
+        )
+
+)
+
+[16-Nov-2025 21:39:17 UTC] Imagen guardada en: ../resources/img/e_20251116_213917.png
