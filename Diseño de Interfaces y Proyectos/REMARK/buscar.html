@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REMARK - Resultados de búsqueda</title>
     <link rel="stylesheet" href="buscar.css" />
+    <!-- FontAwesome: reemplaza TU_KIT por tu kit real -->
     <script
-      src="https://kit.fontawesome.com/a2e0f1c5b4.js"
+      src="https://kit.fontawesome.com/TU_KIT.js"
       crossorigin="anonymous"
     ></script>
   </head>
@@ -33,32 +34,35 @@
         <details open>
           <summary><h4>Precio</h4></summary>
           <div class="filtro-precio">
-            <div class="rango-manual">
-              <label for="precioMinInput">Desde:</label>
-              <input
-                type="number"
-                id="precioMinInput"
-                min="0"
-                max="2000"
-                step="10"
-                value="0"
-              />€
-              <label for="precioMaxInput">Hasta:</label>
-              <input
-                type="number"
-                id="precioMaxInput"
-                min="0"
-                max="2000"
-                step="10"
-                value="2000"
-              />€
-            </div>
+            <label for="precioMinInput">Desde:</label>
+            <input
+              type="number"
+              id="precioMinInput"
+              min="0"
+              max="2000"
+              step="10"
+              value="0"
+            />€
+            <label for="precioMaxInput">Hasta:</label>
+            <input
+              type="number"
+              id="precioMaxInput"
+              min="0"
+              max="2000"
+              step="10"
+              value="2000"
+            />€
           </div>
         </details>
 
         <details open id="filtroCategorias">
           <summary><h4>Categorías</h4></summary>
           <div class="opciones-filtro" id="categoriasContainer"></div>
+        </details>
+
+        <details open id="filtroMarcas">
+          <summary><h4>Marcas</h4></summary>
+          <div class="opciones-filtro" id="marcasContainer"></div>
         </details>
       </aside>
 

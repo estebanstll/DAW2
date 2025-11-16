@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vender producto - REMARK</title>
+
+    <link rel="stylesheet" href="vender.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo" onclick="location.href='index.html'">REMARK</div>
+      <div class="actions">
+        <button id="btnLogout" style="display: none">Cerrar sesión</button>
+        <button id="btnVender" style="display: none">Vender</button>
+      </div>
+    </header>
+
+    <!-- FORMULARIO -->
+    <section class="form-vender">
+      <h2>Publicar un producto</h2>
+      <div class="form-container">
+        <input
+          type="text"
+          id="prodNombre"
+          placeholder="Nombre del producto"
+          required
+        />
+        <select id="prodCategoria" required>
+          <option value="">Selecciona categoría</option>
+          <option value="ropa">Ropa</option>
+          <option value="moviles">Móviles</option>
+          <option value="electronica">Electrónica</option>
+          <option value="hogar">Hogar</option>
+          <option value="deportes">Deportes</option>
+        </select>
+        <textarea id="prodDesc" placeholder="Descripción" required></textarea>
+        <input
+          type="number"
+          id="prodPrecio"
+          placeholder="Precio (€)"
+          required
+        />
+        <input type="file" id="prodImagen" accept="image/*" required />
+        <button id="btnPublicar">Publicar</button>
+      </div>
+      <p id="mensaje" class="mensaje"></p>
+    </section>
+
+    <script src="vender.js"></script>
+  </body>
+</html>

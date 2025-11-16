@@ -1,0 +1,39 @@
+[16-Nov-2025 09:15:26 UTC] PHP Warning:  require_once(bd.php): Failed to open stream: No such file or directory in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php on line 14
+[16-Nov-2025 09:15:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'bd.php' (include_path='.;C:\php\pear') in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php on line 14
+[16-Nov-2025 09:23:17 UTC] PHP Warning:  require_once(C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend/bd.php): Failed to open stream: No such file or directory in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php on line 14
+[16-Nov-2025 09:23:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend/bd.php' (include_path='.;C:\php\pear') in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php on line 14
+[16-Nov-2025 09:23:47 UTC] PHP Warning:  require_once(C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend/bd.php): Failed to open stream: No such file or directory in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php on line 14
+[16-Nov-2025 09:23:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend/bd.php' (include_path='.;C:\php\pear') in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\Users\Usuario\OneDrive\Escritorio\DAW2\Diseño de Interfaces y Proyectos\REMARK\backend\subir_producto.php on line 14
+[16-Nov-2025 09:25:32 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 21
+    [categoria] => moviles
+    [descripcion] => 21
+    [precio] => 21
+    [usuario] => e
+)
+
+[16-Nov-2025 09:25:32 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => imagen_2025-11-16_102531367.png
+            [full_path] => imagen_2025-11-16_102531367.png
+            [type] => image/png
+            [tmp_name] => C:\Program Files\Ampps\tmp\phpBD94.tmp
+            [error] => 0
+            [size] => 15058
+        )
+
+)
+
+[16-Nov-2025 09:25:32 UTC] Imagen guardada en: ../resources/img/e_20251116_092532.png

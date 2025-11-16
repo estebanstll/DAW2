@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 /* ============================================================
-   FUNCIÓN PRINCIPAL: MOSTRAR PRODUCTOS
+   MOSTRAR PRODUCTOS
 ============================================================ */
 function mostrarProductos(lista) {
   const grid = document.getElementById("gridProductos");
@@ -57,7 +57,6 @@ function mostrarProductos(lista) {
     const card = document.createElement("div");
     card.classList.add("product-card");
 
-    // ✅ Corregir ruta de imagen
     const rutaImagen = p.imagen
       ? p.imagen.replace(/^REMARK\//, "")
       : "resources/defecto.jpg";
@@ -75,7 +74,6 @@ function mostrarProductos(lista) {
       </div>
     `;
 
-    // ✅ Abrir modal al hacer clic
     card.addEventListener("click", () => mostrarProductoAmpliado(p));
     grid.appendChild(card);
   });
@@ -105,19 +103,13 @@ function mostrarProductoAmpliado(producto) {
   `;
 
   document.body.appendChild(modal);
+  requestAnimationFrame(() => modal.classList.add("visible"));
 
-  // 🟢 Forzar render y luego mostrar con transición
-  requestAnimationFrame(() => {
-    modal.classList.add("visible");
-  });
-
-  // Cerrar al hacer clic en el botón
   modal.querySelector(".cerrar-modal").addEventListener("click", () => {
     modal.classList.remove("visible");
-    setTimeout(() => modal.remove(), 250); // Espera transición
+    setTimeout(() => modal.remove(), 250);
   });
 
-  // Cerrar al hacer clic fuera del contenido
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.remove("visible");
@@ -140,7 +132,7 @@ function mostrarProductoAmpliado(producto) {
 }
 
 /* ============================================================
-   FILTROS DINÁMICOS
+   GENERAR FILTROS DINÁMICOS
 ============================================================ */
 function generarFiltrosDesdeProductos(productos) {
   const categoriasContainer = document.getElementById("categoriasContainer");
@@ -191,11 +183,21 @@ function generarFiltrosDesdeProductos(productos) {
     });
 }
 
+/* ============================================================
+   ACTUALIZAR MARCAS SEGÚN CATEGORÍAS
+============================================================ */
 function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
   const marcasContainer = document.getElementById("marcasContainer");
+
   const selectedCats = Array.from(
     document.querySelectorAll("#filtroCategorias input:checked")
   ).map((i) => i.value);
+
+  const allCats = new Set(
+    Array.from(document.querySelectorAll("#filtroCategorias input")).map(
+      (i) => i.value
+    )
+  );
 
   const previouslyChecked = new Set(
     Array.from(document.querySelectorAll("#filtroMarcas input:checked")).map(
@@ -204,24 +206,39 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
   );
 
   let marcasToShow = new Set();
+
   if (selectedCats.length === 0) {
+    // Mostrar todas las marcas excepto las que coinciden con alguna categoría
     productos.forEach((p) => {
       const marcas = Array.isArray(p.marca) ? p.marca : [];
-      marcas.forEach((m) => marcasToShow.add(m));
+      marcas.forEach((m) => {
+        if (!allCats.has(m)) marcasToShow.add(m);
+      });
     });
   } else {
+    // Mostrar marcas asociadas a las categorías seleccionadas
     selectedCats.forEach((cat) => {
       const set = marcasPorCategoria[cat];
-      if (set && set.size) set.forEach((m) => marcasToShow.add(m));
+      if (set) {
+        set.forEach((m) => {
+          if (!allCats.has(m)) marcasToShow.add(m);
+        });
+      }
     });
   }
 
   marcasContainer.innerHTML = "";
+
+  if (marcasToShow.size === 0) {
+    marcasContainer.innerHTML = "<p>No hay marcas.</p>";
+    return;
+  }
+
   Array.from(marcasToShow)
     .sort()
     .forEach((marca) => {
-      const div = document.createElement("div");
       const checked = previouslyChecked.has(marca) ? "checked" : "";
+      const div = document.createElement("div");
       div.innerHTML = `<label><input type="checkbox" value="${marca}" ${checked}> ${marca}</label>`;
       div.querySelector("input").addEventListener("change", aplicarFiltros);
       marcasContainer.appendChild(div);
@@ -229,7 +246,7 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
 }
 
 /* ============================================================
-   CARGAR FILTROS DESDE LA BASE DE DATOS (SI FALLA FETCH)
+   CARGAR FILTROS DESDE BD (SI FALLA FETCH)
 ============================================================ */
 async function cargarFiltrosDesdeBD() {
   try {

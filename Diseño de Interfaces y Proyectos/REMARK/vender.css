@@ -1,0 +1,188 @@
+/* RESET Y BASE */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5f6fa;
+  color: #2c3e50;
+  margin: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e2f;
+  color: white;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #00c3a5;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+header .logo:hover {
+  color: #00e6c8;
+  transform: scale(1.05);
+}
+
+header .actions button {
+  margin-left: 10px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+header .actions #btnVender {
+  background: #00c3a5;
+  color: white;
+}
+
+header .actions #btnLogout {
+  background: #e74c3c;
+  color: white;
+}
+
+header .actions button:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+header .actions button:active {
+  transform: scale(0.95);
+}
+
+/* FORMULARIO */
+.form-vender {
+  max-width: 520px;
+  margin: 80px auto;
+  background: linear-gradient(145deg, #ffffff, #f0f3f7);
+
+  /* Espacio lateral corregido */
+  padding: 50px 55px;
+
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-vender h2 {
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  color: #1e1e2f;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* INPUTS Y TEXTAREA */
+.form-vender input,
+.form-vender select,
+.form-vender textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid #d8dde6;
+  font-size: 1em;
+  transition: border 0.25s, box-shadow 0.25s, background 0.25s;
+  background: #ffffff;
+}
+
+.form-vender input:hover,
+.form-vender select:hover,
+.form-vender textarea:hover {
+  border-color: #bfc7d3;
+}
+
+.form-vender input:focus,
+.form-vender select:focus,
+.form-vender textarea:focus {
+  border-color: #00c3a5;
+  box-shadow: 0 0 0 3px rgba(0, 195, 165, 0.25);
+  outline: none;
+}
+
+::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* INPUT FILE PERSONALIZADO */
+#prodImagen {
+  padding: 12px;
+  background: #f0f4f8;
+  border: 1px dashed #b5c2d0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#prodImagen:hover {
+  background: #e8edf3;
+  border-color: #8fa3b8;
+}
+
+/* BOTÓN PUBLICAR */
+.form-vender button {
+  background: linear-gradient(135deg, #00c3a5, #00a68c);
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.05em;
+  letter-spacing: 0.5px;
+  margin-top: 15px;
+  transition: all 0.3s;
+}
+
+.form-vender button:hover {
+  background: linear-gradient(135deg, #00e6c8, #00bfa0);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 195, 165, 0.25);
+}
+
+.form-vender button:active {
+  transform: scale(0.97);
+}
+
+/* MENSAJE */
+.mensaje {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 0.95em;
+  transition: color 0.3s;
+}
+
+/* CONTENEDOR DEL FORMULARIO */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
