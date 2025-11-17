@@ -140,45 +140,25 @@ INSERT INTO etiquetas (nombre) VALUES
 -- PRODUCTO_ETIQUETA (relaciones coherentes)
 -- =========================
 INSERT INTO producto_etiqueta (id_producto, id_etiqueta) VALUES
--- iPhone 13
 (1, 1), (1, 2), (1, 3), (1, 6),
--- Samsung Galaxy S22
 (2, 1), (2, 4), (2, 5), (2, 6),
--- Xiaomi Redmi Note 12
 (3, 1), (3, 4), (3, 7), (3, 6),
--- Portátil HP 15s
 (4, 8), (4, 9), (4, 10),
--- Auriculares Sony
 (5, 11), (5, 12), (5, 10),
--- Monitor LG UltraWide
 (6, 13), (6, 14), (6, 10),
--- Teclado Logitech
 (7, 15), (7, 16), (7, 10),
--- Camiseta Nike
 (8, 17), (8, 18),
--- Zapatillas Adidas
 (9, 17), (9, 19),
--- Silla Gamer
 (10, 20), (10, 16),
--- Cafetera Nespresso
 (11, 20), (11, 21),
--- Bicicleta Orbea
 (12, 22), (12, 23),
--- Guantes de boxeo
 (13, 22), (13, 24),
--- Zelda
 (14, 25), (14, 26),
--- Mando Xbox
 (15, 25), (15, 27),
--- Kindle
 (16, 28), (16, 10),
--- El Señor de los Anillos
 (17, 28), (17, 29),
--- Reloj Casio
 (18, 30), (18, 31),
--- Mochila North Face
 (19, 30), (19, 32),
--- iPad Air
 (20, 33), (20, 2), (20, 10);
 
 -- =========================

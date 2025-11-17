@@ -104,22 +104,14 @@ document.querySelectorAll(".category").forEach((cat) => {
   });
 });
 
-// ==========================
-// TEMA (CLARO / OSCURO)
-// ==========================
 const themeBtn = document.getElementById("themeToggle");
 
-/**
- * Actualiza el icono del botón de tema según el estado actual.
- */
 function actualizarIconoTema() {
   const icon = themeBtn?.querySelector("i");
   if (!icon) return;
   icon.classList.toggle("fa-sun", document.body.classList.contains("dark"));
   icon.classList.toggle("fa-moon", !document.body.classList.contains("dark"));
 }
-
-// Alternar tema y guardar en localStorage
 themeBtn?.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   localStorage.setItem(

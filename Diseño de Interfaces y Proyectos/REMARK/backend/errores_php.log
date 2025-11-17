@@ -155,3 +155,27 @@ Stack trace:
 )
 
 [17-Nov-2025 09:29:15 UTC] Imagen guardada en: ../resources/img/e_20251117_092915.jpg
+[17-Nov-2025 17:09:43 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 1
+    [categoria] => moviles
+    [descripcion] => 1
+    [precio] => 1
+    [usuario] => w
+)
+
+[17-Nov-2025 17:09:43 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => datosVenta.png
+            [full_path] => datosVenta.png
+            [type] => image/png
+            [tmp_name] => C:\Program Files\Ampps\tmp\php48A8.tmp
+            [error] => 0
+            [size] => 46980
+        )
+
+)
+
+[17-Nov-2025 17:09:43 UTC] Imagen guardada en: ../resources/img/w_20251117_170943.png
