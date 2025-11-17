@@ -2,10 +2,15 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Asegura visualización correcta en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>REMARK - Todos los productos</title>
 
+    <!-- Hoja de estilos específica para esta página -->
     <link rel="stylesheet" href="styles/productos.css" />
+
+    <!-- FontAwesome para iconos -->
     <script
       src="https://kit.fontawesome.com/a2e0f1c5b4.js"
       crossorigin="anonymous"
@@ -13,20 +18,24 @@
   </head>
 
   <body>
-    <!-- CABECERA -->
+    <!-- CABECERA simple con logo -->
     <header>
+      <!-- Logo clicable que lleva al inicio -->
       <div class="logo" onclick="location.href='index.html'">REMARK</div>
     </header>
 
     <main class="productos-layout">
-      <!-- PANEL DE FILTROS -->
+      <!-- PANEL LATERAL DE FILTROS -->
       <aside class="filtros" aria-label="Panel de filtros de productos">
         <h3>Filtrar productos</h3>
 
-        <!-- FILTRO PRECIO -->
+        <!-- FILTRO DE PRECIO -->
         <details open>
+          <!-- Título del filtro -->
           <summary><h4>Precio</h4></summary>
+
           <div class="filtro-precio">
+            <!-- Controles para escribir manualmente min y max -->
             <div class="rango-manual">
               <label for="precioMinInput">Desde:</label>
               <input
@@ -37,6 +46,7 @@
                 step="10"
                 value="0"
               />€
+
               <label for="precioMaxInput">Hasta:</label>
               <input
                 type="number"
@@ -48,6 +58,7 @@
               />€
             </div>
 
+            <!-- Slider principal para ajustar precio máximo -->
             <input
               type="range"
               id="rangoPrecio"
@@ -57,32 +68,41 @@
               value="2000"
               aria-label="Rango de precio"
             />
+
+            <!-- Texto que muestra los valores actuales -->
             <div class="rango-precio-valores">
               <span id="precioMin">0€</span> - <span id="precioMax">2000€</span>
             </div>
           </div>
         </details>
 
-        <!-- FILTRO CATEGORÍAS -->
+        <!-- FILTRO CATEGORÍAS (se llena dinámicamente desde productos.js) -->
         <details open id="filtroCategorias">
           <summary><h4>Categorías</h4></summary>
+
+          <!-- Aquí JavaScript insertará los checkbox de categorías -->
           <div class="opciones-filtro" id="categoriasContainer"></div>
         </details>
 
-        <!-- FILTRO MARCAS -->
+        <!-- FILTRO MARCAS (también dinámico) -->
         <details open id="filtroMarcas">
           <summary><h4>Marcas</h4></summary>
+
+          <!-- Contenedor que JS rellenará con las marcas disponibles -->
           <div class="opciones-filtro" id="marcasContainer"></div>
         </details>
       </aside>
 
-      <!-- RESULTADOS -->
+      <!-- SECCIÓN PRINCIPAL: LISTADO DE PRODUCTOS -->
       <section class="resultados" aria-label="Listado de productos">
         <h2>Todos los productos</h2>
+
+        <!-- Aquí se generan las cards de productos mediante JS -->
         <div id="gridProductos" class="grid-productos"></div>
       </section>
     </main>
 
+    <!-- Script que gestiona filtros y renderizado de productos -->
     <script src="js/productos.js"></script>
   </body>
 </html>

@@ -2,31 +2,50 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Pasarela de pago - REMARK</title>
+
+    <!-- Estilos propios de la página de pago -->
     <link rel="stylesheet" href="styles/pago.css" />
+
+    <!-- Librería de iconos FontAwesome -->
     <script
       src="https://kit.fontawesome.com/a2e0f1c5b4.js"
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
+    <!-- CONTENEDOR PRINCIPAL DE LA PASARELA -->
     <main class="pago">
+      <!-- Título del proceso -->
       <h2>💳 Confirmar pago</h2>
+
+      <!-- Aquí se cargará dinámicamente el resumen del producto y precio -->
       <div id="resumenPago" class="resumen-pago"></div>
 
+      <!-- Botón para confirmar el pago -->
       <button id="btnConfirmar" class="btn-confirmar">
         <i class="fas fa-check-circle"></i> Confirmar pago
       </button>
     </main>
 
+    <!-- OVERLAY QUE APARECE CUANDO EL PAGO SE COMPLETA -->
     <div id="overlay-exito" class="overlay-exito">
       <div class="card-exito">
+        <!-- Icono de éxito -->
         <i class="fas fa-check-circle"></i>
+
+        <!-- Mensaje de confirmación -->
         <h3>Pago realizado con éxito</h3>
+
+        <!-- Texto informativo mientras redirige -->
         <p>Redirigiendo al inicio...</p>
       </div>
     </div>
 
+    <!-- Script con la lógica del pago -->
     <script src="js/pago.js"></script>
   </body>
 </html>

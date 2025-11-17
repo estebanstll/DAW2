@@ -4,16 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REMARK - Marketplace</title>
+
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- Librería de iconos Font Awesome -->
     <script
       src="https://kit.fontawesome.com/a2e0f1c5b4.js"
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
-    <!-- NAVBAR -->
+    <!-- NAVBAR (barra superior de navegación) -->
     <header>
+      <!-- Logo del sitio -->
       <div class="logo">REMARK</div>
+
+      <!-- Menú de navegación -->
       <nav>
         <ul>
           <li><a href="#">Inicio</a></li>
@@ -22,36 +30,49 @@
           <li><a href="#testimonios">Opiniones</a></li>
         </ul>
       </nav>
+
+      <!-- Botones y acciones del navbar -->
       <div class="actions">
+        <!-- Botón para modo oscuro/claro -->
         <button id="themeToggle" title="Cambiar tema">
           <i class="fas fa-moon"></i>
         </button>
+
+        <!-- Botón para abrir modal de registro -->
         <button id="btnRegistro" class="outline">Registrarse</button>
+
+        <!-- Botón para abrir modal de login -->
         <button id="btnLogin" class="filled">Iniciar sesión</button>
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO (sección principal destacada) -->
     <section class="hero">
       <div class="hero-content">
         <h1>Compra, vende y gana con REMARK</h1>
         <p>Descubre miles de productos, al mejor precio y de forma segura.</p>
+
+        <!-- Botón que lleva a la página de productos -->
         <a class="explorar-btn" href="productos.html">Explorar ahora</a>
       </div>
     </section>
 
-    <!-- BÚSQUEDA -->
+    <!-- Sección de búsqueda -->
     <section class="search-section" id="busqueda">
       <h2>Encuentra lo que necesitas</h2>
+
+      <!-- Barra de búsqueda -->
       <div class="search-bar">
         <input type="text" id="search" placeholder="Buscar productos..." />
         <button id="btnBuscar"><i class="fas fa-search"></i> Buscar</button>
       </div>
     </section>
 
-    <!-- CATEGORÍAS -->
+    <!-- Categorías -->
     <section class="categories" id="categorias">
       <h2>Categorías</h2>
+
+      <!-- Grid con categorías clicables -->
       <div class="category-grid">
         <div class="category" data-cat="ropa">
           <i class="fas fa-tshirt"></i> Ropa
@@ -71,28 +92,36 @@
       </div>
     </section>
 
-    <!-- PRODUCTOS DESTACADOS -->
+    <!-- Productos destacados -->
     <section class="featured" id="destacados">
       <h2>Productos destacados</h2>
+
+      <!-- Contenedor donde se cargarán los productos -->
       <div class="results" id="results"></div>
     </section>
 
-    <!-- TESTIMONIOS -->
+    <!-- Testimonios de usuarios -->
     <section class="testimonials" id="testimonios">
       <h2>Lo que dicen nuestros usuarios</h2>
+
       <div class="testimonial-container">
+        <!-- Testimonio 1 -->
         <div class="testimonial">
           <p>
             “Vendí mi teléfono en menos de 2 días, el proceso fue súper fácil.”
           </p>
           <h4>- Laura G.</h4>
         </div>
+
+        <!-- Testimonio 2 -->
         <div class="testimonial">
           <p>
             “Excelente plataforma, encontré una bici usada en perfecto estado.”
           </p>
           <h4>- Marcos R.</h4>
         </div>
+
+        <!-- Testimonio 3 -->
         <div class="testimonial">
           <p>
             “Lo mejor es que puedes chatear directamente con los vendedores.”
@@ -102,46 +131,64 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (pie de página) -->
     <footer>
+      <!-- Enlaces informativos -->
       <div class="footer-links">
         <a href="#">Sobre nosotros</a>
         <a href="#">Términos</a>
         <a href="#">Privacidad</a>
         <a href="#">Contacto</a>
       </div>
+
+      <!-- Iconos de redes sociales -->
       <div class="social">
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-twitter"></i>
         <i class="fab fa-instagram"></i>
       </div>
+
       <p>© 2025 REMARK. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- MODALES -->
+    <!-- MODAL DE REGISTRO -->
     <div id="modalRegistro" class="modal">
       <div class="modal-content">
+        <!-- Cierre del modal -->
         <span class="close" onclick="cerrarModal('modalRegistro')"
           >&times;</span
         >
+
         <h2>Registrarse</h2>
+
+        <!-- Campos de registro -->
         <input type="text" id="regNombre" placeholder="Nombre de usuario" />
         <input type="email" id="regEmail" placeholder="Correo electrónico" />
         <input type="password" id="regPass" placeholder="Contraseña" />
+
+        <!-- Botón que ejecuta la función registrar() -->
         <button onclick="registrar()">Crear cuenta</button>
       </div>
     </div>
 
+    <!-- MODAL DE LOGIN -->
     <div id="modalLogin" class="modal">
       <div class="modal-content">
+        <!-- Botón cierre -->
         <span class="close" onclick="cerrarModal('modalLogin')">&times;</span>
+
         <h2>Iniciar sesión</h2>
+
+        <!-- Campos de login -->
         <input type="text" id="logNombre" placeholder="Nombre de usuario" />
         <input type="password" id="logPass" placeholder="Contraseña" />
+
+        <!-- Botón que ejecuta la función login() -->
         <button onclick="login()">Entrar</button>
       </div>
     </div>
 
+    <!-- Archivo JS principal -->
     <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,8 +1,17 @@
+/**
+ * Evento principal que se ejecuta al cargar la página.
+ * - Carga productos desde el backend.
+ * - Maneja errores de red o de parsing.
+ * - Muestra productos y genera filtros dinámicos.
+ * - Inicializa el listener del rango de precio.
+ */
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    // Solicitar productos al servidor
     const res = await fetch("backend/get_products.php");
     const raw = await res.text();
 
+    // Manejo de errores HTTP
     if (!res.ok) {
       document.getElementById("gridProductos").innerHTML =
         "<p>Error cargando productos desde el servidor.</p>";
@@ -12,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let productos;
     try {
-      productos = JSON.parse(raw);
+      productos = JSON.parse(raw); // Parsear JSON recibido
     } catch (err) {
       console.error("Error parseando JSON:", err, raw);
       document.getElementById("gridProductos").innerHTML =
@@ -20,17 +29,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
+    // Verificar si hay productos disponibles
     if (!productos || productos.length === 0) {
       document.getElementById("gridProductos").innerHTML =
         "<p>No hay productos disponibles.</p>";
-      await cargarFiltrosDesdeBD();
+      await cargarFiltrosDesdeBD(); // Cargar filtros si no hay productos
       return;
     }
 
+    // Mostrar productos y generar filtros
     mostrarProductos(productos);
     generarFiltrosDesdeProductos(productos);
+
+    // Guardar productos en sessionStorage para filtros
     sessionStorage.setItem("productosCache", JSON.stringify(productos));
 
+    // Listener para actualizar precio máximo
     const rango = document.getElementById("rangoPrecio");
     rango.addEventListener("input", () => {
       document.getElementById("precioMax").textContent = `${rango.value}€`;
@@ -44,19 +58,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 /* ============================================================
    MOSTRAR PRODUCTOS
 ============================================================ */
+
+/**
+ * Crea y muestra tarjetas de productos en la sección principal.
+ * @param {Array} lista - Lista de productos a mostrar.
+ * @returns {void}
+ */
 function mostrarProductos(lista) {
   const grid = document.getElementById("gridProductos");
   grid.innerHTML = "";
 
+  // Mensaje si no hay productos
   if (!lista || lista.length === 0) {
     grid.innerHTML = "<p>No se encontraron productos.</p>";
     return;
   }
 
+  // Crear tarjeta de cada producto
   lista.forEach((p) => {
     const card = document.createElement("div");
     card.classList.add("product-card");
 
+    // Manejo de imagen por defecto
     const rutaImagen = p.imagen
       ? p.imagen.replace(/^REMARK\//, "")
       : "resources/defecto.jpg";
@@ -64,6 +87,7 @@ function mostrarProductos(lista) {
     const primeraMarca =
       Array.isArray(p.marca) && p.marca.length ? p.marca[0] : "";
 
+    // HTML interno de la tarjeta
     card.innerHTML = `
       <img src="${rutaImagen}" alt="${p.nombre}" 
            onerror="this.src='resources/defecto.jpg'">
@@ -74,6 +98,7 @@ function mostrarProductos(lista) {
       </div>
     `;
 
+    // Abrir modal al hacer click
     card.addEventListener("click", () => mostrarProductoAmpliado(p));
     grid.appendChild(card);
   });
@@ -82,6 +107,16 @@ function mostrarProductos(lista) {
 /* ============================================================
    MODAL DE PRODUCTO AMPLIADO
 ============================================================ */
+
+/**
+ * Muestra un modal con información detallada de un producto.
+ * @param {Object} producto - Objeto con la información del producto.
+ * @property {string} producto.nombre - Nombre del producto.
+ * @property {number} producto.precio - Precio del producto.
+ * @property {string} producto.categoria - Categoría del producto.
+ * @property {Array} [producto.marca] - Lista de marcas asociadas.
+ * @property {string} [producto.imagen] - URL de la imagen del producto.
+ */
 function mostrarProductoAmpliado(producto) {
   const modal = document.createElement("div");
   modal.className = "modal-producto";
@@ -105,11 +140,13 @@ function mostrarProductoAmpliado(producto) {
   document.body.appendChild(modal);
   requestAnimationFrame(() => modal.classList.add("visible"));
 
+  // Cerrar modal al hacer click en la X
   modal.querySelector(".cerrar-modal").addEventListener("click", () => {
     modal.classList.remove("visible");
     setTimeout(() => modal.remove(), 250);
   });
 
+  // Cerrar modal al hacer click fuera del contenido
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.remove("visible");
@@ -117,8 +154,11 @@ function mostrarProductoAmpliado(producto) {
     }
   });
 
+  // Botón comprar
   modal.querySelector("#btnComprar").addEventListener("click", () => {
     const usuario = localStorage.getItem("usuario");
+
+    // Si no está logueado, abrir modal de login
     if (!usuario) {
       alert("Debes iniciar sesión para comprar.");
       modal.remove();
@@ -126,14 +166,20 @@ function mostrarProductoAmpliado(producto) {
       return;
     }
 
+    // Guardar producto seleccionado y redirigir a checkout
     localStorage.setItem("productoSeleccionado", JSON.stringify(producto));
     window.location.href = "checkout.html";
   });
 }
 
 /* ============================================================
-   GENERAR FILTROS DINÁMICOS
+   FILTROS DINÁMICOS
 ============================================================ */
+
+/**
+ * Genera filtros dinámicos de categorías y marcas según productos.
+ * @param {Array} productos - Lista de productos.
+ */
 function generarFiltrosDesdeProductos(productos) {
   const categoriasContainer = document.getElementById("categoriasContainer");
   const marcasContainer = document.getElementById("marcasContainer");
@@ -142,6 +188,7 @@ function generarFiltrosDesdeProductos(productos) {
   const marcasPorCategoria = {};
   const todasMarcasSet = new Set();
 
+  // Recorrer productos y registrar categorías y marcas
   productos.forEach((p) => {
     const cat = p.categoria || "";
     if (cat) categoriasSet.add(cat);
@@ -158,9 +205,11 @@ function generarFiltrosDesdeProductos(productos) {
     });
   });
 
+  // Limpiar contenedores
   categoriasContainer.innerHTML = "";
   marcasContainer.innerHTML = "";
 
+  // Crear checkboxes de categorías
   Array.from(categoriasSet)
     .sort()
     .forEach((cat) => {
@@ -173,6 +222,7 @@ function generarFiltrosDesdeProductos(productos) {
       categoriasContainer.appendChild(div);
     });
 
+  // Crear checkboxes de marcas
   Array.from(todasMarcasSet)
     .sort()
     .forEach((marca) => {
@@ -183,9 +233,11 @@ function generarFiltrosDesdeProductos(productos) {
     });
 }
 
-/* ============================================================
-   ACTUALIZAR MARCAS SEGÚN CATEGORÍAS
-============================================================ */
+/**
+ * Actualiza la lista de marcas disponibles según categorías seleccionadas.
+ * @param {Array} productos - Lista de productos.
+ * @param {Object} marcasPorCategoria - Mapa de marcas por categoría.
+ */
 function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
   const marcasContainer = document.getElementById("marcasContainer");
 
@@ -207,8 +259,8 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
 
   let marcasToShow = new Set();
 
+  // Lógica para decidir qué marcas mostrar
   if (selectedCats.length === 0) {
-    // Mostrar todas las marcas excepto las que coinciden con alguna categoría
     productos.forEach((p) => {
       const marcas = Array.isArray(p.marca) ? p.marca : [];
       marcas.forEach((m) => {
@@ -216,7 +268,6 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
       });
     });
   } else {
-    // Mostrar marcas asociadas a las categorías seleccionadas
     selectedCats.forEach((cat) => {
       const set = marcasPorCategoria[cat];
       if (set) {
@@ -227,6 +278,7 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
     });
   }
 
+  // Limpiar contenedor y crear checkboxes
   marcasContainer.innerHTML = "";
 
   if (marcasToShow.size === 0) {
@@ -245,9 +297,10 @@ function actualizarMarcasSegunCategorias(productos, marcasPorCategoria) {
     });
 }
 
-/* ============================================================
-   CARGAR FILTROS DESDE BD (SI FALLA FETCH)
-============================================================ */
+/**
+ * Carga filtros desde la base de datos si no hay productos cargados.
+ * @async
+ */
 async function cargarFiltrosDesdeBD() {
   try {
     const [catRes, marRes] = await Promise.all([
@@ -281,9 +334,9 @@ async function cargarFiltrosDesdeBD() {
   }
 }
 
-/* ============================================================
-   APLICAR FILTROS
-============================================================ */
+/**
+ * Filtra productos según precio, categorías y marcas seleccionadas.
+ */
 function aplicarFiltros() {
   const productos = JSON.parse(sessionStorage.getItem("productosCache")) || [];
 

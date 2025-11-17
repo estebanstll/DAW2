@@ -44,8 +44,14 @@ const PRODUCTS = [
   },
 ];
 
+/**
+ * Se ejecuta al cargar el DOM.
+ * Inicializa resultados, tema y botones de usuario.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   mostrarResultados(PRODUCTS.slice(0, 4));
+
+  // Aplicar tema guardado en localStorage
   if (localStorage.getItem("theme") === "dark")
     document.body.classList.add("dark");
   actualizarIconoTema();
@@ -54,32 +60,43 @@ document.addEventListener("DOMContentLoaded", () => {
   actualizarBotonesUsuario(usuario);
 });
 
-// Mostrar resultados
+/**
+ * Muestra una lista de productos en el contenedor principal.
+ * @param {Array} lista - Lista de objetos de producto.
+ */
 function mostrarResultados(lista) {
   const contenedor = document.getElementById("results");
   contenedor.innerHTML = "";
+
   if (lista.length === 0)
     return (contenedor.innerHTML = "<p>No se encontraron resultados.</p>");
+
   lista.forEach((p) => {
     const card = document.createElement("div");
     card.classList.add("product-card");
-    card.innerHTML = `<img src="${p.imagen}" alt="${p.nombre}"><h3>${p.nombre}</h3><p><strong>${p.precio} €</strong></p>`;
+    card.innerHTML = `
+      <img src="${p.imagen}" alt="${p.nombre}">
+      <h3>${p.nombre}</h3>
+      <p><strong>${p.precio} €</strong></p>
+    `;
     contenedor.appendChild(card);
   });
 }
 
 // ==========================
-// BÚSQUEDA (ACTUALIZADA)
+// BÚSQUEDA
 // ==========================
-// AHORA REDIRIGE A buscar.html EN VEZ DE BUSCAR EN INDEX
 document.getElementById("btnBuscar").addEventListener("click", () => {
   const query = document.getElementById("search").value.trim();
   if (!query) return;
 
+  // Redirige a buscar.html con query como parámetro
   window.location.href = `buscar.html?q=${encodeURIComponent(query)}`;
 });
 
-// Categorías
+// ==========================
+// FILTRO POR CATEGORÍAS
+// ==========================
 document.querySelectorAll(".category").forEach((cat) => {
   cat.addEventListener("click", () => {
     const resultados = PRODUCTS.filter((p) => p.categoria === cat.dataset.cat);
@@ -87,14 +104,22 @@ document.querySelectorAll(".category").forEach((cat) => {
   });
 });
 
-// Tema
+// ==========================
+// TEMA (CLARO / OSCURO)
+// ==========================
 const themeBtn = document.getElementById("themeToggle");
+
+/**
+ * Actualiza el icono del botón de tema según el estado actual.
+ */
 function actualizarIconoTema() {
   const icon = themeBtn?.querySelector("i");
   if (!icon) return;
   icon.classList.toggle("fa-sun", document.body.classList.contains("dark"));
   icon.classList.toggle("fa-moon", !document.body.classList.contains("dark"));
 }
+
+// Alternar tema y guardar en localStorage
 themeBtn?.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   localStorage.setItem(
@@ -104,19 +129,38 @@ themeBtn?.addEventListener("click", () => {
   actualizarIconoTema();
 });
 
-// Modales
+// ==========================
+// MODALES
+// ==========================
+/**
+ * Abre un modal por su ID.
+ * @param {string} id - ID del modal a abrir.
+ */
 function abrirModal(id) {
   document.getElementById(id).style.display = "flex";
 }
+
+/**
+ * Cierra un modal por su ID.
+ * @param {string} id - ID del modal a cerrar.
+ */
 function cerrarModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-// Registro/Login
+// ==========================
+// REGISTRO / LOGIN
+// ==========================
+/**
+ * Registra un usuario enviando los datos al backend.
+ * @async
+ * @returns {Promise<void>}
+ */
 async function registrar() {
   const nombre = document.getElementById("regNombre").value.trim();
   const email = document.getElementById("regEmail").value.trim();
   const pass = document.getElementById("regPass").value.trim();
+
   if (!nombre || !email || !pass) return alert("Completa todos los campos");
 
   const res = await fetch("backend/register.php", {
@@ -125,6 +169,7 @@ async function registrar() {
     body: JSON.stringify({ nombre, email, contrasena: pass }),
   });
   const data = await res.json();
+
   if (data.status === "ok") {
     cerrarModal("modalRegistro");
     localStorage.setItem("usuario", nombre);
@@ -132,9 +177,15 @@ async function registrar() {
   } else alert(data.mensaje);
 }
 
+/**
+ * Inicia sesión enviando los datos al backend.
+ * @async
+ * @returns {Promise<void>}
+ */
 async function login() {
   const nombre = document.getElementById("logNombre").value.trim();
   const pass = document.getElementById("logPass").value.trim();
+
   if (!nombre || !pass) return alert("Completa todos los campos");
 
   const res = await fetch("backend/login.php", {
@@ -143,6 +194,7 @@ async function login() {
     body: JSON.stringify({ nombre, contrasena: pass }),
   });
   const data = await res.json();
+
   if (data.status === "ok") {
     cerrarModal("modalLogin");
     localStorage.setItem("usuario", data.usuario.nombre);
@@ -150,17 +202,23 @@ async function login() {
   } else alert(data.mensaje);
 }
 
+/**
+ * Cierra sesión eliminando el usuario del localStorage.
+ */
 function logout() {
   localStorage.removeItem("usuario");
   actualizarBotonesUsuario(null);
 }
 
-// Botones dinámicos según usuario
+/**
+ * Actualiza los botones de acción según el estado del usuario.
+ * @param {string|null} usuario - Nombre del usuario logueado o null si no hay usuario.
+ */
 function actualizarBotonesUsuario(usuario) {
   const actions = document.querySelector(".actions");
   actions.innerHTML = "";
 
-  // Botón tema
+  // Botón de tema
   const themeBtn = document.createElement("button");
   themeBtn.id = "themeToggle";
   themeBtn.title = "Cambiar tema";
@@ -177,7 +235,7 @@ function actualizarBotonesUsuario(usuario) {
   });
   actions.appendChild(themeBtn);
 
-  // Usuario logueado
+  // Si el usuario está logueado
   if (usuario) {
     const btnVender = document.createElement("button");
     btnVender.className = "filled";
@@ -191,6 +249,7 @@ function actualizarBotonesUsuario(usuario) {
     btnLogout.onclick = logout;
     actions.appendChild(btnLogout);
   } else {
+    // Si no hay usuario logueado
     const btnRegistro = document.createElement("button");
     btnRegistro.className = "outline";
     btnRegistro.textContent = "Registrarse";

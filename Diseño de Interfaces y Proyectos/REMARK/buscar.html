@@ -2,24 +2,34 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Permite que la página se vea bien en móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>REMARK - Resultados de búsqueda</title>
+
+    <!-- Hoja de estilos específica para esta página -->
     <link rel="stylesheet" href="styles/buscar.css" />
-    <!-- FontAwesome: reemplaza TU_KIT por tu kit real -->
+
+    <!-- FontAwesome: librería de iconos (cambiar TU_KIT por tu kit real) -->
     <script
       src="https://kit.fontawesome.com/TU_KIT.js"
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
+    <!-- HEADER simple con logo que redirige al inicio -->
     <header>
       <div class="logo" onclick="location.href='index.html'">REMARK</div>
     </header>
 
+    <!-- Contenedor principal: filtros a la izquierda y productos a la derecha -->
     <main class="productos-layout">
+      <!-- PANEL DE FILTROS -->
       <aside class="filtros" aria-label="Panel de filtros de productos">
         <h3>Filtrar productos</h3>
 
+        <!-- Buscar por texto -->
         <div class="filtro-busqueda">
           <label for="inputBusqueda" class="visually-hidden">Buscar</label>
           <input
@@ -28,12 +38,18 @@
             placeholder="Buscar productos..."
             aria-label="Buscar productos"
           />
-          <button id="btnBuscar"><i class="fas fa-search"></i>Buscar</button>
+          <button id="btnBuscar">
+            <i class="fas fa-search"></i>
+            Buscar
+          </button>
         </div>
 
+        <!-- Filtro de precio usando <details> para una sección desplegable -->
         <details open>
           <summary><h4>Precio</h4></summary>
+
           <div class="filtro-precio">
+            <!-- Precio mínimo -->
             <label for="precioMinInput">Desde:</label>
             <input
               type="number"
@@ -43,6 +59,8 @@
               step="10"
               value="0"
             />€
+
+            <!-- Precio máximo -->
             <label for="precioMaxInput">Hasta:</label>
             <input
               type="number"
@@ -55,23 +73,34 @@
           </div>
         </details>
 
+        <!-- Filtro dinámico de categorías -->
         <details open id="filtroCategorias">
           <summary><h4>Categorías</h4></summary>
+
+          <!-- Se llena dinámicamente desde buscar.js -->
           <div class="opciones-filtro" id="categoriasContainer"></div>
         </details>
 
+        <!-- Filtro dinámico de marcas -->
         <details open id="filtroMarcas">
           <summary><h4>Marcas</h4></summary>
+
+          <!-- También se llena desde buscar.js -->
           <div class="opciones-filtro" id="marcasContainer"></div>
         </details>
       </aside>
 
+      <!-- LISTADO DE RESULTADOS -->
       <section class="resultados" aria-label="Listado de productos">
+        <!-- Título de la sección, puede cambiar según búsqueda -->
         <h2 id="tituloResultados">Resultados de búsqueda</h2>
+
+        <!-- Grid donde se cargan los productos filtrados -->
         <div id="gridProductos" class="grid-productos"></div>
       </section>
     </main>
 
+    <!-- Script principal donde están las funciones de búsqueda y filtros -->
     <script src="js/buscar.js"></script>
   </body>
 </html>

@@ -85,3 +85,73 @@ Stack trace:
 )
 
 [16-Nov-2025 21:39:17 UTC] Imagen guardada en: ../resources/img/e_20251116_213917.png
+[17-Nov-2025 09:28:40 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 222
+    [categoria] => moviles
+    [descripcion] => gnfb
+    [precio] => 321
+    [usuario] => e
+)
+
+[17-Nov-2025 09:28:40 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => ChatGPT Image 4 oct 2025, 16_31_44.png
+            [full_path] => ChatGPT Image 4 oct 2025, 16_31_44.png
+            [type] => image/png
+            [tmp_name] => C:\Program Files\Ampps\tmp\phpF822.tmp
+            [error] => 0
+            [size] => 2049529
+        )
+
+)
+
+[17-Nov-2025 09:28:46 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 222
+    [categoria] => moviles
+    [descripcion] => gnfb
+    [precio] => 321
+    [usuario] => e
+)
+
+[17-Nov-2025 09:28:46 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => ChatGPT Image 4 oct 2025, 16_31_44.png
+            [full_path] => ChatGPT Image 4 oct 2025, 16_31_44.png
+            [type] => image/png
+            [tmp_name] => C:\Program Files\Ampps\tmp\php11C5.tmp
+            [error] => 0
+            [size] => 2049529
+        )
+
+)
+
+[17-Nov-2025 09:29:15 UTC] DATOS RECIBIDOS: Array
+(
+    [nombre] => 2
+    [categoria] => moviles
+    [descripcion] => 22
+    [precio] => 2
+    [usuario] => e
+)
+
+[17-Nov-2025 09:29:15 UTC] IMAGEN: Array
+(
+    [imagen] => Array
+        (
+            [name] => grupoDePersonas.jpg
+            [full_path] => grupoDePersonas.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\Program Files\Ampps\tmp\php81F5.tmp
+            [error] => 0
+            [size] => 48332
+        )
+
+)
+
+[17-Nov-2025 09:29:15 UTC] Imagen guardada en: ../resources/img/e_20251117_092915.jpg

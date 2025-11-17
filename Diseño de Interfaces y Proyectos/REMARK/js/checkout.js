@@ -1,20 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Recuperar el producto seleccionado y el usuario logueado desde localStorage
   const producto = JSON.parse(localStorage.getItem("productoSeleccionado"));
   const usuario = localStorage.getItem("usuario");
 
-  // Seguridad: si no hay producto o usuario, redirigir
+  // Seguridad: si no hay producto o usuario, mostrar alerta y redirigir
   if (!producto || !usuario) {
     alert("Error: no hay producto o usuario válido.");
     window.location.href = "productos.html";
     return;
   }
 
-  // Corregir ruta de imagen igual que en productos/búsqueda
+  // Corregir ruta de imagen (eliminar prefijo "REMARK/" si existe)
   const rutaImagen = producto.imagen
     ? producto.imagen.replace(/^REMARK\//, "")
-    : "resources/defecto.jpg";
+    : "resources/defecto.jpg"; // Imagen por defecto si no hay
 
-  // Mostrar resumen en checkout
+  // Mostrar resumen del producto en el checkout
   document.getElementById("productoResumen").innerHTML = `
     <img src="${rutaImagen}" 
          alt="${producto.nombre}"
@@ -27,32 +28,34 @@ document.addEventListener("DOMContentLoaded", () => {
     </p>
   `;
 
-  // Manejo del formulario
+  // Manejo del formulario de envío
   document.getElementById("formCheckout").addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Evitar recarga de página al enviar
 
+    // Recoger datos del formulario
     const direccion = document.getElementById("direccion").value.trim();
     const ciudad = document.getElementById("ciudad").value.trim();
     const cp = document.getElementById("cp").value.trim();
 
+    // Validación: todos los campos obligatorios
     if (!direccion || !ciudad || !cp) {
       alert("Completa todos los campos.");
       return;
     }
 
-    // Guardar pedido
+    // Guardar el pedido en localStorage para usar en la página de pago
     localStorage.setItem(
       "pedidoActual",
       JSON.stringify({
-        producto,
-        usuario,
-        direccion,
-        ciudad,
-        cp,
+        producto, // Producto seleccionado
+        usuario, // Usuario que realiza la compra
+        direccion, // Dirección de envío
+        ciudad, // Ciudad
+        cp, // Código postal
       })
     );
 
-    // Pasar al pago
+    // Redirigir a la pasarela de pago
     window.location.href = "pago.html";
   });
 });

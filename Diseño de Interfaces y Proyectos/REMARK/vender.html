@@ -2,35 +2,52 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Asegura que la página se vea bien en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Vender producto - REMARK</title>
 
+    <!-- Estilos específicos para esta página -->
     <link rel="stylesheet" href="styles/vender.css" />
+
+    <!-- FontAwesome para iconos -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
-    <!-- HEADER -->
+    <!-- HEADER superior -->
     <header>
+      <!-- Logo que redirige al inicio -->
       <div class="logo" onclick="location.href='index.html'">REMARK</div>
+
+      <!-- Acciones del usuario (solo visibles si está logueado) -->
       <div class="actions">
+        <!-- Botón para cerrar sesión -->
         <button id="btnLogout" style="display: none">Cerrar sesión</button>
+
+        <!-- Botón para ir a vender otro producto -->
         <button id="btnVender" style="display: none">Vender</button>
       </div>
     </header>
 
-    <!-- FORMULARIO -->
+    <!-- SECCIÓN PRINCIPAL: Formulario para publicar productos -->
     <section class="form-vender">
       <h2>Publicar un producto</h2>
+
+      <!-- Contenedor del formulario -->
       <div class="form-container">
+        <!-- Nombre del artículo -->
         <input
           type="text"
           id="prodNombre"
           placeholder="Nombre del producto"
           required
         />
+
+        <!-- Categoría (select obligatorio) -->
         <select id="prodCategoria" required>
           <option value="">Selecciona categoría</option>
           <option value="ropa">Ropa</option>
@@ -39,19 +56,30 @@
           <option value="hogar">Hogar</option>
           <option value="deportes">Deportes</option>
         </select>
+
+        <!-- Descripción del producto -->
         <textarea id="prodDesc" placeholder="Descripción" required></textarea>
+
+        <!-- Precio del producto -->
         <input
           type="number"
           id="prodPrecio"
           placeholder="Precio (€)"
           required
         />
+
+        <!-- Subida de imagen del producto -->
         <input type="file" id="prodImagen" accept="image/*" required />
+
+        <!-- Botón principal para publicar -->
         <button id="btnPublicar">Publicar</button>
       </div>
+
+      <!-- Mensaje de éxito o error -->
       <p id="mensaje" class="mensaje"></p>
     </section>
 
+    <!-- Script encargado de manejar todo el proceso de publicación -->
     <script src="js/vender.js"></script>
   </body>
 </html>

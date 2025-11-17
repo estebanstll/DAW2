@@ -2,33 +2,50 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Hace que la página se adapte bien a móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Finalizar compra - REMARK</title>
+
+    <!-- Estilos específicos de la página de checkout -->
     <link rel="stylesheet" href="styles/checkout.css" />
+
+    <!-- Librería de iconos FontAwesome -->
     <script
       src="https://kit.fontawesome.com/a2e0f1c5b4.js"
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
+    <!-- CABECERA DEL CHECKOUT -->
     <header class="checkout-header">
+      <!-- Logo que vuelve al inicio al hacer clic -->
       <h1 onclick="location.href='index.html'">REMARK</h1>
+
+      <!-- Indicador de proceso -->
       <span>🛒 Finalizar compra</span>
     </header>
 
     <main class="checkout">
+      <!-- RESUMEN DEL PRODUCTO SELECCIONADO -->
       <section class="resumen">
         <h2>Resumen del producto</h2>
+
+        <!-- Aquí se insertará dinámicamente la información del producto -->
         <div id="productoResumen" class="producto-resumen"></div>
       </section>
 
+      <!-- FORMULARIO DE DATOS DE ENVÍO -->
       <form id="formCheckout" class="formulario">
         <h2>Datos de envío</h2>
 
+        <!-- Campo: Dirección -->
         <div class="campo">
-          <label for="direccion"
-            ><i class="fas fa-map-marker-alt"></i> Dirección</label
-          >
+          <label for="direccion">
+            <i class="fas fa-map-marker-alt"></i> Dirección
+          </label>
+
           <input
             type="text"
             id="direccion"
@@ -37,20 +54,28 @@
           />
         </div>
 
+        <!-- Campo: Ciudad -->
         <div class="campo">
-          <label for="ciudad"><i class="fas fa-city"></i> Ciudad</label>
+          <label for="ciudad"> <i class="fas fa-city"></i> Ciudad </label>
+
           <input type="text" id="ciudad" placeholder="Ej. Madrid" required />
         </div>
 
+        <!-- Campo: Código postal -->
         <div class="campo">
-          <label for="cp"><i class="fas fa-mail-bulk"></i> Código Postal</label>
+          <label for="cp">
+            <i class="fas fa-mail-bulk"></i> Código Postal
+          </label>
+
           <input type="text" id="cp" placeholder="Ej. 28001" required />
         </div>
 
+        <!-- Botón para continuar al siguiente paso del proceso -->
         <button type="submit" class="btn-pago">Continuar al pago</button>
       </form>
     </main>
 
+    <!-- Script con la lógica del checkout -->
     <script src="js/checkout.js"></script>
   </body>
 </html>
