@@ -1,0 +1,202 @@
+body{
+margin: 0;
+}
+
+.menu1 {
+    background: #6DF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    
+}
+
+#logo {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu1 a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu1 a:hover {
+    background: #EFF;
+}
+
+
+
+#negro {
+    background: #444;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+
+#servicios {
+    background-color: #60F;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+
+
+#card {
+    width: 94%;
+    background: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 30px 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#card h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #60F;
+}
+
+.servi{
+display: flex;
+justify-content: space-around;
+
+
+}
+
+
+#servicio1,
+#servicio2,
+#servicio3 {
+    background: #6DF;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+#servicio1:hover{
+transform: scaleY(1.05);
+
+}
+#servicio2:hover {
+    transform: scaleY(1.05);
+
+}
+#servicio3:hover {
+    transform: scaleY(1.05);
+
+}
+
+
+#servicio1 h1,
+#servicio2 h1,
+#servicio3 h1 {
+    font-size: 1.4rem;
+    margin: 0 0 8px 0;
+    color: #222;
+}
+
+#servicio1 p,
+#servicio2 p,
+#servicio3 p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.tabla1 th,
+.tabla1 td {
+    padding: 10px;
+    text-align: center;
+}
+.tabla1 th{
+    background-color: #60F;
+}
+.tabla1 {
+    width: 100%;
+    border-collapse: collapse;
+}
+.total {
+    background-color: #bdc3c7;
+}
+
+
+.cambia:hover{
+    background-color: #6DF;
+}
+
+
+
+#card form {
+    width:30%;
+    display: flex;
+    margin-left: 35%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6DF;
+}
+
+#card label {
+    padding: .4rem .8rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+#card input {
+    padding: .4rem .6rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+#card button[type="submit"] {
+    margin-top: 1.5rem;
+    align-self: center;
+    background-color: #60F;
+    color: #fff;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+#card button[type="submit"]:hover {
+    background: #003a7a;
+}
+
+
+
+footer{
+    background: #444;
+    text-align: center;
+}
+
+
+
+
+
+
+@media (max-width:768px) {
+    .servicios-wrapper {
+        flex-direction: column;
+    }
+}

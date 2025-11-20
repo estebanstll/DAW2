@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Esteban Santolalla Reinares</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+    
+    <nav class="menu1">
+        <div id="logo">Mi maravillosa web</div>
+    
+        <div class="links">
+            <a href="#negro">Inicio</a>
+            <a href="#servicio1">Servicios</a>
+            <a href="#datos">Datos</a>
+            <a href="#footer">Contacto</a>
+        </div>
+    </nav>
+
+
+    <div id="negro">
+        <strong id="enunciado">Bienvenido a mi maravillosa web</strong>
+        <p>¡¡¡SORPRESA!!!</p>
+        <button id="servicios" href="#servicio1">Ver servicios</button>
+
+        <div id="card">
+            
+            <h1>Nuestros Servicios</h1>
+            <div class="servi">
+
+                <div id="servicio1">
+                <h1> Servicio 1</h1>
+                <p>Diseño web limpio y funcional</p>
+                </div>
+
+                <div id="servicio2">
+                    <h1> Servicio 2</h1>
+                    <p>optimizacion para difusion dispositivos</p>
+                </div>
+
+                <div id="servicio3">
+                    <h1> Servicio 3</h1>
+                    <p>soporte tecnico y mantenimiento</p>
+                </div>
+
+            </div>
+            
+        </div>
+
+
+        <div id="card">
+            <table class="tabla1">
+                <h1>Tabla de ejemplo</h1>
+                <tr>
+                    <th>producto</th>
+                    <th>Precio unitario</th>
+                    <th>cantidad</th>
+                    <th>Total</th>
+                </tr>
+                <tr class="cambia">
+                    <td>Laptop</td>
+                    <td>1200</td>
+                    <td>15</td>
+                    <td>18000</td>
+                </tr>
+                <tr class="cambia">
+                    <td>Monitor</td>
+                    <td>450</td>
+                    <td>20</td>
+                    <td>9000</td>
+                </tr>
+                <tr class="cambia">
+                    <td>teclado</td>
+                    <td>90</td>
+                    <td>50</td>
+                    <td>4500</td>
+                </tr>
+
+                <tr>
+                    <td class="total"><strong>Total</strong></td>
+                    <td class="total"></td>
+                    <td class="total"></td>
+                    <td class="total"><strong>31500</strong></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="card">
+        
+            <h1 id="datos">Datos</h1>
+            
+            <form class="datos" action="#" method="post">
+                <label>Edad (18 a 65):</label>
+                <input type="number" min="18" max="65" maxlength="2" title="La edad tiene que estar entre 18 y 65" required/><br /><br />
+            
+                <label>Nombre:</label>
+                <input type="text" pattern="[A-Za-zÀ-ÿ\s]+" maxlength="30" title="Solo puedes meter letras ya que es un nombre" required/><br /><br />
+            
+                <label>DNI:</label>
+                <input type="text" pattern="\d{8}[A-Za-z]" maxlength="9" title="Mete un dni correcto" required/><br /><br />
+                <button type="submit">Enviar</button>
+            </form>
+        
+        </div>
+    </div>
+
+<footer id="footer">2025 Esteban Santolalla Todos los derechos reservados</footer>
+</body>
+</html>
