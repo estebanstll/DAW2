@@ -1,0 +1,74 @@
+/* GENERAL */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================
+        TABLA 1
+===================== */
+.tabla1 th,
+.tabla1 td {
+  border: 2px solid black;
+  padding: 10px;
+  text-align: center;
+}
+.tabla1 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* =====================
+        TABLA 2
+===================== */
+.tabla2 th,
+.tabla2 td {
+  border: 1px solid #555;
+  padding: 10px;
+  text-align: center;
+}
+.tabla2 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stock-alto {
+  background: #b6f7b0;
+}
+.stock-medio {
+  background: #f9ec8c;
+}
+.stock-bajo {
+  background: #f7a5a5;
+}
+
+/* =====================
+        TABLA 3
+===================== */
+.tabla3 {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabla3 th,
+.tabla3 td {
+  border: 1px solid #666;
+  padding: 10px;
+  text-align: center;
+}
+.tabla3 thead tr:first-child {
+  background: #1e90ff;
+  color: white;
+  font-size: 20px;
+}

@@ -1,0 +1,156 @@
+/* GENERAL */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================
+   1. BORDES
+===================== */
+.borde-solido {
+  border: 3px solid blue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.borde-punteado {
+  border: 3px dotted red;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.borde-redondeado {
+  border: 3px solid green;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* =====================
+   2. MARGEN Y PADDING
+===================== */
+.margen-padding {
+  background: #c7e7f4;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* =====================
+   3. CLASES Y SELECTORES
+===================== */
+.caja {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.rojo {
+  background: red;
+}
+.verde {
+  background: green;
+}
+.azul {
+  background: blue;
+}
+
+.padre p {
+  color: purple;
+  font-weight: bold;
+}
+
+/* =====================
+   4. LISTAS PERSONALIZADAS
+===================== */
+.lista-cuadrada {
+  list-style-type: square;
+}
+
+.lista-sin-vineta {
+  list-style: none;
+}
+
+/* =====================
+   5. CAJAS EN LÍNEA
+===================== */
+.cajas div {
+  display: inline-block;
+  padding: 20px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.caja1 {
+  background: #d7263d;
+}
+.caja2 {
+  background: #009688;
+}
+.caja3 {
+  background: #f2a900;
+}
+
+/* =====================
+   6. POSICIONAMIENTO
+===================== */
+.posicion-container {
+  position: relative;
+  height: 150px;
+}
+
+.esquina {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: yellow;
+  padding: 8px;
+  border: 1px solid #999;
+}
+
+/* =====================
+   7. TRANSICIONES
+===================== */
+.cuadro-transicion {
+  width: 80px;
+  height: 80px;
+  background: #ccc;
+  transition: background 0.4s ease;
+  border: 2px solid #aaa;
+}
+
+.cuadro-transicion:hover {
+  background: pink;
+}
+
+/* =====================
+   8. RESPONSIVE
+===================== */
+.caja-responsive {
+  background: rgb(76, 136, 255);
+  padding: 15px;
+  color: white;
+  border-radius: 8px;
+}
+
+/* Cambia color si la pantalla es menor a 600px */
+@media (max-width: 600px) {
+  .caja-responsive {
+    background: rgb(255, 113, 113);
+  }
+}

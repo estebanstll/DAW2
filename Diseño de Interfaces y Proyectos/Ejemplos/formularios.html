@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicios de Formularios</title>
+    <link rel="stylesheet" href="formularios.css" />
+  </head>
+  <body>
+    <h1>Ejercicios de Formularios</h1>
+
+    <!-- =========================
+         EJERCICIO 1
+    ========================== -->
+    <section class="card">
+      <h2>Ejercicio 1</h2>
+
+      <form>
+        <!-- Checkbox -->
+        <label>Selecciona tus hobbies:</label><br />
+        <input type="checkbox" name="hob" value="musica" /> Música<br />
+        <input type="checkbox" name="hob" value="deporte" /> Deporte<br />
+        <input type="checkbox" name="hob" value="lectura" /> Lectura<br /><br />
+
+        <!-- Radio -->
+        <label>Elige tu color favorito:</label><br />
+        <input type="radio" name="color1" value="rojo" /> Rojo<br />
+        <input type="radio" name="color1" value="azul" /> Azul<br />
+        <input type="radio" name="color1" value="verde" /> Verde<br />
+        <input type="radio" name="color1" value="negro" /> Negro<br /><br />
+
+        <!-- Edad -->
+        <label>Edad (18 a 65):</label>
+        <input type="number" min="18" max="65" maxlength="2" /><br /><br />
+
+        <!-- Sólo letras -->
+        <label>Nombre (solo letras):</label>
+        <input
+          type="text"
+          pattern="[A-Za-zÀ-ÿ\s]+"
+          maxlength="30"
+        /><br /><br />
+
+        <!-- DNI -->
+        <label>DNI:</label>
+        <input type="text" pattern="\d{8}[A-Za-z]" maxlength="9" /><br /><br />
+      </form>
+    </section>
+
+    <!-- =========================
+         EJERCICIO 2
+    ========================== -->
+    <section class="card">
+      <h2>Ejercicio 2</h2>
+
+      <form>
+        <label>Servicios que utilizas:</label><br />
+        <input type="checkbox" value="netflix" /> Netflix<br />
+        <input type="checkbox" value="prime" /> Amazon Prime<br />
+        <input type="checkbox" value="disney" /> Disney+<br /><br />
+
+        <label>¿Qué sistema operativo usas?</label><br />
+        <input type="radio" name="so" value="windows" /> Windows<br />
+        <input type="radio" name="so" value="linux" /> Linux<br />
+        <input type="radio" name="so" value="mac" /> MacOS<br />
+        <input type="radio" name="so" value="otro" /> Otro<br /><br />
+
+        <label>Edad:</label>
+        <input type="number" min="18" max="65" maxlength="2" /><br /><br />
+
+        <label>Ciudad (solo letras):</label>
+        <input
+          type="text"
+          pattern="[A-Za-zÀ-ÿ\s]+"
+          maxlength="30"
+        /><br /><br />
+
+        <label>DNI:</label>
+        <input type="text" pattern="\d{8}[A-Za-z]" maxlength="9" /><br /><br />
+      </form>
+    </section>
+
+    <!-- =========================
+         EJERCICIO 3
+    ========================== -->
+    <section class="card">
+      <h2>Ejercicio 3</h2>
+
+      <form>
+        <label>¿Qué animales te gustan?</label><br />
+        <input type="checkbox" value="perro" /> Perro<br />
+        <input type="checkbox" value="gato" /> Gato<br />
+        <input type="checkbox" value="tortuga" /> Tortuga<br /><br />
+
+        <label>Tipo de cuenta:</label><br />
+        <input type="radio" name="cuenta" value="gratis" /> Gratis<br />
+        <input type="radio" name="cuenta" value="pro" /> Pro<br />
+        <input type="radio" name="cuenta" value="premium" /> Premium<br />
+        <input type="radio" name="cuenta" value="empresarial" />
+        Empresarial<br /><br />
+
+        <label>Edad:</label>
+        <input type="number" min="18" max="65" maxlength="2" /><br /><br />
+
+        <label>Apellido (solo letras):</label>
+        <input
+          type="text"
+          pattern="[A-Za-zÀ-ÿ\s]+"
+          maxlength="30"
+        /><br /><br />
+
+        <label>DNI:</label>
+        <input type="text" pattern="\d{8}[A-Za-z]" maxlength="9" /><br /><br />
+      </form>
+    </section>
+  </body>
+</html>

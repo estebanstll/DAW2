@@ -1,0 +1,95 @@
+/* GENERAL */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================
+        MENÚ 1 – Horizontal
+===================== */
+.menu1 {
+  background: #1e90ff;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+.menu1 a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.menu1 a:hover {
+  text-decoration: underline;
+}
+
+/* =====================
+        MENÚ 2 – Vertical
+===================== */
+.menu2 {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  border-radius: 8px;
+}
+.menu2 a {
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #555;
+}
+.menu2 a:hover {
+  background: #444;
+}
+
+/* =====================
+        MENÚ 3 – Desplegable
+===================== */
+.menu3 {
+  position: relative;
+}
+.dropbtn {
+  background: #1e90ff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown {
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #aaa;
+  min-width: 150px;
+  border-radius: 8px;
+}
+.dropdown-content a {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+.dropdown-content a:hover {
+  background: #eaeaea;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
