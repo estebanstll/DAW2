@@ -1,0 +1,36 @@
+/* Fondo negro para todo el body */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Div grande */
+#granDiv {
+    background-color: #333;
+    width: 90%;
+    /* Ocupa casi todo el ancho de la pantalla */
+    height: 70vh;
+    /* 70% de la altura de la ventana */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* Estilo del input */
+#miInput {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    font-size: 16px;
+}

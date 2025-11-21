@@ -1,4 +1,3 @@
-// Comprobamos si ya existe un usuario almacenado
 const existingUser = localStorage.getItem("user");
 const existingPass = localStorage.getItem("password");
 
