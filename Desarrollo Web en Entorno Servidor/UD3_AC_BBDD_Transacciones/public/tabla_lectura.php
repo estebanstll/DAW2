@@ -2,60 +2,53 @@
 require_once '../src/GestorLectura.php';
 
 try {
-	// Crear el gestor
-	$gestor = new GestorLectura();
-
-	// Llamar al método listar()
-	$lecturas = $gestor->listar();
-
+    $gestor = new GestorLectura();
+    $lecturas = $gestor->listar();
 } catch (Exception $e) {
-	$error = $e->getMessage();
+    $error = $e->getMessage();
 }
 ?>
 
-?>
-
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Visualización de datos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Lecturas</title>
+
 </head>
-
 <body>
-	<h1 style="text-align:center;">Lista de Lecturas</h1>
+    <h1>Lista de Lecturas</h1>
 
-	<?php if (isset($error)): ?>
-		<p style="color:red; text-align:center;"><?php echo $error; ?></p>
-	<?php else: ?>
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Título</th>
-					<th>Autor</th>
-					<th>Páginas</th>
-					<th>Terminado</th>
-					<th>Fecha Lectura</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach ($lecturas as $lectura): ?>
-					<tr>
-						<td><?php echo htmlspecialchars($lectura->id); ?></td>
-						<td><?php echo htmlspecialchars($lectura->titulo_libro); ?></td>
-						<td><?php echo htmlspecialchars($lectura->autor); ?></td>
-						<td><?php echo htmlspecialchars($lectura->paginas); ?></td>
-						<td><?php echo $lectura->terminado ? 'Sí' : 'No'; ?></td>
-						<td><?php echo htmlspecialchars($lectura->fecha_lectura ?? ''); ?></td>
-					</tr>
-				<?php endforeach; ?>
-
-			</tbody>
-		</table>
-	<?php endif; ?>
+    <?php if (isset($error)): ?>
+        <p class="error"><?= htmlspecialchars($error) ?></p>
+    <?php elseif (empty($lecturas)): ?>
+        <p style="text-align:center;">No hay registros para mostrar.</p>
+    <?php else: ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Páginas</th>
+                    <th>Terminado</th>
+                    <th>Fecha Lectura</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($lecturas as $lectura): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($lectura->id) ?></td>
+                        <td><?= htmlspecialchars($lectura->titulo_libro) ?></td>
+                        <td><?= htmlspecialchars($lectura->autor) ?></td>
+                        <td><?= htmlspecialchars($lectura->paginas) ?></td>
+                        <td><?= $lectura->terminado ? 'Sí' : 'No' ?></td>
+                        <td><?= htmlspecialchars($lectura->fecha_lectura ?? '-') ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
 </body>
-
 </html>

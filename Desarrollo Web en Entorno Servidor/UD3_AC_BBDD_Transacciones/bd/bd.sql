@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS lectura (
 
 
 INSERT INTO usuarios (username, password_hash, nombre)
-VALUES ('admin', '{PASSWORD_HASH}', 'Administrador');
+VALUES ('admin', '1234', 'Administrador');
 
 
 INSERT INTO lectura (titulo_libro, autor, paginas, terminado, fecha_lectura, comentario)

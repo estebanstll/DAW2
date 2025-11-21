@@ -1,26 +1,30 @@
 <?php
+// conexion bbdd
 class Conexion {
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "mysql";
-    private $dbname = "hobbies";
-    private PDO $pdo;
+    // Datos de conexión
+    private $host = "localhost";
+    private $usr = "root";
+    private $pswd = "mysql";
+    private $baseDatos = "hobbies";
+    private PDO $conexion;
 
+    // Constr
     public function __construct() {
         try {
-            $this->pdo = new PDO(
-                "mysql:host={$this->servername};dbname={$this->dbname}",
-                $this->username,
-                $this->password
+            $this->conexion = new PDO(
+                "mysql:host={$this->host};dbname={$this->baseDatos}",
+                $this->usr,
+                $this->pswd
             );
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
-            throw new Exception("Connection failed: " . $e->getMessage());
+            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            throw new Exception("No se ha conectado bn: " . $e->getMessage());
         }
     }
 
-    public function getPDO(): PDO {
-        return $this->pdo;
+    // Metdo para obtener la conexion
+    public function obtenerConexion(): PDO {
+        return $this->conexion;
     }
 }
 ?>
