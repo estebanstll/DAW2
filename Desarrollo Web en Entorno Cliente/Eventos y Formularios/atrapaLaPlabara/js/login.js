@@ -22,7 +22,9 @@ maxPuntuacion.textContent =
   " con una puntuacion de " +
   array.puntuacion;
 
+//comprobaciones localStorage
 if (!existingUser || !existingPass) {
+  //si no existe el localstorage entrara aqui
   title.textContent = "Registro inicial";
   btn.textContent = "Registrarse";
   btn.classList.add("h2");
@@ -36,18 +38,20 @@ if (!existingUser || !existingPass) {
     localStorage.setItem("user", user);
     localStorage.setItem("password", pass);
 
-    location.reload();
+    location.reload(); //recarga la ventana y entonces pasa al login porque ya esta creada la contraseña y el usuario
   });
 } else {
+  //si existe entra aqui
   title.textContent = "Iniciar sesión";
   btn.textContent = "Entrar";
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    //sacar datos del localStorage
     const user = document.getElementById("user").value;
     const pass = document.getElementById("password").value;
 
+    //comprobar los datos del input con los del localStorage
     if (user === existingUser && pass === existingPass) {
       window.location.href = "juego.html";
     } else {
