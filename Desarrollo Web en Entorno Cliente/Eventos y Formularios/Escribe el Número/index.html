@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escribe el Número</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Escribe el Número</h1>
+
+    <div id="game-container">
+      <div id="number-box"></div>
+
+      <input
+        type="text"
+        id="input-number"
+        placeholder="Escribe aquí el número"
+      />
+
+      <div id="stats">
+        <p>Puntuación: <span id="score">0</span></p>
+        <p>Vidas: <span id="lives">3</span></p>
+      </div>
+
+      <button id="start-btn">Iniciar Juego</button>
+    </div>
+
+    <div id="game-over" class="hidden">
+      <h2>Fin de la partida</h2>
+      <p>Tu puntuación: <span id="final-score"></span></p>
+      <p>Mejor puntuación: <span id="best-score"></span></p>
+
+      <button id="restart-btn">Reiniciar</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

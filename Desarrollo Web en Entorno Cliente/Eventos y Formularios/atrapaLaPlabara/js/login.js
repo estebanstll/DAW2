@@ -4,6 +4,23 @@ const existingPass = localStorage.getItem("password");
 const title = document.getElementById("title");
 const btn = document.getElementById("btn");
 const form = document.getElementById("form");
+const maxPuntuacion = document.getElementById("best");
+
+// Si no existe bestScore, lo creamos como un objeto
+if (!localStorage.getItem("bestScore")) {
+  localStorage.setItem(
+    "bestScore",
+    JSON.stringify({ nombre: "anónimo", puntuacion: 0 })
+  );
+}
+
+let array = JSON.parse(localStorage.getItem("bestScore"));
+
+maxPuntuacion.textContent =
+  "el mejor jugador es " +
+  array.nombre +
+  " con una puntuacion de " +
+  array.puntuacion;
 
 if (!existingUser || !existingPass) {
   title.textContent = "Registro inicial";

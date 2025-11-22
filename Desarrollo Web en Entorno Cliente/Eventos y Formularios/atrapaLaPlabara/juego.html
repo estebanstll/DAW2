@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo Div e Input</title>
+    <link rel="stylesheet" href="./css/juego.css" />
+  </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ejemplo Div e Input</title>
-        <link rel="stylesheet" href="./css/juego.css">
-    </head>
-
-    <body>
+  <body>
     <div id="granDiv">
-        <p></p>
+      <p id="palabra"></p>
     </div>
-    <input type="text" id="miInput" placeholder="que palabra sera?">
-    </body>
-
+    <input type="text" id="miInput" placeholder="que palabra sera?" />
+    <p id="contador">Aciertos: 0</p>
+    <script src="js/juego.js" type="module" defer></script>
+  </body>
 </html>
