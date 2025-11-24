@@ -102,7 +102,7 @@ setInterval(() => {
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     let textoIntroducido = input.value;
-    //si la palabra a sido adivinada cambiara la posicion en el eje X y en el eje Y, ademas cambia la palabra y es un vuelta a empezar con el interval
+    //si la palabra ha sido adivinada cambiara la posicion en el eje X y en el eje Y, ademas cambia la palabra y es un vuelta a empezar con el interval
     if (textoIntroducido === palabraGenerada) {
       EjexYPalabra();
       contador++;
