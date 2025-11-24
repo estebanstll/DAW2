@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <form action="procesar.php" method="POST" enctype="multipart/form-data">
+      <!-- Validación por filtros -->
+      Email: <input type="text" name="email" /><br /><br />
+      Edad: <input type="text" name="edad" /><br /><br />
+
+      <!-- Subida de archivo -->
+      Selecciona un archivo: <input type="file" name="archivo" /><br /><br />
+
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

@@ -48,7 +48,7 @@ $titulo = $idiomas[$idioma];
 
     <h1><?php echo $titulo; ?></h1>
 
-    <form method="post">
+    <form method="POST">
         <select name="idioma" onchange="this.form.submit()">
             <?php
             foreach ($idiomas as $key => $valor) {
