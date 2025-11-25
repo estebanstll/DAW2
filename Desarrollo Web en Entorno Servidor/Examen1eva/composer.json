@@ -1,0 +1,17 @@
+{
+    "name": "esteban/examen1eva",
+    "description": "examen de la primera evaluacion",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Esteban\\Examen1eva\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "esteban"
+        }
+    ],
+    "require": {}
+}
