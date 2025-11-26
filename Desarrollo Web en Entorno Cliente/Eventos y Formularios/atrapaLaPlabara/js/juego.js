@@ -1,14 +1,13 @@
-//sacar datos DOM
+// Obtener elementos del DOM
 const divGris = document.getElementById("granDiv");
-const palabraAleat = document.getElementById("palabra");
 const input = document.getElementById("miInput");
 const conta = document.getElementById("contador");
 
-//creacion de variables
-let palabraGenerada = null;
+// Variables
+let palabraGenerada = "";
 let contador = 0;
-
-let dificultad = 1000;
+let dificultad = 500; // ms por actualización
+let intervalo = null;
 
 const palabras = [
   "luminaria",
@@ -38,79 +37,94 @@ const palabras = [
   "abismo",
 ];
 
-//comprobar el resultado mas alto y actualizarlo en caso de que sea mejor que el del localStorage
+// Crear la palabra dinámicamente
+const palabraAleat = document.createElement("div");
+palabraAleat.style.position = "absolute";
+palabraAleat.style.fontSize = "24px";
+palabraAleat.style.color = "white";
+divGris.appendChild(palabraAleat);
+
+// Guardar ancho/alto del contenedor
+let ancho = divGris.offsetWidth;
+let alto = divGris.offsetHeight;
+
+// Generadores aleatorios
+function generadorPalabraAleatoria() {
+  return palabras[Math.floor(Math.random() * palabras.length)];
+}
+function generadorPosicionX() {
+  return Math.floor(Math.random() * (ancho - 100));
+}
+
+// Reiniciar palabra arriba
+function resetPalabra() {
+  palabraGenerada = generadorPalabraAleatoria();
+  palabraAleat.textContent = palabraGenerada;
+  palabraAleat.style.left = generadorPosicionX() + "px";
+  palabraAleat.style.top = "0px";
+}
+
+// Mover palabra hacia abajo
+function moverPalabra() {
+  let aleat = Math.floor(Math.random() * palabras.length);
+  let yActual = parseInt(palabraAleat.style.top);
+  let nuevoY = yActual + aleat; // velocidad base de caída
+
+  palabraAleat.style.top = nuevoY + "px";
+
+  // Si toca fondo reiniciar palabra
+  if (nuevoY >= alto - 40) {
+    resetPalabra();
+  }
+}
+
+// Intervalo controlado para permitir reiniciarlo
+function iniciarMovimiento() {
+  if (intervalo) clearInterval(intervalo);
+  if (dificultad < 700) {
+    intervalo = setInterval(moverPalabra, dificultad);
+  }
+  intervalo = setInterval(moverPalabra, dificultad);
+}
+
+// Almacenar best score
 function almacenarbestScore() {
-  const datos = JSON.parse(localStorage.getItem("bestScore"));
+  const datos = JSON.parse(localStorage.getItem("bestScore")) || {
+    puntuacion: 0,
+  };
 
   if (contador > datos.puntuacion) {
-    const nuevobestScore = {
+    const nuevo = {
       nombre: localStorage.getItem("user"),
       puntuacion: contador,
     };
-
-    localStorage.setItem("bestScore", JSON.stringify(nuevobestScore));
+    localStorage.setItem("bestScore", JSON.stringify(nuevo));
   }
 }
 
+// Aumentar dificultad (reduce intervalo)
 function aumentarDif() {
   dificultad = dificultad / 1.1;
+  iniciarMovimiento(); // para aplicar la nueva velocidad
 }
 
-function generadorPalabraAleatoria() {
-  let numeroAleat = Math.floor(Math.random() * palabras.length);
-  return palabras[numeroAleat];
-}
-
-const ancho = divGris.offsetWidth;
-const alto = divGris.offsetHeight;
-
-//generar posiciones aleatorias para la palabra
-function generadorPosicionX() {
-  return Math.floor(Math.random() * ancho);
-}
-
-function generadorPosicionY() {
-  return Math.floor(Math.random() * alto);
-}
-
-//actualizador de la posicion x y de la palabra
-function EjexYPalabra() {
-  let posicionX = generadorPosicionX();
-  palabraGenerada = generadorPalabraAleatoria();
-
-  palabraAleat.style.left = posicionX + "px";
-  palabraAleat.textContent = palabraGenerada;
-}
-//se ejecuta por primera vez el eje x y la palabra para poder guardarlas en sus variables correspondientes y asi luego poder acceder a estas
-EjexYPalabra();
-
-function actualizadorDeY() {
-  let posicionY = generadorPosicionY();
-  palabraAleat.style.top = posicionY + "px";
-
-  if (posicionY >= divGris.offsetHeight - palabraAleat.offsetHeight) {
-    EjexYPalabra();
-  }
-}
-
-setInterval(() => {
-  //intervalo de actualizacion
-  actualizadorDeY();
-}, dificultad);
-
-//evento para saber si se adivina o no la palabra
+// Evento cuando se presiona Enter
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     let textoIntroducido = input.value;
-    //si la palabra ha sido adivinada cambiara la posicion en el eje X y en el eje Y, ademas cambia la palabra y es un vuelta a empezar con el interval
+
     if (textoIntroducido === palabraGenerada) {
-      EjexYPalabra();
       contador++;
-      aumentarDif();
       conta.textContent = "Aciertos: " + contador;
-      almacenarbestScore(); //comprobar si has batido el record o no
-    } else {
-      EjexYPalabra();
+      aumentarDif();
+      almacenarbestScore();
     }
+
+    resetPalabra();
+    input.value = ""; // limpiar campo
   }
 });
+
+// Inicializar todo
+resetPalabra();
+iniciarMovimiento();
