@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tareas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Tareas</h1>
+    </header>
+
+    <main>
+      <section aria-labelledby="configuracion">
+        <h2 id="configuracion">Configuración del Juego</h2>
+        <form id="form-juego">
+          <label for="Tarea">Tarea:</label>
+          <input type="text" id="Tarea" />
+
+          <button type="button" id="generar">Generar tarea</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="tablero">
+        <h2 id="tablero">Tablero</h2>
+        <div id="tablero-container"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

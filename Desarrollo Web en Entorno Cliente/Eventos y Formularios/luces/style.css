@@ -1,0 +1,36 @@
+/* Estilo base de todas las luces */
+.luces {
+  width: 50px; /* ancho de la luz */
+  height: 50px; /* alto de la luz */
+  margin: 5px; /* espacio entre luces */
+  display: inline-flex; /* para centrar el contenido */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* forma circular */
+  background-color: gray; /* color por defecto (apagado) */
+  color: white; /* color del texto */
+  font-weight: bold;
+  cursor: pointer; /* cambia el cursor al pasar sobre la luz */
+  user-select: none; /* evita que se seleccione el texto */
+  transition: background-color 0.3s; /* efecto suave al cambiar */
+}
+
+/* Estado encendido */
+.luces.encendido {
+  background-color: green;
+}
+
+/* Estado apagado */
+.luces.apagado {
+  background-color: gray;
+}
+
+/* Contenedor tipo grid para que se vea más ordenado */
+#luces-container {
+  display: grid;
+  grid-gap: 5px; /* espacio entre luces */
+  grid-template-columns: repeat(
+    auto-fill,
+    50px
+  ); /* se ajusta al tamaño del contenedor */
+}
