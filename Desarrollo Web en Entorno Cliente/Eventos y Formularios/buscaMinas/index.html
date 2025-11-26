@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscaminas Simplificado</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Buscaminas Simplificado</h1>
+    </header>
+
+    <main>
+      <section aria-labelledby="configuracion">
+        <h2 id="configuracion">Configuración del Juego</h2>
+        <form id="form-juego">
+          <label for="filas">Filas:</label>
+          <input type="number" id="filas" min="2" value="5" />
+
+          <label for="columnas">Columnas:</label>
+          <input type="number" id="columnas" min="2" value="5" />
+
+          <label for="bombas">Número de Bombas:</label>
+          <input type="number" id="bombas" min="1" value="5" />
+
+          <button type="button" id="generar">Generar Juego</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="tablero">
+        <h2 id="tablero">Tablero</h2>
+        <div id="tablero-container"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Buscaminas Simplificado</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserva de Asientos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Sistema de Reserva de Asientos</h1>
+    </header>
+
+    <main>
+      <section aria-labelledby="configuracion">
+        <h2 id="configuracion">Configuración de Asientos</h2>
+        <form id="form-asientos">
+          <label for="filas">Filas:</label>
+          <input type="number" id="filas" min="1" value="5" />
+
+          <label for="columnas">Columnas:</label>
+          <input type="number" id="columnas" min="1" value="5" />
+
+          <button type="button" id="generar">Generar Asientos</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="asientos">
+        <h2 id="asientos">Asientos Disponibles</h2>
+        <div id="asientos-container"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Sistema de Reserva de Asientos</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

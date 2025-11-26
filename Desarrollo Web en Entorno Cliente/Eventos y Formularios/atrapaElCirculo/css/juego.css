@@ -1,0 +1,85 @@
+/* ===== RESET BÁSICO ===== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ===== CABECERA ===== */
+header {
+  padding: 15px 0;
+  background-color: #2c3e50;
+  color: white;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  border-radius: 8px 8px 0 0;
+  margin-top: 20px;
+}
+
+/* ===== PUNTUACIÓN ===== */
+body p {
+  margin-top: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ===== CONTENEDOR DEL JUEGO ===== */
+#contenedor {
+  width: 800px;
+  height: 500px;
+  margin: 0;
+
+  border: 3px solid #3498db;
+  background-color: #ecf0f1;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  position: relative; /* NECESARIO para left/top del círculo */
+  overflow: hidden; /* evita que el círculo se salga visualmente */
+}
+
+/* ===== CÍRCULO ===== */
+#contenedor button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 0;
+
+  font-size: 1em;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  position: absolute; /* ****** IMPORTANTE ****** */
+  top: 0;
+  left: 0;
+
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Efecto hover */
+#contenedor button:hover {
+  background-color: #c0392b;
+  transform: scale(1.1);
+}
+
+.circulo {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 0;
+  background-color: #e74c3c;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Examen UD7</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      #lista {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .circulo {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gestor de objetos (Examen UD7)</h1>
+
+    <form id="form">
+      <label>Nombre:</label>
+      <input id="nombre" type="text" required minlength="3" />
+
+      <br /><br />
+
+      <label>Categoría:</label>
+      <select id="categoria" required>
+        <option value="">Selecciona</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+
+      <br /><br />
+
+      <label>Color:</label>
+      <input id="color" type="color" required />
+
+      <br /><br />
+
+      <button type="submit">Crear</button>
+    </form>
+
+    <br />
+
+    <label>Filtrar por categoría:</label>
+    <select id="filtro">
+      <option value="todos">Todos</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+
+    <div id="lista"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

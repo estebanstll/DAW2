@@ -17,7 +17,10 @@ function renderPokemons() {
   const pokemons = obtenerPokemons();
 
   const filtrados = pokemons.filter(
-    (p) => !p.eliminado && p.nombre.toLowerCase().includes(textoFiltro)
+    (p) =>
+      !p.eliminado &&
+      (p.nombre.toLowerCase().includes(textoFiltro) ||
+        p.tipo.toLowerCase().includes(textoFiltro))
   );
 
   if (!filtrados.length) {
