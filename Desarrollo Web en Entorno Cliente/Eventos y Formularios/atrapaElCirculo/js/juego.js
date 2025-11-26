@@ -13,7 +13,6 @@ if (!localStorage.getItem("maxPunt")) {
 let ancho = juego.offsetWidth;
 let alto = juego.offsetHeight;
 
-// Funciones para generar posiciones aleatorias
 function generadorPosicionX() {
   return Math.floor(Math.random() * (ancho - 50));
 }
@@ -25,13 +24,15 @@ function crearCirculo() {
   cir.style.left = generadorPosicionX() + "px";
   cir.style.top = "0px";
 
-  juego.appendChild(cir);
+  cir.eliminado = false; // 👈 bandera
 
-  // Añadimos el círculo al array
+  juego.appendChild(cir);
   circulosActivos.push(cir);
 
-  // CLICK EN EL CÍRCULO → SUMA PUNTOS Y SE ELIMINA
+  // CLICK → suma puntos y elimina el círculo sin perder vida
   cir.addEventListener("click", () => {
+    cir.eliminado = true; // 👈 marcar que fue eliminado por click
+    clearInterval(cir.intervalo); // detener caída
     contador++;
     pun.textContent = "puntuación: " + contador;
     eliminarCirculo(cir);
@@ -44,15 +45,28 @@ function moverCirculo(cir) {
   let pos = 0;
 
   const intervalo = setInterval(() => {
-    pos += 3; // velocidad de caída
+    // Si ya está eliminado, no seguir procesando
+    if (cir.eliminado) {
+      clearInterval(intervalo);
+      return;
+    }
+
+    pos += 3;
     cir.style.top = pos + "px";
 
     if (pos >= alto - 50) {
       clearInterval(intervalo);
+
+      if (!cir.eliminado) {
+        // 👈 ❗ SOLO QUITA VIDA si NO fue clicado
+        perderVida();
+      }
+
       eliminarCirculo(cir);
-      perderVida();
     }
   }, 30);
+
+  cir.intervalo = intervalo;
 }
 
 function eliminarCirculo(cir) {
@@ -68,5 +82,4 @@ function perderVida() {
   }
 }
 
-// Crear un círculo cada segundo
 setInterval(crearCirculo, 1000);

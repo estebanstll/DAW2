@@ -8,10 +8,14 @@ if (!localStorage.getItem("max")) {
 }
 
 let contador = 0;
+let vidas = 5; // 👈 número de vidas inicial
+btn.fueClickeado = false; // 👈 bandera
 
-btn.addEventListener("click", (e) => {
+btn.addEventListener("click", () => {
   contador++;
   out.textContent = "¡¡¡¡lo atrapaste un total de " + contador + " veces!!!!";
+
+  btn.fueClickeado = true; // 👈 marcar que sí se hizo click
 });
 
 function generadorPosicionX() {
@@ -25,15 +29,29 @@ function generadorPosicionY() {
 }
 
 setInterval(() => {
+  // 👇 si no fue clicado antes del movimiento → perder vida
+  if (!btn.fueClickeado) {
+    vidas--;
+
+    if (vidas <= 0) {
+      alert("Fin del juego. Puntuación: " + contador);
+      window.location.reload();
+    }
+  }
+
+  // 👇 reseteamos la bandera para el siguiente movimiento
+  btn.fueClickeado = false;
+
+  // mueve el botón
   btn.style.left = generadorPosicionX() + "px";
   btn.style.top = generadorPosicionY() + "px";
 
+  // actualizar récord
   let maximo = localStorage.getItem("max");
-
-  if (maximo < contador) {
+  if (contador > maximo) {
     localStorage.setItem("max", contador);
   }
 
   max.textContent =
-    "la maxima puntuacion registrada es de " + localStorage.getItem("max");
+    "La máxima puntuación registrada es de " + localStorage.getItem("max");
 }, 1000);
