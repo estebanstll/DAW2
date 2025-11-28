@@ -1,80 +1,350 @@
+:root {
+  --size-cell: 38px;
+  --gap: 4px;
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --text: #1f2937;
+  --border: #e5e7eb;
+}
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 body {
-  padding: 20px;
-  background-color: #f5f5f5;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header,
 footer {
+  background: var(--card);
+  padding: 1rem;
   text-align: center;
-  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+/* Layout Principal */
 main {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: white;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 20px;
-  border-radius: 8px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-form {
+/* Sidebar de Configuración */
+.config {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+}
+
+.config h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.btn-group {
   display: flex;
   gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-input {
-  width: 60px;
-  padding: 5px;
+  margin-top: 15px;
 }
 
 button {
-  padding: 6px 12px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  flex: 1;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: var(--text);
+}
+
+.btn-small {
+  background: #f3f4f6;
+  color: var(--text);
+  width: 100%;
+  margin-top: 5px;
+  border: 1px solid var(--border);
+}
+
+/* Info Panel */
+.info-panel {
+  display: flex;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.mensaje {
+  margin-top: 15px;
+  text-align: center;
+  min-height: 20px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Leaderboard */
+.leaderboard-area {
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+}
+
+.ranking {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  background: #f9fafb;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.ranking ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.ranking li {
+  margin-bottom: 4px;
 }
 
 /* Tablero */
-#tablero-container {
-  display: grid;
-  gap: 5px;
-  margin-top: 20px;
+.tablero-area {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
 }
 
-/* Celdas */
+.tablero {
+  display: grid;
+  gap: var(--gap);
+  padding: 10px;
+  background: #dbeafe;
+  /* Fondo azul muy claro */
+  border-radius: 12px;
+  user-select: none;
+}
+
 .celda {
-  width: 40px;
-  height: 40px;
-  background-color: #c0c0c0;
+  width: var(--size-cell);
+  height: var(--size-cell);
+  background: #ffffff;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  user-select: none;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s;
 }
 
+.celda:hover:not(.revelada) {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.celda:active:not(.revelada) {
+  transform: scale(0.95);
+}
+
+/* Estados de Celda */
 .celda.revelada {
-  background-color: #e0e0e0;
+  background: #e2e8f0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   cursor: default;
-}
-
-.celda.bomba {
-  background-color: red;
-  color: white;
+  transform: none;
 }
 
 .celda.bandera {
-  background-color: yellow;
+  background: #fffbeb;
+}
+
+.celda.bandera::after {
+  content: "🚩";
+  font-size: 20px;
+}
+
+.celda.bomba.revelada {
+  background: #fee2e2;
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Colores de números */
+.celda[data-num="1"] {
+  color: #2563eb;
+}
+
+.celda[data-num="2"] {
+  color: #16a34a;
+}
+
+.celda[data-num="3"] {
+  color: #dc2626;
+}
+
+.celda[data-num="4"] {
+  color: #7c3aed;
+}
+
+.celda[data-num="5"] {
+  color: #ea580c;
+}
+
+.celda[data-num="6"] {
+  color: #0891b2;
+}
+
+.celda[data-num="7"] {
+  color: #475569;
+}
+
+.celda[data-num="8"] {
+  color: #1f2937;
+}
+
+/* Efectos Globales */
+.victoria .celda {
+  animation: winPulse 1s infinite alternate;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes winPulse {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.1);
+    box-shadow: 0 0 10px #3b82f6;
+  }
+}
+
+/* Copia y pega esto al final de tu styles.css reemplazando la anterior .hidden */
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-contenido {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-contenido input {
+  margin: 15px 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.modal-botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }

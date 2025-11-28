@@ -1,43 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buscaminas Simplificado</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Buscaminas Simplificado</h1>
-    </header>
 
-    <main>
-      <section aria-labelledby="configuracion">
-        <h2 id="configuracion">Configuración del Juego</h2>
-        <form id="form-juego">
-          <label for="filas">Filas:</label>
-          <input type="number" id="filas" min="2" value="5" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buscaminas Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-          <label for="columnas">Columnas:</label>
-          <input type="number" id="columnas" min="2" value="5" />
+<body>
+  <header>
+    <h1>Buscaminas Pro</h1>
+  </header>
 
-          <label for="bombas">Número de Bombas:</label>
-          <input type="number" id="bombas" min="1" value="5" />
+  <main>
+    <section aria-labelledby="configuracion" class="config">
+      <h2 id="configuracion">Opciones</h2>
+      <form id="form-juego" onsubmit="return false;">
+        <div class="form-group">
+          <label for="filas">Filas (máx 30):</label>
+          <input type="number" id="filas" min="5" max="30" value="10" />
+        </div>
 
-          <button type="button" id="generar">Generar Juego</button>
-        </form>
-      </section>
+        <div class="form-group">
+          <label for="columnas">Columnas (máx 30):</label>
+          <input type="number" id="columnas" min="5" max="30" value="10" />
+        </div>
 
-      <section aria-labelledby="tablero">
-        <h2 id="tablero">Tablero</h2>
-        <div id="tablero-container"></div>
-      </section>
-    </main>
+        <div class="form-group">
+          <label for="bombas">Bombas:</label>
+          <input type="number" id="bombas" min="1" value="15" />
+        </div>
 
-    <footer>
-      <p>© 2025 Buscaminas Simplificado</p>
-    </footer>
+        <div class="btn-group">
+          <button type="button" id="generar" class="btn-primary">Nueva Partida</button>
+          <button type="button" id="reiniciar" class="btn-secondary">Reiniciar</button>
+        </div>
+      </form>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="info-panel">
+        <div class="stat">🚩<span id="banderas-restantes">0</span></div>
+        <div class="stat">⏱️<span id="tiempo">00:00</span></div>
+      </div>
+
+      <div aria-live="polite" id="mensaje" class="mensaje" role="status"></div>
+
+      <div class="leaderboard-area">
+        <h3>Top 5 Tiempos</h3>
+        <button id="ver-ranking" class="btn-small">Ver Ranking</button>
+        <div id="ranking" class="ranking hidden"></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="tablero-titulo" class="tablero-area">
+      <h2 id="tablero-titulo" class="sr-only">Tablero de Juego</h2>
+      <div class="tablero-wrapper">
+        <div id="tablero-container" class="tablero" role="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal-nombre" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-contenido">
+      <h3>¡Has Ganado!</h3>
+      <p>Introduce tu nombre para el ranking:</p>
+      <input type="text" id="input-nombre" maxlength="15" placeholder="Tu nombre" />
+      <div class="modal-botones">
+        <button id="guardar-nombre" class="btn-primary">Guardar</button>
+        <button id="cancelar-nombre" class="btn-secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Buscaminas</p>
+  </footer>
+
+  <script src="script.js" type="module" defer></script>
+</body>
+
 </html>
