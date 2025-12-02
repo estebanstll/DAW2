@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hunter Grid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Hunter Grid</h1>
+
+        <form id="configForm" class="config">
+            <div class="field"><label>Filas <input id="rows" type="number" min="3" max="10" value="5" required></label>
+            </div>
+            <div class="field"><label>Columnas <input id="cols" type="number" min="3" max="10" value="5"
+                        required></label></div>
+            <div class="field"><label>Velocidad (ms) <input id="speed" type="number" min="200" max="800" value="500"
+                        required></label></div>
+            <div class="field"><label>Trampas <input id="traps" type="number" min="1" value="3" required></label></div>
+            <div class="actions">
+                <button type="submit">Iniciar partida</button>
+                <button type="button" id="loadConfig">Cargar configuración</button>
+            </div>
+        </form>
+
+        <section id="panel" class="panel hidden">
+            <div>Vidas: <span id="lives">3</span></div>
+            <div>Capturas: <span id="captures">0</span>/10</div>
+            <div>Tiempo: <span id="time">0</span>s</div>
+        </section>
+
+        <div id="grid" class="grid"></div>
+
+        <!-- popups simples -->
+        <dialog id="resultDialog">
+            <p id="resultText"></p>
+            <menu>
+                <button id="playAgain">Volver a jugar</button>
+            </menu>
+        </dialog>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+:root {
+    --gap: 10px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f7f7f9;
+    color: #222
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto
+}
+
+h1 {
+    margin: 0 0 12px
+}
+
+.config {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.field {
+    display: flex;
+    flex-direction: column
+}
+
+.field label {
+    font-size: 14px
+}
+
+.field input {
+    padding: 6px 8px;
+    margin-top: 6px;
+    width: 120px
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    background: #fff;
+    cursor: pointer
+}
+
+.panel {
+    display: flex;
+    gap: 18px;
+    margin-top: 16px;
+    padding: 10px 0
+}
+
+.hidden {
+    display: none
+}
+
+.grid {
+    margin-top: 18px;
+    display: grid;
+    gap: 6px
+}
+
+.cell {
+    width: 48px;
+    height: 48px;
+    background: #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    user-select: none
+}
+
+.cell.revealed {
+    background: #f3dcdc
+}
+
+.cell.hunter {
+    outline: 3px solid #2b8aef
+}
+
+.trap-x {
+    font-weight: bold
+}
+
+small.note {
+    display: block;
+    margin-top: 8px;
+    color: #666
+}
+
+/* responsive */
+@media (max-width:520px) {
+    .field input {
+        width: 100%
+    }
+
+    .config {
+        flex-direction: column
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px
+    }
+}
