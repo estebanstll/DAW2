@@ -22,7 +22,6 @@ fclose($fp);
 
 $fp = fopen($archivo, "r");
 
-// Crear directorios si no existen
 if (!is_dir("letras"))
     mkdir("letras");
 if (!is_dir("copiasletras"))
@@ -69,4 +68,3 @@ fclose($fp);
 
 echo "okey";
 
-?>
