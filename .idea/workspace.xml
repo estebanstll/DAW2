@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9366363-873a-4414-8b08-18ded03f27e6" name="Changes" comment="" />
+    <list default="true" id="f9366363-873a-4414-8b08-18ded03f27e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,10 +51,15 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php.debug",
     "settings.editor.splitter.proportion": "0.2324159",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -80,6 +87,7 @@
       <workItem from="1764790187346" duration="81000" />
       <workItem from="1764790432124" duration="1057000" />
       <workItem from="1764791525811" duration="57000" />
+      <workItem from="1764791598957" duration="1557000" />
     </task>
     <servers />
   </component>
