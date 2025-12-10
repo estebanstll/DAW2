@@ -1,0 +1,60 @@
+[21-Nov-2025 14:22:09 Europe/Berlin] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php on line 77
+[24-Nov-2025 16:44:51 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "[", expecting "(" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\principal.php on line 4
+[24-Nov-2025 16:44:53 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "[", expecting "(" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\principal.php on line 4
+[24-Nov-2025 16:45:01 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "[", expecting "(" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\principal.php on line 4
+[24-Nov-2025 16:45:02 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "[", expecting "(" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\principal.php on line 4
+[24-Nov-2025 16:45:15 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "[", expecting "(" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\principal.php on line 4
+[24-Nov-2025 16:45:32 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:45:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:46:32 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:46:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:47:02 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:47:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:47:03 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:47:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:47:03 Europe/Berlin] PHP Warning:  require_once(C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:47:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public/../src/Usuarios.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 10
+[24-Nov-2025 16:49:06 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::lista(), 0 passed in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 18 and exactly 1 expected in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php:67
+Stack trace:
+#0 C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php(18): Usuario::lista()
+#1 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php on line 67
+[24-Nov-2025 16:49:08 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::lista(), 0 passed in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 18 and exactly 1 expected in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php:67
+Stack trace:
+#0 C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php(18): Usuario::lista()
+#1 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php on line 67
+[24-Nov-2025 16:49:09 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::lista(), 0 passed in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 18 and exactly 1 expected in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php:67
+Stack trace:
+#0 C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php(18): Usuario::lista()
+#1 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php on line 67
+[24-Nov-2025 16:49:09 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::lista(), 0 passed in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 18 and exactly 1 expected in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php:67
+Stack trace:
+#0 C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php(18): Usuario::lista()
+#1 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php on line 67
+[24-Nov-2025 16:49:55 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::lista(), 0 passed in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php on line 18 and exactly 1 expected in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php:67
+Stack trace:
+#0 C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\public\usuarios.php(18): Usuario::lista()
+#1 {main}
+  thrown in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\src\Usuario.php on line 67
+[24-Nov-2025 17:02:27 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "usuarios" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\HtmlHelpers.php on line 10
+[24-Nov-2025 17:02:29 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "usuarios" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\HtmlHelpers.php on line 10
+[24-Nov-2025 17:02:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "usuarios" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\HtmlHelpers.php on line 10
+[24-Nov-2025 17:02:51 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "usuarios" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\HtmlHelpers.php on line 10

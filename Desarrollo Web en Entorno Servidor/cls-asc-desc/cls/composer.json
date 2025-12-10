@@ -1,0 +1,17 @@
+{
+    "name": "cls/bbdd",
+    "description": "Actividad 9. Manejo de BBDD.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Cls\\Bbdd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "César López",
+            "email": "clopezs@iescomercio.com"
+        }
+    ],
+    "require": {}
+}

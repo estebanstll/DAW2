@@ -1,0 +1,161 @@
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  syntax error, unexpected '{' in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools/../tools/Config.php on line 5
+ in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 6
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Undefined variable $config in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:30:33 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Undefined variable $config in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:31:26 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Undefined variable $config in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:31:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Undefined variable $config in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:31:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Undefined variable $config in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:32:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 13
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 15
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:33:25 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:34:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:35:54 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:35:56 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:35:57 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:36:02 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:36:03 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 14
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 17
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 18
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:36:04 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Undefined array key "database" in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 16
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 19
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 20
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 21
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 22
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 23
+[21-Nov-2025 13:36:36 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\dwes\ud3\ac-bbdd\cls\tools\Config.php on line 24
