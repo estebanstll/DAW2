@@ -1,0 +1,19 @@
+{
+    "name": "esteban/ud4ac1",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Esteban\\Ud4ac1\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "estebanstll",
+            "email": "estebansantolallar@gmail.com"
+        }
+    ]
+}
