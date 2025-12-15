@@ -67,5 +67,10 @@ class producto
         $this->stock = $stock;
     }
 
+    public function __toString()
+    {
+            return "";
+    }
+
 
 }
