@@ -145,3 +145,19 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+
+
+
+# Variables de entorno y secretos
+.env
+.env.*
+*.env
+*.secret
+*.secrets
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-error.log*
