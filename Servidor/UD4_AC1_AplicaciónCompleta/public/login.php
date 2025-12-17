@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['restaurante_id'] = $user['id'];
             $_SESSION['correo'] = $user['correo'];
 
-            header("Location: panelRestaurante.php");
+            header("Location: categorias.php");
             exit;
         } else {
             $mensaje = "Usuario o contraseña incorrectos.";

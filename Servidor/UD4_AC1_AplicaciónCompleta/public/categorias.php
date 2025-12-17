@@ -25,6 +25,9 @@ try {
     <title>Categorias</title>
 </head>
 <body>
+<p>
+    <a href="logout.php">Logout</a>
+ </p>
 <?php if ($mensaje): ?>
     <p style="color:red;">Error: <?= htmlspecialchars($mensaje) ?></p>
 <?php endif; ?>
