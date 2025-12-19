@@ -1,5 +1,7 @@
 <?php
 
+namespace Esteban\Ud4ac1;
+
 class producto
 {
 

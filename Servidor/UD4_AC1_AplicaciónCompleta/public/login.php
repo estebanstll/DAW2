@@ -11,15 +11,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         $pdo = Conexion::getConexion();
 
-        $stmt = $pdo->prepare(
-            "SELECT * FROM restaurante WHERE correo = ? AND Clave = ?"
-        );
-        $stmt->execute([$correo, $password]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Intentar primero el esquema en minúsculas (restaurante/id/correo)
+        $user = null;
+        try {
+            $stmt = $pdo->prepare("SELECT id, correo FROM restaurante WHERE correo = ? AND Clave = ? LIMIT 1");
+            $stmt->execute([$correo, $password]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (Throwable $ignored) {}
+
+        // Si no existe esa tabla/columnas, probar el esquema en mayúsculas (Restaurante/CodRes/Correo)
+        if (!$user) {
+            try {
+                $stmt = $pdo->prepare("SELECT CodRes AS id, Correo AS correo FROM Restaurante WHERE Correo = ? AND Clave = ? LIMIT 1");
+                $stmt->execute([$correo, $password]);
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (Throwable $ignored) {}
+        }
 
         if ($user) {
-            $_SESSION['restaurante_id'] = $user['id'];
-            $_SESSION['correo'] = $user['correo'];
+            $_SESSION['restaurante_id'] = isset($user['id']) ? (int)$user['id'] : null;
+            $_SESSION['correo'] = $user['correo'] ?? null;
 
             header("Location: categorias.php");
             exit;
