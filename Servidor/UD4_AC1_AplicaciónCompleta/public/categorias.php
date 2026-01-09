@@ -26,8 +26,14 @@ try {
 </head>
 <body>
 <p>
+    <a href="index.php">Ir al índice</a>
+    |
+    <a href="carrito.php">Ir al carrito</a>
+    |
+    <a href="categorias.php">Ir a categorías</a>
+    |
     <a href="logout.php">Logout</a>
- </p>
+</p>
 <?php if ($mensaje): ?>
     <p style="color:red;">Error: <?= htmlspecialchars($mensaje) ?></p>
 <?php endif; ?>

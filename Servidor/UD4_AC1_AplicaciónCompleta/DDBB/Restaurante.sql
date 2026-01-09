@@ -53,22 +53,34 @@ CREATE TABLE PedidoProducto (
 -- INSERTAR CATEGORÍAS
 INSERT INTO Categoria (Nombre, Descripcion)
 VALUES
-('Comidas', 'Platos y alimentos'),
-('Bebidas', 'Bebidas frías y calientes');
+('Comida', 'Platos y alimentos'),
+('Bebidas sin alcohol', 'Refrescos y bebidas no alcohólicas'),
+('Bebidas con alcohol', 'Bebidas alcohólicas');
 
 -- INSERTAR RESTAURANTES CON CLAVE NUMÉRICA SIN ENCRIPTAR
 INSERT INTO Restaurante (Correo, Clave, CP, Pais, Ciudad, Direccion)
 VALUES
 ('resto1@example.com', '1234', '28001', 'España', 'Madrid', 'Calle Mayor 10'),
-('resto2@example.com', '1111', '08001', 'España', 'Barcelona', 'Diagonal 20');
+('resto2@example.com', '1111', '08001', 'España', 'Barcelona', 'Diagonal 20'),
+('estebansantolallar@gmail.com', '1111', '26500', 'España', 'Barcelona', 'Diagonal 20');
 
 -- INSERTAR PRODUCTOS
 INSERT INTO Producto (Nombre, Descripcion, Peso, Stock, idCategoria)
 VALUES
-('Hamburguesa', 'Hamburguesa clásica', 0.50, 40, 1),
-('Bocadillo de Jamón', 'Pan con jamón serrano', 0.40, 25, 1),
-('Tarta de queso', 'Porción de tarta', 0.20, 15, 1),
+('Hamburguesa', 'Hamburguesa de carne con queso', 0.50, 40, 1),
+('Pizza Margarita', 'Pizza clásica con tomate y queso', 0.80, 20, 1),
+('Ensalada César', 'Lechuga, pollo y salsa césar', 0.45, 30, 1);
 
-('Coca-Cola', 'Lata 33cl', 0.33, 100, 2),
-('Café', 'Café caliente', 0.25, 50, 2),
-('Agua Mineral', 'Botella 50cl', 0.50, 80, 2);
+-- BEBIDAS SIN ALCOHOL (idCategoria = 2)
+INSERT INTO Producto (Nombre, Descripcion, Peso, Stock, idCategoria)
+VALUES
+('Coca-Cola', 'Refresco de cola 33cl', 0.33, 100, 2),
+('Agua Mineral', 'Botella de agua 50cl', 0.50, 80, 2),
+('Zumo de Naranja', 'Zumo natural', 0.30, 60, 2);
+
+-- BEBIDAS CON ALCOHOL (idCategoria = 3)
+INSERT INTO Producto (Nombre, Descripcion, Peso, Stock, idCategoria)
+VALUES
+('Cerveza', 'Cerveza rubia 33cl', 0.33, 70, 3),
+('Vino Tinto', 'Copa de vino tinto', 0.20, 50, 3),
+('Whisky', 'Whisky escocés', 0.10, 25, 3);
