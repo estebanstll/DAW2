@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         $pdo = Conexion::getConexion();
 
-        // Intentar primero el esquema en minúsculas (restaurante/id/correo)
+
         $user = null;
         try {
             $stmt = $pdo->prepare("SELECT id, correo FROM restaurante WHERE correo = ? AND Clave = ? LIMIT 1");
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (Throwable $ignored) {}
 
-        // Si no existe esa tabla/columnas, probar el esquema en mayúsculas (Restaurante/CodRes/Correo)
+
         if (!$user) {
             try {
                 $stmt = $pdo->prepare("SELECT CodRes AS id, Correo AS correo FROM Restaurante WHERE Correo = ? AND Clave = ? LIMIT 1");

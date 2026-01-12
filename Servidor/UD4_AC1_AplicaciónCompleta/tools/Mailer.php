@@ -88,10 +88,8 @@ class Mailer
 
         $this->mailer->CharSet = 'UTF-8';
 
-        // IMPORTANTE: el remitente debe ser siempre el mismo que Username
         $this->mailer->setFrom($smtpUser, 'Tienda');
 
-        // Validación temprana para evitar error confuso de autenticación
         if ($this->mailer->Password === '') {
             throw new \RuntimeException('SMTP_PASS no está configurado. Añádelo al archivo config/.env con la contraseña de aplicación de Gmail.');
         }

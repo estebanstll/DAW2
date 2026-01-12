@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../tools/conexion.php';
 require_once __DIR__ . '/../vendor/autoload.php';
-// Carga directa para evitar problemas de autoload si no se ha ejecutado composer dump-autoload
+
 require_once __DIR__ . '/../tools/Mailer.php';
 require_once __DIR__ . '/eliminar_carrito.php';
 
@@ -14,7 +14,7 @@ $error = '';
 $items = $_SESSION['ventas'] ?? [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
-    // Tomar las cantidades directamente del carrito de la sesión
+
     $compra = [];
     foreach (($_SESSION['ventas'] ?? []) as $cod => $cant) {
         $codInt = (int)$cod;
@@ -24,28 +24,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
         }
     }
 
-    // Considerar solo los productos con cantidad positiva para comprar
+
     $codigosCompraPositiva = array_keys(array_filter($compra, function($q){ return (int)$q > 0; }));
 
     try {
         $pdo = Conexion::getConexion();
 
-        // Iniciar transacción: crear pedido, líneas e impactar stock
+
         $pdo->beginTransaction();
 
-        // Obtener CodRes (cliente) por id o correo de sesión probando variaciones de esquema
+
         $codRes = null;
 
-        // 1) Si hay id en sesión, intentar con ambos estilos de nombres
+
         if ($restauranteIdSesion !== null) {
-            // Estilo «Restaurante» con PK CodRes
+
             $stmtIdUpper = $pdo->prepare('SELECT CodRes FROM Restaurante WHERE CodRes = ? LIMIT 1');
             $stmtIdUpper->execute([$restauranteIdSesion]);
             $fila = $stmtIdUpper->fetch(PDO::FETCH_ASSOC);
             if ($fila && isset($fila['CodRes'])) {
                 $codRes = (int)$fila['CodRes'];
             }
-            // Estilo «restaurante» con PK id
+
             if ($codRes === null) {
                 try {
                     $stmtIdLower = $pdo->prepare('SELECT id AS CodRes FROM restaurante WHERE id = ? LIMIT 1');
@@ -55,12 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
                         $codRes = (int)$fila['CodRes'];
                     }
                 } catch (Throwable $ignored) {
-                    // ignorar si esta variante no existe en el esquema
+
                 }
             }
         }
 
-        // 2) Si no se consiguió por id, probar por correo (ambos estilos)
+
         if ($codRes === null && $correoSesion) {
             $stmtCorreoUpper = $pdo->prepare('SELECT CodRes FROM Restaurante WHERE Correo = ? LIMIT 1');
             $stmtCorreoUpper->execute([$correoSesion]);
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
                         $codRes = (int)$fila['CodRes'];
                     }
                 } catch (Throwable $ignored) {
-                    // ignorar si esta variante no existe en el esquema
+
                 }
             }
         }
@@ -86,12 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
             throw new RuntimeException('No se pudo identificar el restaurante del usuario para crear el pedido.');
         }
 
-        // Insertar cabecera del pedido
+
         $stmtPed = $pdo->prepare('INSERT INTO Pedido (Fecha, Enviado, CodRes) VALUES (NOW(), 0, :codRes)');
         $stmtPed->execute([':codRes' => $codRes]);
         $codPed = (int)$pdo->lastInsertId();
 
-        // Preparar sentencias de línea y actualización de stock
+
         $stmtLinea = $pdo->prepare('INSERT INTO PedidoProducto (CodPed, CodProd, Unidades) VALUES (:codPed, :codProd, :unidades)');
         $stmtUpd = $pdo->prepare('UPDATE Producto SET Stock = Stock - :cantidad WHERE CodProd = :cod');
 
@@ -115,14 +115,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
 
         $pdo->commit();
 
-        // Construir resumen para el email
+
         $resumen = "Gracias por su compra. Detalle del pedido #$codPed:\n\n";
         foreach ($compra as $cCod => $cCant) {
             if ((int)$cCant <= 0) continue;
             $resumen .= "Producto $cCod - Unidades: $cCant\n";
         }
 
-        // Enviar correo de confirmación (solo si hay correo válido en sesión)
+
 
             $mailer = new \Esteban\Ud4ac1\Tools\Mailer();
 
@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
 
         vaciarCarrito();
         $items = [];
-        // $mensaje ya puede incluir avisos del bloque de envío
+
         if (!$mensaje) {
             $mensaje = 'Compra realizada correctamente. Pedido registrado y stock actualizado.';
         } else {
