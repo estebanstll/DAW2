@@ -1,0 +1,32 @@
+### Get all tasks
+GET http://localhost:3000/tasks
+Accept: application/json
+
+### Get libro by ID
+GET http://localhost:3000/tasks/6967c5f7cc5772b72c6caaa2
+Accept: application/json
+
+### Delete libro by ID
+DELETE http://localhost:3000/tasks/6967c51d5be784ae486842bf
+Accept: application/json
+
+### Create a new libro
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+  "titulo": "jaja",
+  "autor": "123",
+  "anio": 1995
+}
+
+### Update a libro by ID
+PUT http://localhost:3000/tasks/6967c5e0cc5772b72c6caaa1
+Content-Type: application/json
+
+{
+  "titulo": "Honda",
+  "autor": "CB500F",
+  "anio": 6500,
+  "id":"6967c5f7cc5772b72c6caaa2"
+}
