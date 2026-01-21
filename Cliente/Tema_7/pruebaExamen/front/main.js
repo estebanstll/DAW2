@@ -66,8 +66,8 @@ async function putLibro(tituloOriginal, nuevoLibro) {
 
 // 4 Delete
 
-async function deleteLibro(titulo) {
-  const respuesta = await fetch(`http://localhost:3000/libros/${titulo}`, {
+async function deleteLibro(id) {
+  const respuesta = await fetch(`http://localhost:3000/libro/${id}`, {
     method: "DELETE",
   });
 
@@ -168,16 +168,16 @@ function mostrarDelete() {
 
   const input = document.createElement("input");
   input.id = "deleteTitulo";
-  input.placeholder = "Introduce el título del libro";
+  input.placeholder = "Introduce el id";
 
   const btn = document.createElement("button");
   btn.textContent = "Eliminar";
   btn.addEventListener("click", () => {
-    const titulo = input.value.trim();
+    const id = input.value.trim();
 
-    if (!titulo) return alert("Introduce un título");
+    if (!id) return alert("Introduce un título");
 
-    deleteLibro(titulo);
+    deleteLibro(id);
   });
 
   cont.appendChild(input);
@@ -207,6 +207,7 @@ function pintarLibros() {
   for (const libro of libros) {
     const fila = document.createElement("tr");
     fila.innerHTML = `
+      <td>${libro._id}</td>
       <td>${libro.titulo}</td>
       <td>${libro.autor}</td>
       <td>${libro.anio}</td>

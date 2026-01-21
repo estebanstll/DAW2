@@ -1,0 +1,16 @@
+{
+    "name": "alumno/tienda-pedidos",
+    "description": "Práctica de tienda de pedidos con PHP y POO",
+    "autoload": {
+        "psr-4": {
+            "Acme\\IntranetRestaurante\\": "src/",
+            "Ol\\Tools\\": "tools/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}
