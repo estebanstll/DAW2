@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f3f4f6;
+}
+
+header {
+  background: #1e3a8a;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  max-height: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.card h3 {
+  margin-top: 0.8rem;
+}
+
+/* MODAL */
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.modal-content {
+  width: 80vw;
+  max-width: 900px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  padding: 1.5rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.modal-left img {
+  width: 100%;
+  max-height: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  border-radius: 10px;
+}
+
+.modal-left {
+  flex: 1;
+}
+
+.modal-right {
+  flex: 1;
+}
+
+.modal-right p {
+  margin: 0.5rem 0;
+}
+
+.modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

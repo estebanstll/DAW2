@@ -1,0 +1,63 @@
+### Get all animales
+GET http://localhost:3000/animal
+Accept: application/json
+
+### Get animal by nombre (ID)
+GET http://localhost:3000/animal/Leon
+Accept: application/json
+
+### Delete animal by nombre (ID)
+DELETE http://localhost:3000/animal/Leon
+Accept: application/json
+
+### Create a new animal (POST 1)
+POST http://localhost:3000/animal
+Content-Type: application/json
+
+{
+  "nombre": "Leon",
+  "estado": "Adoptado",
+  "descripcion": "León adulto, activo y en buen estado físico",
+  "img": "leon.jpg"
+}
+
+### Create a new animal (POST 2)
+POST http://localhost:3000/animal
+Content-Type: application/json
+
+{
+  "nombre": "Luna",
+  "estado": "libre",
+  "descripcion": "Luna adulta, activa y en buen estado físico",
+  "img": "luna.jpg"
+}
+
+### Create a new animal (POST 3)
+POST http://localhost:3000/animal
+Content-Type: application/json
+
+{
+  "nombre": "Toby",
+  "estado": "libre",
+  "descripcion": "Perro joven, juguetón y cariñoso",
+  "img": "toby.jpg"
+}
+
+### Create a new animal (POST 4)
+POST http://localhost:3000/animal
+Content-Type: application/json
+
+{
+  "nombre": "Maya",
+  "estado": "Adoptado",
+  "descripcion": "Gata adulta, tranquila y buena con niños",
+  "img": "maya.jpg"
+}
+
+### Update animal by nombre (PUT)
+PUT http://localhost:3000/animal/Leon
+Content-Type: application/json
+
+{
+  "estado": "libre"
+}
