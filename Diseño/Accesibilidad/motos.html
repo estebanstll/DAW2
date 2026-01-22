@@ -5,17 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Guía completa sobre tipos de motos y tecnologías de motores. Información accesible sobre motos deportivas, street, crucero, touring, naked, off-road y más."
+      content="Guía completa sobre tipos de motos y tecnologías de motores."
     />
     <title>Motos - Tipos y Motores | Guía Accesible</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Skip link para accesibilidad de teclado -->
-    <a href="#contenido-principal" class="skip-link"
-      >Ir al contenido principal</a
-    >
-
     <header role="banner">
       <h1>El Mundo de las Motos</h1>
       <p>Guía completa sobre tipos y tecnologías de motores más populares</p>
@@ -23,168 +18,108 @@
 
     <nav role="navigation" aria-label="Navegación principal">
       <ul>
-        <li><a href="#tipos" aria-current="page">Tipos de Motos</a></li>
+        <li><a href="#tipos">Tipos de Motos</a></li>
         <li><a href="#motores">Motores</a></li>
         <li><a href="#comparativa">Comparativa</a></li>
-        <li><a href="#accesibilidad">Accesibilidad</a></li>
       </ul>
     </nav>
 
     <div class="container" id="contenido-principal" role="main">
-      <!-- SECCIÓN DE TIPOS -->
       <section id="tipos" aria-labelledby="heading-tipos">
         <h2 id="heading-tipos">Tipos de Motos</h2>
-        <p>
-          Las motocicletas se clasifican según su diseño y propósito. Conoce los
-          diferentes tipos disponibles en el mercado:
-        </p>
+        <p>Las motocicletas se clasifican según su diseño y propósito:</p>
 
         <div class="tipos-grid">
           <div class="card">
-            <div class="card-header">
-              <h3>Street</h3>
-            </div>
+            <div class="card-header"><h3>Street</h3></div>
             <div class="card-content">
               <p>
                 Motos diseñadas para carreteras urbanas y autopistas. Ofrecen
-                equilibrio entre rendimiento, comodidad y maniobrabilidad.
+                equilibrio entre rendimiento y comodidad.
               </p>
               <div class="highlight">
                 <strong>Características:</strong> Chasis ligero, motor potente,
-                posición de conducción deportiva
+                posición deportiva.
               </div>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-header">
-              <h3>Deportiva</h3>
-            </div>
+            <div class="card-header"><h3>Deportiva</h3></div>
             <div class="card-content">
               <p>
                 Motos de alto rendimiento optimizadas para velocidad y
-                aceleración extrema. Diseñadas para pilotos experimentados.
+                aceleración extrema.
               </p>
               <div class="highlight">
-                <strong>Características:</strong> Motor de alta cilindrada,
-                aerodinámica avanzada, tecnología de punta
+                <strong>Características:</strong> Alta cilindrada, aerodinámica,
+                tecnología de punta.
               </div>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-header">
-              <h3>Crucero</h3>
-            </div>
+            <div class="card-header"><h3>Crucero</h3></div>
             <div class="card-content">
               <p>
                 Motos cómodas y relajadas para viajes largos. Características
-                clásicas con posición de conducción reclinada.
+                clásicas.
               </p>
               <div class="highlight">
                 <strong>Características:</strong> Asiento bajo, escape cromado,
-                ruedas gruesas, motor torquero
+                motor torquero.
               </div>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-header">
-              <h3>Touring</h3>
-            </div>
+            <div class="card-header"><h3>Touring</h3></div>
             <div class="card-content">
               <p>
-                Diseñadas específicamente para viajes de larga distancia con
-                máximo confort. Incluyen bolsas laterales y parabrisas.
+                Diseñadas para viajes de larga distancia con máximo confort.
               </p>
               <div class="highlight">
                 <strong>Características:</strong> Asiento amplio, protección del
-                viento, espacio de almacenamiento, suspensión confortable
+                viento, almacenamiento.
               </div>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-header">
-              <h3>Naked</h3>
-            </div>
+            <div class="card-header"><h3>Naked</h3></div>
             <div class="card-content">
               <p>
-                Motos sin carenado que muestran el motor y estructura. Versión
-                desnuda de motos deportivas, pero más accesibles.
+                Motos sin carenado que muestran el motor. Versátiles y
+                accesibles.
               </p>
               <div class="highlight">
-                <strong>Características:</strong> Motor deportivo visible,
-                posición vertical, mejor visibilidad, versátil
+                <strong>Características:</strong> Motor visible, posición
+                vertical, mejor visibilidad.
               </div>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-header">
-              <h3>Off-Road</h3>
-            </div>
+            <div class="card-header"><h3>Off-Road</h3></div>
             <div class="card-content">
-              <p>
-                Motos especializadas para terrenos difíciles, barro y tierra.
-                Suspensión reforzada y neumáticos especiales.
-              </p>
+              <p>Especializadas para terrenos difíciles, barro y tierra.</p>
               <div class="highlight">
                 <strong>Características:</strong> Suspensión larga, neumáticos
-                todoterreno, bajo peso, motor versátil
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h3>Scooter/Moto Automática</h3>
-            </div>
-            <div class="card-content">
-              <p>
-                Motos compactas y manejables con transmisión automática. Ideales
-                para principiantes y tráfico urbano.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Transmisión automática, tamaño
-                pequeño, bajo costo, fácil de conducir
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h3>Clásica/Retro</h3>
-            </div>
-            <div class="card-content">
-              <p>
-                Motos de diseño vintage que evocan la era dorada de las
-                motocicletas. Combinan estética retro con tecnología moderna.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Diseño retro, tecnología
-                moderna, motor confiable, aspecto timeless
+                todoterreno, bajo peso.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SECCIÓN DE MOTORES -->
       <section id="motores" aria-labelledby="heading-motores">
         <h2 id="heading-motores">Motores de Motos</h2>
-        <p>
-          Conoce los diferentes tipos de motores disponibles. Cada tecnología
-          tiene características, ventajas y desventajas particulares:
-        </p>
-
         <div class="motores-section">
           <div class="motor-item">
             <h4>Motor de 2 Tiempos</h4>
             <p>
-              Completa un ciclo de combustión en dos movimientos del pistón. Muy
-              potente en relación a su tamaño, pero menos eficiente en
-              combustible.
+              Completa un ciclo en dos movimientos. Potente pero menos
+              eficiente.
             </p>
             <div class="motor-specs">
               <div class="spec">
@@ -192,20 +127,8 @@
                 <div class="spec-value">Muy alta</div>
               </div>
               <div class="spec">
-                <div class="spec-label">Consumo Combustible</div>
+                <div class="spec-label">Consumo</div>
                 <div class="spec-value">Alto</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Emisiones</div>
-                <div class="spec-value">Altas</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Complejidad</div>
-                <div class="spec-value">Media</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Mantenimiento</div>
-                <div class="spec-value">Exigente</div>
               </div>
               <div class="spec">
                 <div class="spec-label">Sonido</div>
@@ -217,137 +140,20 @@
           <div class="motor-item">
             <h4>Motor de 4 Tiempos</h4>
             <p>
-              Completa un ciclo en cuatro movimientos del pistón: admisión,
-              compresión, explosión y escape. Más eficiente y duradero que el de
-              2 tiempos.
+              Admisión, compresión, explosión y escape. Duradero y eficiente.
             </p>
             <div class="motor-specs">
               <div class="spec">
-                <div class="spec-label">Potencia/Peso</div>
-                <div class="spec-value">Media a Alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Consumo Combustible</div>
+                <div class="spec-label">Consumo</div>
                 <div class="spec-value">Bajo</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Emisiones</div>
-                <div class="spec-value">Bajas</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Complejidad</div>
-                <div class="spec-value">Alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Mantenimiento</div>
-                <div class="spec-value">Moderado</div>
               </div>
               <div class="spec">
                 <div class="spec-label">Durabilidad</div>
                 <div class="spec-value">Muy alta</div>
               </div>
-            </div>
-          </div>
-
-          <div class="motor-item">
-            <h4>Motor Monocilíndrico</h4>
-            <p>
-              Un solo cilindro. Económico, ligero y fácil de mantener. Muy común
-              en motos pequeñas y medias.
-            </p>
-            <div class="motor-specs">
               <div class="spec">
-                <div class="spec-label">Cilindrada Típica</div>
-                <div class="spec-value">125cc - 500cc</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Costo</div>
-                <div class="spec-value">Económico</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Vibraciones</div>
-                <div class="spec-value">Moderadas</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Peso</div>
-                <div class="spec-value">Ligero</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Mantenimiento</div>
-                <div class="spec-value">Sencillo</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Aplicación</div>
-                <div class="spec-value">Urbano, aprendizaje</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="motor-item">
-            <h4>Motor Bicilíndrico (Twin)</h4>
-            <p>
-              Dos cilindros dispuestos en diferentes configuraciones: en línea
-              (I2), en V (V-Twin), o en ángulo paralelo. Ofrece equilibrio entre
-              potencia y eficiencia.
-            </p>
-            <div class="motor-specs">
-              <div class="spec">
-                <div class="spec-label">Cilindrada Típica</div>
-                <div class="spec-value">600cc - 1200cc</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Potencia</div>
-                <div class="spec-value">Alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Vibraciones</div>
+                <div class="spec-label">Emisiones</div>
                 <div class="spec-value">Bajas</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Torque</div>
-                <div class="spec-value">Excelente</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Peso</div>
-                <div class="spec-value">Moderado</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Aplicación</div>
-                <div class="spec-value">Street, Crucero, Touring</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="motor-item">
-            <h4>Motor de Cuatro Cilindros (I4)</h4>
-            <p>
-              Cuatro cilindros en línea. Proporciona alta potencia y
-              revoluciones. Muy común en motos deportivas.
-            </p>
-            <div class="motor-specs">
-              <div class="spec">
-                <div class="spec-label">Cilindrada Típica</div>
-                <div class="spec-value">600cc - 1300cc+</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">RPM Máximas</div>
-                <div class="spec-value">14,000 - 16,000+</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Potencia</div>
-                <div class="spec-value">Muy alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Suavidad</div>
-                <div class="spec-value">Excelente</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Complejidad</div>
-                <div class="spec-value">Muy alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Aplicación</div>
-                <div class="spec-value">Deportiva, Street, Racing</div>
               </div>
             </div>
           </div>
@@ -355,15 +161,9 @@
           <div class="motor-item">
             <h4>Motor Eléctrico</h4>
             <p>
-              Tecnología emergente que usa baterías recargables. Cero emisiones,
-              bajo mantenimiento y funcionamiento silencioso. El futuro de la
-              movilidad.
+              Tecnología emergente de cero emisiones y mínimo mantenimiento.
             </p>
             <div class="motor-specs">
-              <div class="spec">
-                <div class="spec-label">Emisiones</div>
-                <div class="spec-value">Cero</div>
-              </div>
               <div class="spec">
                 <div class="spec-label">Mantenimiento</div>
                 <div class="spec-value">Mínimo</div>
@@ -371,14 +171,6 @@
               <div class="spec">
                 <div class="spec-label">Ruido</div>
                 <div class="spec-value">Silencioso</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Alcance</div>
-                <div class="spec-value">200-400 km</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Costo</div>
-                <div class="spec-value">Muy alto</div>
               </div>
               <div class="spec">
                 <div class="spec-label">Futuro</div>
@@ -389,193 +181,39 @@
         </div>
       </section>
 
-      <!-- SECCIÓN COMPARATIVA -->
       <section id="comparativa" aria-labelledby="heading-comparativa">
-        <h2 id="heading-comparativa">Comparativa: Tipos de Motos vs Motores</h2>
-        <p>
-          Una guía comparativa que te ayudará a elegir la moto adecuada según
-          tus necesidades:
-        </p>
-
+        <h2 id="heading-comparativa">Comparativa: Tipos vs Motores</h2>
         <div class="comparativa">
           <div class="comparativa-item">
-            <strong>🏍️ Motos Deportivas</strong>
+            <strong>🏍️ Deportivas</strong>
             <ul>
               <li>Motor I4 de 4 tiempos</li>
-              <li>1000cc+ de cilindrada</li>
-              <li>Máxima velocidad: 300+ km/h</li>
               <li>Aceleración extrema</li>
               <li>Manejo en pista</li>
             </ul>
           </div>
-
           <div class="comparativa-item">
-            <strong>🛣️ Motos Street</strong>
+            <strong>🪑 Crucero</strong>
             <ul>
-              <li>Motor I2 o I4 de 4 tiempos</li>
-              <li>500cc - 1000cc</li>
-              <li>Velocidad: 200-260 km/h</li>
-              <li>Buen rendimiento urbano</li>
-              <li>Versátil y cómoda</li>
+              <li>Motor V-Twin</li>
+              <li>Torque a bajas RPM</li>
+              <li>Viajes relajados</li>
             </ul>
           </div>
-
           <div class="comparativa-item">
-            <strong>🪑 Motos Crucero</strong>
+            <strong>⛰️ Off-Road</strong>
             <ul>
-              <li>Motor V-Twin de 4 tiempos</li>
-              <li>800cc - 1700cc</li>
-              <li>Mucho torque a bajas RPM</li>
-              <li>Viajes relajados y largos</li>
-              <li>Diseño clásico</li>
-            </ul>
-          </div>
-
-          <div class="comparativa-item">
-            <strong>🗺️ Motos Touring</strong>
-            <ul>
-              <li>Motor I2 o I4 de 4 tiempos</li>
-              <li>1200cc+</li>
-              <li>Confort durante horas</li>
-              <li>Bastante equipadas</li>
-              <li>Para aventureros</li>
-            </ul>
-          </div>
-
-          <div class="comparativa-item">
-            <strong>🚁 Motos Naked</strong>
-            <ul>
-              <li>Motor I2 o I4 de 4 tiempos</li>
-              <li>600cc - 1000cc</li>
-              <li>Equilibrio de potencia</li>
-              <li>Mayor visibilidad</li>
-              <li>Fácil de manejar</li>
-            </ul>
-          </div>
-
-          <div class="comparativa-item">
-            <strong>⛰️ Motos Off-Road</strong>
-            <ul>
-              <li>Motor monocilíndrico o I2</li>
-              <li>250cc - 500cc</li>
-              <li>Ligeras y manejables</li>
+              <li>Monocilíndrico</li>
+              <li>Ligeras</li>
               <li>Tracción excelente</li>
-              <li>Aventuras extremas</li>
             </ul>
           </div>
-        </div>
-      </section>
-
-      <!-- SECCIÓN DE ACCESIBILIDAD -->
-      <section
-        id="accesibilidad"
-        aria-labelledby="heading-accesibilidad"
-        class="accesibilidad-section"
-      >
-        <h2 id="heading-accesibilidad">Accesibilidad y Declaración WCAG</h2>
-
-        <div class="accesibilidad-contenido">
-          <article>
-            <h3>Nuestro Compromiso con la Accesibilidad</h3>
-            <p>
-              Estamos comprometidos con la accesibilidad web. Esta página ha
-              sido diseñada y desarrollada siguiendo las directrices WCAG 2.1
-              Nivel AA para garantizar que sea accesible para todas las
-              personas.
-            </p>
-          </article>
-
-          <article>
-            <h3>Medidas de Accesibilidad Implementadas</h3>
-            <ul>
-              <li>
-                <strong>Estructura semántica:</strong> Uso de etiquetas HTML
-                semánticas (nav, main, section, article)
-              </li>
-              <li>
-                <strong>Navegación por teclado:</strong> Todos los elementos son
-                navegables usando TAB y ENTER
-              </li>
-              <li>
-                <strong>Indicadores visuales de foco:</strong> Elementos
-                enfocados muestran un borde y color distintivos
-              </li>
-              <li>
-                <strong>Contraste de colores:</strong> Relación de contraste
-                WCAG AA (mínimo 4.5:1)
-              </li>
-              <li>
-                <strong>Atributos ARIA:</strong> Roles y etiquetas para
-                componentes complejos
-              </li>
-              <li>
-                <strong>Responsive design:</strong> Adapta el contenido a
-                diferentes tamaños de pantalla
-              </li>
-              <li>
-                <strong>Reducción de movimiento:</strong> Respeta las
-                preferencias del usuario sobre animaciones
-              </li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Dispositivos de Asistencia Soportados</h3>
-            <p>Esta página es compatible con:</p>
-            <ul>
-              <li>Lectores de pantalla (NVDA, JAWS, VoiceOver)</li>
-              <li>Navegación por teclado completa</li>
-              <li>Ampliación de zoom hasta 200%</li>
-              <li>Modos de alto contraste</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Contacto y Retroalimentación</h3>
-            <p>
-              ¿Encontraste algún problema de accesibilidad? Tu retroalimentación
-              es importante para mejorar.
-            </p>
-            <div class="contacto-info">
-              <p>
-                <strong>Email:</strong>
-                <a href="mailto:accesibilidad@motos.info"
-                  >accesibilidad@motos.info</a
-                >
-              </p>
-              <p>
-                <strong>Teléfono:</strong>
-                <a href="tel:+34-800-123-456">+34 800 123 456</a>
-              </p>
-              <p>
-                <strong>Horario de atención:</strong> Lunes a Viernes, 9:00 -
-                17:00 (horario estándar)
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <h3>Estándares Aplicados</h3>
-            <ul>
-              <li>WCAG 2.1 Nivel AA (Web Content Accessibility Guidelines)</li>
-              <li>Ley 11/2023 de accesibilidad digital (España)</li>
-              <li>Norma UNE 139803:2012</li>
-            </ul>
-          </article>
         </div>
       </section>
     </div>
 
-    <footer role="contentinfo">
-      <p>
-        &copy; 2026 Guía Completa de Motos. Toda la información que necesitas
-        sobre tipos y motores.
-      </p>
-      <p>Conducción segura y responsable.</p>
-      <p>
-        <a href="#accesibilidad">Declaración de Accesibilidad</a> |
-        <a href="mailto:accesibilidad@motos.info">Reportar problema</a>
-      </p>
+    <footer>
+      <p>&copy; 2026 Guía de Motos. Conducción segura.</p>
     </footer>
   </body>
 </html>
