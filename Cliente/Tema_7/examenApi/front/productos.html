@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Productos</title>
+    <link rel="stylesheet" href="productos.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <h1 class="topbar__title">Productos</h1>
+        <p class="topbar__subtitle">Listado y gestión</p>
+      </div>
+
+      <nav class="topbar__actions" aria-label="Acciones principales">
+        <!-- El alumnado conectará estos botones con JS -->
+        <button class="btn btn--secondary" type="button" id="btnLogout">
+          Cerrar sesión
+        </button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Mensajes/alertas (JS lo rellenará) -->
+      <section class="alert" aria-live="polite" id="alertBox" hidden>
+        <p class="alert__text" id="alertText">Mensaje</p>
+      </section>
+
+      <!-- Formulario: crear producto -->
+      <section class="card" aria-labelledby="createProductTitle">
+        <header class="card__header">
+          <h2 class="card__title" id="createProductTitle">Crear producto</h2>
+          <p class="card__hint">
+            Rellena el formulario y envía (JS se encargará).
+          </p>
+        </header>
+
+        <form class="form" id="productForm" autocomplete="off">
+          <div class="form__row">
+            <label class="form__label" for="name">Nombre</label>
+            <input
+              class="form__input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Ej: Teclado mecánico"
+              required
+            />
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="description">Descripción</label>
+            <textarea
+              class="form__input form__input--textarea"
+              id="description"
+              name="description"
+              placeholder="Describe el producto..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="price">Precio (€)</label>
+            <input
+              class="form__input"
+              type="number"
+              id="price"
+              name="price"
+              placeholder="Ej: 49.99"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit" id="btnCreate">
+              Crear producto
+            </button>
+            <button class="btn btn--ghost" type="reset">Limpiar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Listado: productos del usuario / o todos (admin) -->
+      <section class="card" aria-labelledby="productListTitle">
+        <header class="card__header">
+          <h2 class="card__title" id="productListTitle">
+            Listado de productos
+          </h2>
+          <p class="card__hint">
+            Aquí aparecerán los productos cargados desde la API (JS lo
+            rellenará).
+          </p>
+        </header>
+
+        <!--
+        IMPORTANTE (alumnado):
+        Este contenedor debe maquetarse con FLEXBOX en el CSS.
+        La idea es que cada .product sea una "tarjeta" y que el contenedor
+        .product-list distribuya las tarjetas en filas y se adapte a distintos anchos.
+      -->
+        <div class="product-list" id="productList">
+          <!-- Tarjeta ejemplo (JS la clonará o la generará dinámicamente) -->
+          <article class="product" data-id="__demo__">
+            <div class="product__body">
+              <h3 class="product__name">Producto de ejemplo</h3>
+              <p class="product__desc">
+                Descripción de ejemplo para ver el diseño.
+              </p>
+
+              <p class="product__meta">
+                <span class="badge">49,99 €</span>
+                <span class="muted">Creado por: <strong>usuario</strong></span>
+              </p>
+            </div>
+
+            <div class="product__actions">
+              <!-- Solo visible para admin (JS lo decidirá) -->
+              <button class="btn btn--danger" type="button" disabled>
+                Eliminar
+              </button>
+            </div>
+          </article>
+
+          <!-- Más tarjetas generadas por JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small class="footer__text"
+        >DAW2 — Desarrollo Web en Entorno Cliente</small
+      >
+    </footer>
+    <script src="js/productos.js"></script>
+  </body>
+</html>

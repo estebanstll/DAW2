@@ -1,0 +1,73 @@
+### usuarios
+
+
+
+###
+GET http://localhost:3000/register/eustaquio
+Accept: application/json
+
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "nombre": "eustaquio",
+  "contraseña": "1111",
+  "admin": "0"
+}
+
+
+//productos
+###
+GET http://localhost:3000/products
+Accept: application/json
+
+
+###
+GET http://localhost:3000/products/1
+Accept: application/json
+
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Laptop",
+  "description": "Laptop de última generación",
+  "price": 1299.99,
+  "user": "fido"
+}
+
+
+
+
+
+
+###
+DELETE http://localhost:3000/products/1
+Accept: application/json
+
+
+//logs
+###
+GET http://localhost:3000/logs
+Accept: application/json
+
+###
+
+GET http://localhost:3000/logs/2024-01-23
+Accept: application/json
+
+###
+
+POST http://localhost:3000/logs
+Content-Type: application/json
+
+{
+  "mensaje": "Usuario logueado",
+  "nivel": "INFO",
+  "fecha": "2024-01-23"
+}

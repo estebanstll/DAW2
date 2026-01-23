@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <h1 class="topbar__title">Panel de administración</h1>
+        <p class="topbar__subtitle">Gestión global de productos</p>
+      </div>
+
+      <nav class="topbar__actions" aria-label="Acciones principales">
+        <a class="btn btn--secondary" href="productos.html"
+          >Volver a productos</a
+        >
+        <button class="btn btn--secondary" type="button" id="btnLogout">
+          Cerrar sesión
+        </button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="alert" aria-live="polite" id="alertBox" hidden>
+        <p class="alert__text" id="alertText">Mensaje</p>
+      </section>
+
+      <section class="card" aria-labelledby="adminTitle">
+        <header class="card__header">
+          <h2 class="card__title" id="adminTitle">Todos los productos</h2>
+          <p class="card__hint">
+            Este listado debe contener todos los productos con el usuario
+            creador y opción de eliminar.
+          </p>
+
+          <!-- TODO (ALUMNADO):
+             - Comprobar con el token si el usuario es admin
+             - Si NO es admin: redirigir a productos.html o mostrar mensaje "Acceso denegado"
+             - Hacer GET /products para traer todos los productos (si el backend lo permite para admin)
+        --></header>
+
+        <!--
+        TODO (ALUMNADO - MAQUETACIÓN):
+        - Convertir este contenedor en una tabla o grid/flex (a vuestra elección).
+        - Debe verse claramente: nombre, descripción, precio, creador y botón eliminar.
+        - Consejo: podéis usar display: grid en .admin-list (opcional).
+      -->
+        <div class="admin-list" id="adminList">
+          <!-- Fila demo (JS generará dinámicamente el resto) -->
+          <div class="admin-row admin-row--head" aria-hidden="true">
+            <span>Nombre</span>
+            <span>Descripción</span>
+            <span>Precio</span>
+            <span>Creador</span>
+            <span>Acciones</span>
+          </div>
+
+          <div class="admin-row" data-id="__demo__">
+            <span class="truncate">Producto demo</span>
+            <span class="truncate">Descripción demo para previsualizar.</span>
+            <span>49,99 €</span>
+            <span class="muted"><strong>usuario</strong></span>
+            <span>
+              <button class="btn btn--danger" type="button" disabled>
+                Eliminar
+              </button>
+            </span>
+          </div>
+
+          <!-- TODO (ALUMNADO):
+             - Generar filas con productos reales
+             - Asociar botón eliminar a DELETE /products/:id
+             - Tras borrar, refrescar listado o eliminar fila del DOM
+             - Registrar errores en POST /log
+        --></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small class="footer__text">DAW2 — DWEC</small>
+    </footer>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
