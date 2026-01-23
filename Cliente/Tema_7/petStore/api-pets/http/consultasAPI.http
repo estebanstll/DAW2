@@ -40,7 +40,7 @@ Content-Type: application/json
   "nombre": "Toby",
   "estado": "libre",
   "descripcion": "Perro joven, juguetón y cariñoso",
-  "img": "toby.jpg"
+  "img": "pastor.jpg"
 }
 
 ### Create a new animal (POST 4)
