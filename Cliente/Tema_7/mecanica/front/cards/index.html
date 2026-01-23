@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animales</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="js/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>🐾 Animales</h1>
+    </header>
+
+    <main>
+      <section
+        id="cardsContainer"
+        class="cards"
+        aria-label="Lista de animales"
+      ></section>
+    </main>
+
+    <!-- MODAL (HTML5) -->
+    <dialog id="modal">
+      <div class="modal-content">
+        <button id="modalClose" class="modal-close" aria-label="Cerrar">
+          &times;
+        </button>
+
+        <figure class="modal-left">
+          <img id="modalImg" src="" alt="Foto del animal" />
+        </figure>
+
+        <section class="modal-right">
+          <h2 id="modalNombre"></h2>
+          <p id="modalDescripcion"></p>
+          <p id="modalEstado"></p>
+
+          <div class="modal-buttons">
+            <button id="btnUpdate" type="button">Update</button>
+            <button id="btnDelete" type="button">Delete</button>
+          </div>
+        </section>
+      </div>
+    </dialog>
+  </body>
+</html>

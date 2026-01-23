@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Librería Comercio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="logo">� Comercio de Coches</h1>
+      <nav>
+        <button id="btnHome">Home</button>
+        <button id="btnConsultar">Consultar</button>
+        <button id="btnCrear">Crear</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home">
+        <h2>Bienvenido a la Comercio de Coches</h2>
+        <p>
+          Desde aquí puedes consultar los coches disponibles o añadir uno nuevo
+          a la tienda.
+        </p>
+      </section>
+
+      <!-- CONSULTAR -->
+      <section id="consultar" class="hidden">
+        <h2>Listado de coches</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablacoche"></tbody>
+        </table>
+      </section>
+
+      <!-- CREAR -->
+      <section id="crear" class="hidden">
+        <h2>Crear nuevo coche</h2>
+        <form id="formCrear">
+          <div>
+            <label>Marca</label><br />
+            <input type="text" id="marca" required />
+          </div>
+          <div>
+            <label>Modelo</label><br />
+            <input type="text" id="modelo" required />
+          </div>
+          <div>
+            <label>Imagen</label><br />
+            <input type="text" id="img" required />
+          </div>
+          <button type="submit">Guardar coche</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
