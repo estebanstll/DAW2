@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+td:nth-child(5) form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+td:nth-child(5) input[type="number"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+td:nth-child(5) button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

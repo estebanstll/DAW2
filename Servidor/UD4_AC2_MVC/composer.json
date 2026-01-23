@@ -1,16 +1,19 @@
 {
-    "name": "alumno/tienda-pedidos",
-    "description": "Práctica de tienda de pedidos con PHP y POO",
+    "name": "vespertino/ac_patron-mvc",
     "autoload": {
         "psr-4": {
-            "Acme\\IntranetRestaurante\\": "src/",
-            "Ol\\Tools\\": "tools/"
+            "App\\": "app/",
+            "Core\\": "core/",
+            "Tools\\": "tools/"
         }
     },
+    "authors": [
+        {
+            "name": "rtobiasp01",
+            "email": "161591413+rtobiasp01@users.noreply.github.com"
+        }
+    ],
     "require": {
-        "phpmailer/phpmailer": "^6.9"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^10.5"
+        "phpmailer/phpmailer": "^7.0"
     }
 }
