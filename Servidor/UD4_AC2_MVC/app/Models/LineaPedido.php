@@ -4,85 +4,59 @@ namespace App\Models;
 
 class LineaPedido
 {
-    private $codPedProd;
-    private $codPed;
-    private $codProd;
-    private $unidades;
+    private ?int $identificadorLinea = null;
+    private ?int $identificadorPedido = null;
+    private int $codigoProducto;
+    private int $cantidadItems;
 
-    public function __construct($codProd, $unidades){
-        $this->codProd = $codProd;
-        $this->unidades = $unidades;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCodPedProd()
+    public function __construct(int $codigoProducto, int $cantidadItems)
     {
-        return $this->codPedProd;
+        $this->codigoProducto = $codigoProducto;
+        $this->cantidadItems = $cantidadItems;
     }
 
-    /**
-     * @param mixed $codPedProd
-     */
-    public function setCodPedProd($codPedProd): void
+    public function asignarIdLinea(?int $id): void
     {
-        $this->codPedProd = $codPedProd;
+        $this->identificadorLinea = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodPed()
+    public function obtenerId(): ?int
     {
-        return $this->codPed;
+        return $this->identificadorLinea;
     }
 
-    /**
-     * @param mixed $codPed
-     */
-    public function setCodPed($codPed): void
+    public function asignarIdPedido(int $id): void
     {
-        $this->codPed = $codPed;
+        $this->identificadorPedido = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodProd()
+    public function obtenerIdPedido(): ?int
     {
-        return $this->codProd;
+        return $this->identificadorPedido;
     }
 
-    /**
-     * @param mixed $codProd
-     */
-    public function setCodProd($codProd): void
+    public function obtenerCodigoProd(): int
     {
-        $this->codProd = $codProd;
+        return $this->codigoProducto;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUnidades()
+    public function asignarCodigoProd(int $codigo): void
     {
-        return $this->unidades;
+        $this->codigoProducto = $codigo;
     }
 
-    /**
-     * @param mixed $unidades
-     */
-    public function sumarUnidades($unidades): void
+    public function obtenerUnidades(): int
     {
-        $this->unidades += $unidades;
+        return $this->cantidadItems;
     }
 
-    public function restarUnidades($unidades): void
+    public function incrementarCantidad(int $cantidad): void
     {
-        $this->unidades -= $unidades;
+        $this->cantidadItems += $cantidad;
     }
 
-
-
+    public function decrementarCantidad(int $cantidad): void
+    {
+        $this->cantidadItems -= $cantidad;
+    }
 }

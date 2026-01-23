@@ -6,163 +6,119 @@ use Tools\Conexion;
 
 class Usuario
 {
-    private $codRes;
-    private $correo;
-    private $clave;
-    private $pais;
-    private $cp;
-    private $ciudad;
-    private $direccion;
+    private ?int $idRestaurante = null;
+    private ?string $email = null;
+    private ?string $contrasena = null;
+    private ?string $nacion = null;
+    private ?string $codigoPostal = null;
+    private ?string $municipio = null;
+    private ?string $domicilio = null;
 
     public function __construct(
-        ?string $correo = null,
-        ?string $clave = null,
-        ?string $pais = null,
-        ?string $cp = null,
-        ?string $ciudad = null,
-        ?string $direccion = null
+        ?string $email = null,
+        ?string $contrasena = null,
+        ?string $nacion = null,
+        ?string $codigoPostal = null,
+        ?string $municipio = null,
+        ?string $domicilio = null
     ) {
-        $this->correo = $correo;
-        $this->clave = $clave;
-        $this->pais = $pais;
-        $this->cp = $cp;
-        $this->ciudad = $ciudad;
-        $this->direccion = $direccion;
+        $this->email = $email;
+        $this->contrasena = $contrasena;
+        $this->nacion = $nacion;
+        $this->codigoPostal = $codigoPostal;
+        $this->municipio = $municipio;
+        $this->domicilio = $domicilio;
     }
 
-
-    /**
-     * @return mixed
-     */
-    public function getCodRes()
+    public function obtenerId(): ?int
     {
-        return $this->codRes;
+        return $this->idRestaurante;
     }
 
-    /**
-     * @param mixed $codRes
-     */
-    public function setCodRes($codRes): void
+    public function asignarId(?int $id): void
     {
-        $this->codRes = $codRes;
+        $this->idRestaurante = $id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCorreo()
+    public function obtenerEmail(): ?string
     {
-        return $this->correo;
+        return $this->email;
     }
 
-    /**
-     * @param mixed $correo
-     */
-    public function setCorreo($correo): void
+    public function asignarEmail($email): void
     {
-        $this->correo = $correo;
+        $this->email = $email;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getClave()
+    public function obtenerContrasena(): ?string
     {
-        return $this->clave;
+        return $this->contrasena;
     }
 
-    /**
-     * @param mixed $clave
-     */
-    public function setClave($clave): void
+    public function asignarContrasena($contrasena): void
     {
-        $this->clave = $clave;
+        $this->contrasena = $contrasena;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPais()
+    public function obtenerNacion(): ?string
     {
-        return $this->pais;
+        return $this->nacion;
     }
 
-    /**
-     * @param mixed $pais
-     */
-    public function setPais($pais): void
+    public function asignarNacion($nacion): void
     {
-        $this->pais = $pais;
+        $this->nacion = $nacion;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCp()
+    public function obtenerCodigoPostal(): ?string
     {
-        return $this->cp;
+        return $this->codigoPostal;
     }
 
-    /**
-     * @param mixed $cp
-     */
-    public function setCp($cp): void
+    public function asignarCodigoPostal($cp): void
     {
-        $this->cp = $cp;
+        $this->codigoPostal = $cp;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCiudad()
+    public function obtenerMunicipio(): ?string
     {
-        return $this->ciudad;
+        return $this->municipio;
     }
 
-    /**
-     * @param mixed $ciudad
-     */
-    public function setCiudad($ciudad): void
+    public function asignarMunicipio($municipio): void
     {
-        $this->ciudad = $ciudad;
+        $this->municipio = $municipio;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDireccion()
+    public function obtenerDomicilio(): ?string
     {
-        return $this->direccion;
+        return $this->domicilio;
     }
 
-    /**
-     * @param mixed $direccion
-     */
-    public function setDireccion($direccion): void
+    public function asignarDomicilio($domicilio): void
     {
-        $this->direccion = $direccion;
+        $this->domicilio = $domicilio;
     }
 
-    public static function comprobarUsuario(string $correo, string $clave)
+    public static function validarCredenciales(string $email, string $contrasena)
     {
-        $conexion = Conexion::getConexion();
-        $sql = "SELECT * FROM restaurantes WHERE Correo = :correo AND Clave = :clave";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bindParam(':correo', $correo);
-        $stmt->bindParam(':clave', $clave);
+        $bd = Conexion::getConexion();
+        $consulta = "SELECT * FROM restaurantes WHERE Correo = :email AND Clave = :contrasena";
+        $stmt = $bd->prepare($consulta);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":contrasena", $contrasena);
         $stmt->execute();
         return $stmt->fetch();
     }
 
-    public static function getIdUsuario(string $usuario)
+    public static function obtenerIdUsuario(string $email)
     {
-        $conexion = Conexion::getConexion();
-        $sql = "SELECT CodRes FROM restaurantes WHERE Correo = :correo";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bindParam(':correo', $usuario);
+        $bd = Conexion::getConexion();
+        $consulta = "SELECT CodRes FROM restaurantes WHERE Correo = :email";
+        $stmt = $bd->prepare($consulta);
+        $stmt->bindParam(":email", $email);
         $stmt->execute();
 
         return $stmt->fetchColumn();
     }
-
 }

@@ -3,22 +3,13 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use Tools\Conexion;
 use App\Models\Categoria;
 
 class CategoriasController extends Controller
 {
-    public function __construct(){
-    }
-
-    public function index()
+    public function index(): void
     {
-        $categoria = $this->modelo("Categoria");
-
-        $datos = $categoria->todas();
-
-        $this->vista('categorias/index', $datos);
-
+        $categorias = Categoria::obtenerTodas();
+        $this->vista("categorias/index", ["categoriasList" => $categorias]);
     }
-
 }

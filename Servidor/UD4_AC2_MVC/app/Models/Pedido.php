@@ -1,188 +1,100 @@
 <?php
 
 namespace App\Models;
-use App\Controllers\PedidosController;
-use App\Models\LineaPedido;
+
 use Tools\Conexion;
-use PDO;
 use PDOException;
+
 class Pedido
 {
-    private $codPed;
-    private $fecha;
-    private $enviado;
-    private $codRes;
-    private $lineas = [];
+    private ?int $identificador = null;
+    private ?string $marcaTiempo = null;
+    private bool $remitido = false;
+    private ?int $idRestaurante = null;
+    private array $itemsPedido = [];
 
-    public function __construct($enviado = false, $codRes = null){
-        $this->enviado = $enviado;
-        $this->codRes = $codRes;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getCodPed()
+    public function __construct($remitido = false, $idRestaurante = null)
     {
-        return $this->codPed;
+        $this->remitido = $remitido;
+        $this->idRestaurante = $idRestaurante;
     }
 
-    /**
-     * @param mixed $codPed
-     */
-    public function setCodPed($codPed): void
+    public function obtenerId(): ?int
     {
-        $this->codPed = $codPed;
+        return $this->identificador;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getFecha()
+    public function asignarId($id): void
     {
-        return $this->fecha;
+        $this->identificador = $id;
     }
 
-    /**
-     * @param mixed $fecha
-     */
-    public function setFecha($fecha): void
+    public function obtenerRemitido(): bool
     {
-        $this->fecha = $fecha;
+        return $this->remitido;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getEnviado()
+    public function asignarRemitido($remitido): void
     {
-        return $this->enviado;
+        $this->remitido = $remitido;
     }
 
-    /**
-     * @param mixed $enviado
-     */
-    public function setEnviado($enviado): void
+    public function obtenerIdRestaurante(): ?int
     {
-        $this->enviado = $enviado;
+        return $this->idRestaurante;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodRes()
+    public function asignarIdRestaurante($id): void
     {
-        return $this->codRes;
+        $this->idRestaurante = $id;
     }
 
-    /**
-     * @param mixed $codRes
-     */
-    public function setCodRes($codRes): void
+    public function obtenerLineas(): array
     {
-        $this->codRes = $codRes;
+        return $this->itemsPedido;
     }
 
-    public function getLineas(){
-        return $this->lineas;
-    }
-
-    public function addLinea(LineaPedido $linea){
-        $this->lineas[] = $linea;
-    }
-
-    /**
-     * Añade una línea de pedido a la base de datos.
-     * @param LineaPedido $linea La línea de pedido a añadir.
-     * @return bool True si la inserción fue exitosa, false en caso contrario.
-     */
-    public function anadirLinea(LineaPedido $linea): bool
+    public function insertarLinea($linea): void
     {
-        $conexion = Conexion::getConexion();
+        $this->itemsPedido[] = $linea;
+    }
 
-        // Asume que la conexión está abierta y la transacción ya iniciada si se llama desde guardar()
-        $sql = "INSERT INTO pedidosproductos (Pedido, Producto, Unidades) VALUES (:codPed, :codProd, :unidades)";
-
-        $stmt = $conexion->prepare($sql);
-
-        $codPed = $linea->getCodPed();
-        $codProd = $linea->getCodProd();
-        $unidades = $linea->getUnidades();
-
-        $stmt->bindParam(':codPed', $codPed);
-        $stmt->bindParam(':codProd', $codProd);
-        $stmt->bindParam(':unidades', $unidades);
+    public function guardar(Pedido $pedido): int
+    {
+        $bd = Conexion::getConexion();
+        $bd->beginTransaction();
 
         try {
+            $consulta = "INSERT INTO pedidos (Enviado, Restaurante) VALUES (:remitido, :idRestaurante)";
+            $stmt = $bd->prepare($consulta);
+            $stmt->bindParam(":remitido", $pedido->obtenerRemitido());
+            $stmt->bindParam(":idRestaurante", $pedido->obtenerIdRestaurante());
             $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            error_log("Error al añadir línea de pedido: " . $e->getMessage());
-            // No hacemos rollback aquí, se gestiona en guardar()
-            return false;
-        }
-    }
 
-    /**
-     * Añade un pedido a la base de datos y devuelve su ID insertado.
-     * @param Pedido $pedido El objeto Pedido a añadir.
-     * @return int El ID del pedido recién insertado.
-     * @throws PDOException Si la inserción del pedido falla.
-     */
-    public function anadirPedido(Pedido $pedido): int
-    {
-        $conexion = Conexion::getConexion();
-        // Asume que la conexión está abierta y la transacción ya iniciada si se llama desde guardar()
-        $sql = "INSERT INTO pedidos (Enviado, Restaurante) VALUES (:enviado, :codRes)";
-        $stmt = $conexion->prepare($sql);
+            $idPedido = $bd->lastInsertId();
 
-        $enviado = $pedido->getEnviado();
-        $codRes = $pedido->getCodRes();
-        $stmt->bindParam(':enviado', $enviado);
-        $stmt->bindParam(':codRes', $codRes);
-        $stmt->execute();
-
-        // Devolver el ID del último registro insertado
-        return (int) $conexion->lastInsertId();
-    }
-
-    /**
-     * Guarda el pedido y sus líneas usando transacciones.
-     * Si falla cualquier inserción de línea, se revierte todo.
-     * @param Pedido $pedido El objeto Pedido con sus líneas.
-     * @return int|bool El ID del pedido insertado en caso de éxito, o false en caso de fallo.
-     */
-    public function guardar(Pedido $pedido)
-    {
-        $conexion = Conexion::getConexion();
-        $conexion->beginTransaction(); // 1. Iniciar la transacción
-
-        try {
-            // 2. Insertar el pedido y obtener su ID
-            $codPed = $this->anadirPedido($pedido);
-
-            // 3. Insertar las líneas de pedido
-            foreach ($pedido->getLineas() as $linea) {
-                $linea->setCodPed($codPed); // Establecer el ID del pedido en la línea
-                if (!$this->anadirLinea($linea)) {
-                    // Si falla alguna línea, lanza una excepción para que el catch la atrape
-                    throw new \Exception("Fallo al insertar la línea de pedido.");
+            foreach ($pedido->obtenerLineas() as $linea) {
+                $linea->asignarIdPedido($idPedido);
+                
+                $sql = "INSERT INTO pedidosproductos (Pedido, Producto, Unidades) VALUES (:idPedido, :idProducto, :cantidad)";
+                $stmt2 = $bd->prepare($sql);
+                $stmt2->bindParam(":idPedido", $idPedido);
+                $stmt2->bindParam(":idProducto", $linea->obtenerCodigoProd());
+                $stmt2->bindParam(":cantidad", $linea->obtenerUnidades());
+                
+                if (!$stmt2->execute()) {
+                    throw new \Exception("Error al guardar línea");
                 }
             }
 
-            $conexion->commit();
-            return $codPed; // Devolver el ID del pedido insertado
+            $bd->commit();
+            return $idPedido;
 
         } catch (\Exception $e) {
-            // 5. Si algo falla, deshacer todos los cambios
-            if ($conexion->inTransaction()) {
-                $conexion->rollBack();
+            if ($bd->inTransaction()) {
+                $bd->rollBack();
             }
             die("Error SQL: " . $e->getMessage());
-
-            // error_log("Transacción de pedido fallida: " . $e->getMessage());
-            // return false;
         }
     }
 }

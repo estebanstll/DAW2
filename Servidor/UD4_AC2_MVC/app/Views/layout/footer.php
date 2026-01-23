@@ -103,11 +103,11 @@
 
 <div class="footer">
     <div class="footer-user">
-        » SESIÓN ACTIVA: <span><?php echo htmlspecialchars($_SESSION["usuarioAutenticado"]); ?></span>
+        SESIÓN ACTIVA: <span><?php echo htmlspecialchars($_SESSION["usuarioAutenticado"]); ?></span>
     </div>
     <nav class="footer-nav">
-        <a href="<?php echo BASE_URL; ?>categorias/index" class="home-link">🏠 MENÚ</a>
-        <a href="<?php echo BASE_URL; ?>productos/mostrarCarrito" class="cart-link">🛒 CARRITO</a>
-        <a href="<?php echo BASE_URL; ?>usuarios/logout" class="logout-link">🚪 SALIR</a>
+        <a href="<?php echo BASE_URL; ?>categorias/index" class="home-link">Menú</a>
+        <a href="<?php echo BASE_URL; ?>productos/mostrarCarrito" class="cart-link">Carrito</a>
+        <a href="<?php echo BASE_URL; ?>usuarios/logout" class="logout-link">Salir</a>
     </nav>
 </div>

@@ -1,3 +1,3 @@
 <?php
-header("Location: /DesarrolloWebEntornoServidor/MVC/AC_PatronMVC/categorias/index");
+header("Location: " . BASE_URL . "categorias/index");
 exit();

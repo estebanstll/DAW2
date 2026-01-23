@@ -7,73 +7,63 @@ use Core\Controller;
 
 class ProductosController extends Controller
 {
+    public function index($categoriaId): void
+    {
+        $productos = $this->modelo("Producto")->obtenerPorCategoria($categoriaId);
+        $categoria = $this->modelo("Categoria")->buscarPorIdentificador($categoriaId);
 
-    public function index($codCat){
-        $modeloProducto = $this->modelo('Producto');
-        $modeloCategoria = $this->modelo('Categoria');
-
-        $productos = $modeloProducto->productosDeCategoria($codCat);
-        $categoria = $modeloCategoria->buscarPorId($codCat);
-
-        $this->vista('productos/index', [
-            "productos" => $productos,
-            "categoria" => $categoria
+        $this->vista("productos/index", [
+            "listadoProductos" => $productos,
+            "infoCategoria" => $categoria
         ]);
     }
 
-    public function agregarCarrito($codProd, $unidades, $codCat){
-
-        if (!isset($_SESSION['carrito'])) {
-            $_SESSION['carrito'] = [];
+    public function addToCart($productoId, $cantidad, $categoriaId): void
+    {
+        if (!isset($_SESSION["carrito"])) {
+            $_SESSION["carrito"] = [];
         }
 
-        $encontrado = false;
-        foreach ($_SESSION['carrito'] as $lineaPedido) {
-            if ($lineaPedido->getCodProd() == $codProd) {
-                $lineaPedido->sumarUnidades($unidades);
-                $encontrado = true;
+        $existe = false;
+        foreach ($_SESSION["carrito"] as $item) {
+            if ($item->obtenerCodigoProd() == $productoId) {
+                $item->incrementarCantidad($cantidad);
+                $existe = true;
                 break;
             }
         }
 
-        if (!$encontrado) {
-            $_SESSION['carrito'][] = new LineaPedido($codProd, $unidades);
+        if (!$existe) {
+            $_SESSION["carrito"][] = new LineaPedido($productoId, $cantidad);
         }
 
-        header('Location: ' . BASE_URL . 'productos/index/' . $codCat);
+        header("Location: " . BASE_URL . "productos/index/" . $categoriaId);
         exit();
     }
 
-    public function eliminarCarrito($codProd, $unidades){
-        foreach ($_SESSION['carrito'] as $index => $lineaPedido) {
-            if ($lineaPedido->getCodProd() == $codProd) {
+    public function removeFromCart($productoId, $cantidad): void
+    {
+        foreach ($_SESSION["carrito"] as $pos => $item) {
+            if ($item->obtenerCodigoProd() == $productoId) {
+                $item->decrementarCantidad($cantidad);
 
-                $lineaPedido->restarUnidades($unidades);
-
-                if ($lineaPedido->getUnidades() <= 0) {
-                    unset($_SESSION['carrito'][$index]);
-
-                    $_SESSION['carrito'] = array_values($_SESSION['carrito']);
+                if ($item->obtenerUnidades() <= 0) {
+                    unset($_SESSION["carrito"][$pos]);
+                    $_SESSION["carrito"] = array_values($_SESSION["carrito"]);
                 }
                 break;
             }
         }
-        header('Location: ' . BASE_URL . 'productos/mostrarCarrito');
+        header("Location: " . BASE_URL . "productos/mostrarCarrito");
         exit();
     }
 
-    public function mostrarCarrito(){
-
-        if (!isset($_SESSION['carrito'])) {
-            $_SESSION['carrito'] = [];
+    public function mostrarCarrito(): void
+    {
+        if (!isset($_SESSION["carrito"])) {
+            $_SESSION["carrito"] = [];
         }
 
-        $datosCarrito = [
-            "productos" => $_SESSION['carrito'],
-        ];
-
-        $this->vista('carrito/index', $datosCarrito);
+        $this->vista("carrito/index", ["articulos" => $_SESSION["carrito"]]);
     }
-
-
 }

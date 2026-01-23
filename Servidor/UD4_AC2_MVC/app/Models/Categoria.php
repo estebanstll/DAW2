@@ -7,82 +7,85 @@ use RuntimeException;
 
 class Categoria
 {
-    private ?int $codCat = null;
-    private ?string $nombre = null;
-    private ?string $descripcion = null;
+    private ?int $identificador;
+    private ?string $titulo;
+    private ?string $detalle;
 
-    public function __construct(?string $nombre = null, ?string $descripcion = null){
-        $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
+    public function __construct(?string $titulo = null, ?string $detalle = null)
+    {
+        $this->identificador = null;
+        $this->titulo = $titulo;
+        $this->detalle = $detalle;
     }
 
-    public function getCodCat(): ?int {
-        return $this->codCat;
+    public function asignarId(int $id): void
+    {
+        $this->identificador = $id;
     }
 
-    public function setCodCat(int $codCat): void {
-        $this->codCat = $codCat;
+    public function obtenerId(): ?int
+    {
+        return $this->identificador;
     }
 
-    public function getNombre(): ?string {
-        return $this->nombre;
+    public function asignarTitulo(string $titulo): void
+    {
+        $this->titulo = $titulo;
     }
 
-    public function setNombre(string $nombre): void {
-        $this->nombre = $nombre;
+    public function obtenerTitulo(): ?string
+    {
+        return $this->titulo;
     }
 
-    public function getDescripcion(): ?string {
-        return $this->descripcion;
+    public function asignarDetalle(string $detalle): void
+    {
+        $this->detalle = $detalle;
     }
 
-    public function setDescripcion(string $descripcion): void {
-        $this->descripcion = $descripcion;
+    public function obtenerDetalle(): ?string
+    {
+        return $this->detalle;
     }
 
-    public function __toString(): string {
-        return (string) $this->nombre;
+    public function __toString(): string
+    {
+        return (string) $this->titulo;
     }
 
-    public static function todas(): array {
-        $conexion = Conexion::getConexion();
-
-        $sql = "SELECT * FROM categorias";
-        $stmt = $conexion->prepare($sql);
+    public static function obtenerTodas(): array
+    {
+        $bd = Conexion::getConexion();
+        $consulta = "SELECT * FROM categorias";
+        $stmt = $bd->prepare($consulta);
         $stmt->execute();
 
-        $categorias = [];
-        foreach ($stmt->fetchAll() as $fila) {
-            $cat = new Categoria(
-                $fila['Nombre'],
-                $fila['Descripcion']
-            );
-            $cat->setCodCat($fila['CodCat']);
-            $categorias[] = $cat;
+        $resultado = [];
+        foreach ($stmt->fetchAll() as $row) {
+            $cat = new self($row["Nombre"], $row["Descripcion"]);
+            $cat->asignarId($row["CodCat"]);
+            $resultado[] = $cat;
         }
 
-        return $categorias;
+        return $resultado;
     }
 
-    public static function buscarPorId(int $codCat): Categoria {
-        $conexion = Conexion::getConexion();
-
-        $sql = "SELECT * FROM categorias WHERE CodCat = :id";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bindParam(':id', $codCat);
+    public static function buscarPorIdentificador(int $id): Categoria
+    {
+        $bd = Conexion::getConexion();
+        $consulta = "SELECT * FROM categorias WHERE CodCat = :id";
+        $stmt = $bd->prepare($consulta);
+        $stmt->bindParam(":id", $id);
         $stmt->execute();
 
-        $fila = $stmt->fetch();
+        $row = $stmt->fetch();
 
-        if (!$fila) {
-            throw new RuntimeException("No existe la categorÃ­a con ID $codCat");
+        if (!$row) {
+            throw new RuntimeException("Categoría no encontrada");
         }
 
-        $cat = new Categoria(
-            $fila['Nombre'],
-            $fila['Descripcion']
-        );
-        $cat->setCodCat($fila['CodCat']);
+        $cat = new self($row["Nombre"], $row["Descripcion"]);
+        $cat->asignarId($row["CodCat"]);
 
         return $cat;
     }
