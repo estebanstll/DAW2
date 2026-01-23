@@ -1,0 +1,39 @@
+### Variables
+@baseUrl = http://localhost:3000
+@hospitalName = Urgencias Central
+
+### GET - Obtener todos los hospitales
+GET {{baseUrl}}/hospital
+
+### GET - Obtener un hospital por nombre
+GET {{baseUrl}}/hospital/{{hospitalName}}
+
+### POST - Crear un nuevo hospital
+POST {{baseUrl}}/hospital
+Content-Type: application/json
+
+{
+  "nombre": "Urgencias Central",
+  "gravedad": "alta"
+}
+
+### POST - Crear otro hospital
+POST {{baseUrl}}/hospital
+Content-Type: application/json
+
+{
+  "nombre": "Clínica General",
+  "gravedad": "media"
+}
+
+### PUT - Actualizar un hospital
+PUT {{baseUrl}}/hospital/{{hospitalName}}
+Content-Type: application/json
+
+{
+  "nombre": "urgencias",
+  "gravedad": "crítica"
+}
+
+### DELETE - Eliminar un hospital
+DELETE {{baseUrl}}/hospital/{{hospitalName}}
