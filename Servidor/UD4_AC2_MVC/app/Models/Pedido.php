@@ -67,8 +67,13 @@ class Pedido
         try {
             $consulta = "INSERT INTO pedidos (Enviado, Restaurante) VALUES (:remitido, :idRestaurante)";
             $stmt = $bd->prepare($consulta);
-            $stmt->bindParam(":remitido", $pedido->obtenerRemitido());
-            $stmt->bindParam(":idRestaurante", $pedido->obtenerIdRestaurante());
+            
+            // Guardar en variables para bindParam
+            $remitido = $pedido->obtenerRemitido() ? 1 : 0;
+            $idRestaurante = $pedido->obtenerIdRestaurante();
+            
+            $stmt->bindParam(":remitido", $remitido);
+            $stmt->bindParam(":idRestaurante", $idRestaurante);
             $stmt->execute();
 
             $idPedido = $bd->lastInsertId();
@@ -78,9 +83,14 @@ class Pedido
                 
                 $sql = "INSERT INTO pedidosproductos (Pedido, Producto, Unidades) VALUES (:idPedido, :idProducto, :cantidad)";
                 $stmt2 = $bd->prepare($sql);
+                
+                // Guardar en variables para bindParam
+                $idProducto = $linea->obtenerCodigoProd();
+                $cantidad = $linea->obtenerUnidades();
+                
                 $stmt2->bindParam(":idPedido", $idPedido);
-                $stmt2->bindParam(":idProducto", $linea->obtenerCodigoProd());
-                $stmt2->bindParam(":cantidad", $linea->obtenerUnidades());
+                $stmt2->bindParam(":idProducto", $idProducto);
+                $stmt2->bindParam(":cantidad", $cantidad);
                 
                 if (!$stmt2->execute()) {
                     throw new \Exception("Error al guardar línea");

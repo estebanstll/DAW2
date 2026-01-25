@@ -2,6 +2,11 @@
 
 namespace Core;
 
+// Ruta base del proyecto (un nivel arriba de /core)
+if (!defined('APP_ROOT')) {
+    define('APP_ROOT', dirname(__DIR__));
+}
+
 class Router
 {
     // Nombre del controlador (string)
@@ -22,7 +27,7 @@ class Router
         // ===== CONTROLADOR =====
         if (isset($url[0])) {
             $nombreControlador = ucfirst($url[0]) . 'Controller';
-            $rutaControlador   = '../app/Controllers/' . $nombreControlador . '.php';
+            $rutaControlador   = APP_ROOT . '/app/Controllers/' . $nombreControlador . '.php';
 
             if (file_exists($rutaControlador)) {
                 $this->controladorNombre = $nombreControlador;
@@ -31,10 +36,10 @@ class Router
         }
 
         // ===== CARGAR CONTROLADOR =====
-        $rutaControlador = '../app/Controllers/' . $this->controladorNombre . '.php';
+        $rutaControlador = APP_ROOT . '/app/Controllers/' . $this->controladorNombre . '.php';
 
         if (!file_exists($rutaControlador)) {
-            die('Error 404: Controlador no encontrado');
+            die('Error 404: Controlador no encontrado en: ' . $rutaControlador);
         }
 
         require_once $rutaControlador;
@@ -47,7 +52,7 @@ class Router
             $this->metodoActual = $url[1];
             unset($url[1]);
         } elseif (isset($url[1])) {
-            die('Error 404: Método no encontrado');
+            die('Error 404: Método no encontrado: ' . $url[1]);
         }
 
         // ===== PARÁMETROS =====
@@ -62,12 +67,35 @@ class Router
 
     public function getUrl(): ?array
     {
-        if (isset($_GET['url'])) {
+        // Primero intentar obtener de $_GET['url'] (reescritura .htaccess)
+        if (isset($_GET['url']) && !empty($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             return explode('/', $url);
         }
 
-        return null;
+        // Si no hay $_GET['url'], parsear desde REQUEST_URI
+        $requestUri = $_SERVER['REQUEST_URI'] ?? '';
+        $basePath = '/Servidor/UD4_AC2_MVC/public/';
+        
+        // Quitar el base path
+        if (strpos($requestUri, $basePath) === 0) {
+            $url = substr($requestUri, strlen($basePath));
+        } else {
+            $url = $requestUri;
+        }
+        
+        // Quitar query string
+        if (($pos = strpos($url, '?')) !== false) {
+            $url = substr($url, 0, $pos);
+        }
+        
+        $url = rtrim($url, '/');
+        
+        if (empty($url) || $url === 'index.php') {
+            return null;
+        }
+        
+        return explode('/', $url);
     }
 }

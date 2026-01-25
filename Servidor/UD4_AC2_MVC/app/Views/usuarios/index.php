@@ -140,6 +140,11 @@ body::before {
     <?php if (isset($error)): ?>
         <div class="error"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
+    <?php if (isset($_GET['registro']) && $_GET['registro'] === 'exito'): ?>
+        <div class="error" style="background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.5);">
+            ¡Registro exitoso! Ya puedes iniciar sesión con tu email y contraseña.
+        </div>
+    <?php endif; ?>
     <form action="<?= BASE_URL ?>usuarios/autenticar" method="post">
         <div class="form-group">
             <label for="usuario">Email</label>
@@ -153,6 +158,39 @@ body::before {
             <input type="submit" value="Entrar">
         </div>
     </form>
+
+    <style>
+        .links-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255, 107, 53, 0.3);
+            text-align: center;
+        }
+
+        .links-section p {
+            color: #aaa;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+
+        .links-section a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .links-section a:hover {
+            color: #f7931e;
+            border-bottom-color: #ff6b35;
+        }
+    </style>
+
+    <div class="links-section">
+        <p>¿No tienes cuenta? <a href="<?= BASE_URL ?>usuarios/registro">Regístrate aquí</a></p>
+        <p>¿Olvidaste tu contraseña? <a href="<?= BASE_URL ?>usuarios/recuperarContrasena">Recupérala aquí</a></p>
+    </div>
 </div>
 </body>
 </html>

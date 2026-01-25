@@ -1,14 +1,19 @@
 <?php
 namespace Core;
 
+// Ruta base del proyecto (un nivel arriba de /core)
+if (!defined('APP_ROOT')) {
+    define('APP_ROOT', dirname(__DIR__));
+}
+
 class Controller{
 
     //Cargar modelo
     public function modelo(string $modelo){
-        $ruta = '../app/Models/' . $modelo . '.php';
+        $ruta = APP_ROOT . '/app/Models/' . $modelo . '.php';
 
         if (!file_exists($ruta)) {
-            die("El modelo $modelo no existe");
+            die("El modelo $modelo no existe en: $ruta");
         }
 
         require_once $ruta;
@@ -19,13 +24,13 @@ class Controller{
 
     //Cargar vista
     public function vista($vista, $datos = []){
-        //Comprobar si existe el archivo de vista.
-        if (file_exists('../app/Views/'.$vista.'.php')){
+        $rutaVista = APP_ROOT . '/app/Views/' . $vista . '.php';
+        
+        if (file_exists($rutaVista)){
             extract($datos);
-            require_once '../app/Views/'.$vista.'.php';
+            require_once $rutaVista;
         }else{
-            //si el archivo de vista no existe
-            die('La vista no exite');
+            die("La vista no existe en: $rutaVista");
         }
     }
 }

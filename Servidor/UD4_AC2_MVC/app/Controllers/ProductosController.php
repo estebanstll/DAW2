@@ -4,22 +4,39 @@ namespace App\Controllers;
 
 use App\Models\LineaPedido;
 use Core\Controller;
+use Tools\Hash;
 
 class ProductosController extends Controller
 {
-    public function index($categoriaId): void
+    public function index($categoriaHash): void
     {
+        // Decodificar el hash de la categoría
+        $categoriaId = Hash::decodeFromDatabase($categoriaHash, 'categorias', 'CodCat');
+        
+        if ($categoriaId === null) {
+            die('Error: Categoría no encontrada');
+        }
+
         $productos = $this->modelo("Producto")->obtenerPorCategoria($categoriaId);
         $categoria = $this->modelo("Categoria")->buscarPorIdentificador($categoriaId);
 
         $this->vista("productos/index", [
             "listadoProductos" => $productos,
-            "infoCategoria" => $categoria
+            "infoCategoria" => $categoria,
+            "categoriaIdHash" => $categoriaHash
         ]);
     }
 
-    public function addToCart($productoId, $cantidad, $categoriaId): void
+    public function addToCart($productoHash, $cantidad, $categoriaHash): void
     {
+        // Decodificar los hashes
+        $productoId = Hash::decodeFromDatabase($productoHash, 'productos', 'CodProd');
+        $categoriaId = Hash::decodeFromDatabase($categoriaHash, 'categorias', 'CodCat');
+
+        if ($productoId === null || $categoriaId === null) {
+            die('Error: Producto o categoría no encontrado');
+        }
+
         if (!isset($_SESSION["carrito"])) {
             $_SESSION["carrito"] = [];
         }
@@ -37,12 +54,19 @@ class ProductosController extends Controller
             $_SESSION["carrito"][] = new LineaPedido($productoId, $cantidad);
         }
 
-        header("Location: " . BASE_URL . "productos/index/" . $categoriaId);
+        header("Location: " . BASE_URL . "productos/index/" . $categoriaHash);
         exit();
     }
 
-    public function removeFromCart($productoId, $cantidad): void
+    public function removeFromCart($productoHash, $cantidad): void
     {
+        // Decodificar el hash
+        $productoId = Hash::decodeFromDatabase($productoHash, 'productos', 'CodProd');
+
+        if ($productoId === null) {
+            die('Error: Producto no encontrado');
+        }
+
         foreach ($_SESSION["carrito"] as $pos => $item) {
             if ($item->obtenerCodigoProd() == $productoId) {
                 $item->decrementarCantidad($cantidad);

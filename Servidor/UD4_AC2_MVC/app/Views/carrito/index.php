@@ -1,3 +1,6 @@
+<?php
+use Tools\Hash;
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -312,7 +315,7 @@ if($producto):?>
 <form class="delete-form"
 action=""
 method="POST"
-onsubmit="this.action='<?=BASE_URL?>productos/removeFromCart/<?php echo $item->obtenerCodigoProd();?>/'+this.unidades.value;return true;">
+onsubmit="this.action='<?=BASE_URL?>productos/removeFromCart/<?php echo Hash::encode($item->obtenerCodigoProd());?>/'+this.unidades.value;return true;">
 
 <input type="number"
 name="unidades"
