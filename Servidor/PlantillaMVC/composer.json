@@ -1,0 +1,22 @@
+{
+  "name": "tu-usuario/nombre-proyecto",
+  "description": "Plantilla MVC en PHP - Cambia esta descripción por la de tu proyecto",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Core\\": "core/",
+      "Tools\\": "tools/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Tu Nombre",
+      "email": "tu@email.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "phpmailer/phpmailer": "^7.0"
+  }
+}
