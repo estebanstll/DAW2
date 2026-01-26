@@ -1,0 +1,31 @@
+{
+  "hash": "7013b0b2",
+  "configHash": "8d006c69",
+  "lockfileHash": "9a8bdac7",
+  "browserHash": "d59d719f",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "1a9d4c34",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "ef4543fc",
+      "needsInterop": false
+    },
+    "zone.js": {
+      "src": "../../../../../../node_modules/zone.js/fesm2015/zone.js",
+      "file": "zone__js.js",
+      "fileHash": "a0f21f0b",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-ZGAW3EZV": {
+      "file": "chunk-ZGAW3EZV.js"
+    }
+  }
+}
