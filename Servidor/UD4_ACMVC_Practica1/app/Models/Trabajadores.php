@@ -84,6 +84,58 @@ class Trabajadores {
         return $stmt->fetchColumn();
     }
 
+    public static function getPorId(int $id): ?self {
+        $bd = Conexion::getConexion();
+        $consulta = "SELECT * FROM usuarios WHERE id = :id";
+        $stmt = $bd->prepare($consulta);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $fila = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if ($fila) {
+            return new self(
+                $fila['id'],
+                $fila['nombre'],
+                $fila['gmail'],
+                $fila['contraseña'],
+                $fila['especialidad'] ?? null
+            );
+        }
+
+        return null;
+    }
+    public function guardar(): void {
+        $bd = Conexion::getConexion();
+
+        if ($this->id) {
+            // Actualizar registro existente
+            $consulta = "UPDATE usuarios SET nombre = :nombre, gmail = :gmail, contraseña = :contrasena, especialidad = :especialidad WHERE id = :id";
+            $stmt = $bd->prepare($consulta);
+            
+            $stmt->bindValue(':nombre', $this->nombre);
+            $stmt->bindValue(':gmail', $this->gmail);
+            $stmt->bindValue(':contrasena', $this->contraseña);
+            $stmt->bindValue(':especialidad', $this->especialidad);
+            $stmt->bindValue(':id', $this->id);
+        } else {
+            // Insertar nuevo registro
+            $consulta = "INSERT INTO usuarios (nombre, gmail, contraseña, especialidad) VALUES (:nombre, :gmail, :contrasena, :especialidad)";
+            $stmt = $bd->prepare($consulta);
+            
+            $stmt->bindValue(':nombre', $this->nombre);
+            $stmt->bindValue(':gmail', $this->gmail);
+            $stmt->bindValue(':contrasena', $this->contraseña);
+            $stmt->bindValue(':especialidad', $this->especialidad);
+        }
+
+        $stmt->execute();
+
+        if (!$this->id) {
+            $this->id = (int)$bd->lastInsertId();
+        }
+    }
+
     public static function getTodos():array{
         $bd = Conexion::getConexion();
         $consulta = "SELECT * FROM usuarios";

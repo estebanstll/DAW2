@@ -16,6 +16,8 @@
             <th>Gmail</th>
             <th>Contraseña</th>
             <th>Especialidad</th>
+            <th>Acciones</th>
+
         </tr>
     </thead>
     <tbody>
@@ -26,10 +28,13 @@
                 <td><?php echo htmlspecialchars($usuario->getGmail()); ?></td>
                 <td><?php echo htmlspecialchars($usuario->getContraseña()); ?></td>
                 <td><?php echo htmlspecialchars($usuario->getEspecialidad() ?? 'N/A'); ?></td>
+                <td>
+                    <a href= "<?php echo BASE_URL ?>trabajadores/editar/<?php echo $usuario->getId(); ?>">Editar</a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
-
+<footer> <a href="<?php echo BASE_URL?>productos/index" >Productos</a></footer>
 </body>
 </html>

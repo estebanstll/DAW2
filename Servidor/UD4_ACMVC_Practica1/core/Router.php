@@ -76,7 +76,7 @@ class Router
 
         // Si no hay $_GET['url'], parsear desde REQUEST_URI
         $requestUri = $_SERVER['REQUEST_URI'] ?? '';
-        $basePath = '/UD4_ACMVC_Practica1/public/';
+        $basePath = '/Servidor/UD4_ACMVC_Practica1/public/';
         
         // Quitar el base path
         if (strpos($requestUri, $basePath) === 0) {

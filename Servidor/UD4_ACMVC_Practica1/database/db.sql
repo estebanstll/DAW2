@@ -33,3 +33,33 @@ INSERT INTO usuarios (nombre, gmail, contraseña, especialidad) VALUES
 ('Dra. Julia Nieto', 'julia.n@gmail.com', 'hash_pass_18', 'Nefrología'),
 ('Dr. Hugo Silva', 'hugo.silva@gmail.com', 'hash_pass_19', 'Cirugía General'),
 ('Dra. Beatriz Cano', 'b.cano@gmail.com', 'hash_pass_20', 'Infectología');
+
+-- 4. Crear la tabla productos
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    cantidad INT NOT NULL
+);
+
+-- 5. Insertar datos de ejemplo en productos
+INSERT INTO productos (nombre, cantidad) VALUES
+('Mascarillas', 500),
+('Guantes', 1000),
+('Batas', 300),
+('Jeringas', 2000),
+('Termómetros', 150),
+('Desinfectante', 400),
+('Tiritas', 800),
+('Algodón', 600),
+('Vendas', 700),
+('Sueros', 250),
+('Antibióticos', 120),
+('Analgésicos', 350),
+('Vacunas', 90),
+('Gasas', 1000),
+('Alcohol', 500),
+('Estetoscopios', 50),
+('Tensiómetros', 40),
+('Sillas de ruedas', 20),
+('Muletas', 30),
+('Monitor cardíaco', 10);

@@ -51,11 +51,11 @@ use Core\Router;
 try {
     $router = new Router();
 } catch (\Exception $e) {
-    // En producción, mostrar página de error genérica
-    die("Error en la aplicación. Por favor, contacta al administrador.");
-    
     // En desarrollo, mostrar detalles del error:
-    // die("Error en Router: " . $e->getMessage() . "<br>" . $e->getTraceAsString());
+    die("Error en Router: " . $e->getMessage() . "<br>" . $e->getTraceAsString());
+    
+    // En producción, mostrar página de error genérica
+    // die("Error en la aplicación. Por favor, contacta al administrador.");
 }
 
 // Enviar el buffer de salida
