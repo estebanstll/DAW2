@@ -1,0 +1,79 @@
+### Variables
+@baseUrl = http://localhost:3000
+@hospitalName = Hospital General
+@pacienteName = Juan Perez
+
+### ============= HOSPITALES =============
+
+### GET - Obtener todos los hospitales
+GET {{baseUrl}}/hospital
+
+### GET - Obtener un hospital por nombre
+GET {{baseUrl}}/hospital/{{hospitalName}}
+
+### POST - Crear un nuevo hospital
+POST {{baseUrl}}/hospital
+Content-Type: application/json
+
+{
+  "nombre": "Hospital general de calahorra",
+  "ubicacion": "Calahorra"
+}
+
+### POST - Crear otro hospital
+POST {{baseUrl}}/hospital
+Content-Type: application/json
+
+{
+  "nombre": "Hospital Universitario",
+  "ubicacion": "Barcelona"
+}
+
+### PUT - Actualizar un hospital
+PUT {{baseUrl}}/hospital/{{hospitalName}}
+Content-Type: application/json
+
+{
+  "ubicacion": "Valencia"
+}
+
+### DELETE - Eliminar un hospital
+DELETE {{baseUrl}}/hospital/{{hospitalName}}
+
+
+### ============= PACIENTES =============
+
+### GET - Obtener todos los pacientes
+GET {{baseUrl}}/pacientes
+
+### GET - Obtener un paciente por nombre
+GET {{baseUrl}}/pacientes/{{pacienteName}}
+
+### POST - Crear un nuevo paciente
+POST {{baseUrl}}/pacientes
+Content-Type: application/json
+
+{
+  "nombre": "Juan Perez",
+  "gravedad": "alta"
+}
+
+### POST - Crear otro paciente
+POST {{baseUrl}}/pacientes
+Content-Type: application/json
+
+{
+  "nombre": "Maria Lopez",
+  "gravedad": "media"
+}
+
+### PUT - Actualizar un paciente
+PUT {{baseUrl}}/pacientes/{{pacienteName}}
+Content-Type: application/json
+
+{
+  "gravedad": "crítica"
+}
+
+### DELETE - Eliminar un paciente
+DELETE {{baseUrl}}/pacientes/{{pacienteName}}

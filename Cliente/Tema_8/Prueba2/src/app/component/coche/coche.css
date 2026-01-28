@@ -1,0 +1,18 @@
+.card-coche {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card-coche img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-coche p {
+  margin: 10px 0;
+  font-weight: 600;
+}
