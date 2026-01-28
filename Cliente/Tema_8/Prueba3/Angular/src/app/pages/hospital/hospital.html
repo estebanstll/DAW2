@@ -1,5 +1,7 @@
 <h2>Hospitales</h2>
 
 <div class="hospitales-container">
-  <app-hospital-component *ngFor="let hosp of hospital" [hospital]="hosp"></app-hospital-component>
+  @for (hosp of hospital; track hosp) {
+    <app-hospital-component [hospital]="hosp"></app-hospital-component>
+  }
 </div>

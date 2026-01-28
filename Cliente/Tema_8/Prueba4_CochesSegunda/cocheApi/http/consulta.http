@@ -1,0 +1,35 @@
+# Archivo de consultas para la API (REST Client / HTTPie / curl)
+# Ajusta la URL base si tu servidor está en otro puerto o host.
+
+### Obtener usuario por nombre
+GET http://localhost:3000/usuarios/{{"juan"}}
+Accept: application/json
+
+### Crear usuario
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "juan",
+  "contraseña": "1234",
+  "admin": false
+}
+
+### Listar coches
+GET http://localhost:3000/coches
+Accept: application/json
+
+### Obtener coche por id
+GET http://localhost:3000/coches/1
+Accept: application/json
+
+### Crear coche
+POST http://localhost:3000/coches
+Content-Type: application/json
+
+{
+  "marca": "Seat",
+  "modelo": "Ibiza",
+  "anio": 2018,
+  "precio": 8500
+}
