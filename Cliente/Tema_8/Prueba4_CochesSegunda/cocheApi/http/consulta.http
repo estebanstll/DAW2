@@ -2,7 +2,7 @@
 # Ajusta la URL base si tu servidor está en otro puerto o host.
 
 ### Obtener usuario por nombre
-GET http://localhost:3000/usuarios/{{"juan"}}
+GET http://localhost:3000/usuarios/juan
 Accept: application/json
 
 ### Crear usuario
@@ -23,13 +23,12 @@ Accept: application/json
 GET http://localhost:3000/coches/1
 Accept: application/json
 
-### Crear coche
+### Crear coche (coincide con `cocheModels.js`)
 POST http://localhost:3000/coches
 Content-Type: application/json
 
 {
   "marca": "Seat",
   "modelo": "Ibiza",
-  "anio": 2018,
-  "precio": 8500
+  "img": "seat_ibiza.jpg"
 }

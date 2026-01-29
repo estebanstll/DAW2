@@ -1,1 +1,11 @@
-<p>concesionario works!</p>
+<div class="concesionario-page">
+  <section class="busqueda-area">
+    <app-busqueda (search)="onSearch($event)"></app-busqueda>
+  </section>
+
+  <section class="coches-area">
+    <div class="coches-list">
+      <app-coche *ngFor="let c of filteredCoches" [coche]="c"></app-coche>
+    </div>
+  </section>
+</div>

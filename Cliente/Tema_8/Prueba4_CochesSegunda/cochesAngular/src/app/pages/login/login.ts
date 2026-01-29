@@ -1,16 +1,12 @@
 import { Component, inject, ChangeDetectorRef } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -32,10 +28,14 @@ export class Login {
 
         const usuario = await this.getUsuario(nombre as string);
 
-        if (usuario && usuario.contraseña === contraseña) {
+        // Access property safely using bracket notation because the field name has a special character
+        const serverPass = usuario ? usuario['contraseña'] : null;
+
+        if (usuario && serverPass === contraseña) {
           localStorage.setItem('usuario', JSON.stringify(usuario));
           this.cdr.detectChanges();
-          this.router.navigate(['/dashboard']);
+          // redirect to inicio (main app area) after successful login
+          this.router.navigate(['/inicio']);
         } else {
           alert('Contraseña incorrecta');
           this.cdr.detectChanges();

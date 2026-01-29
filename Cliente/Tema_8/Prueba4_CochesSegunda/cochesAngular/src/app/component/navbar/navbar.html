@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <ul class="nav-list">
+    <li><a href="#" (click)="$event.preventDefault(); navigateTo('/inicio')">Inicio</a></li>
+    <li>
+      <a href="#" (click)="$event.preventDefault(); navigateTo('/concesionario')"
+        >Coches en venta</a
+      >
+    </li>
+    <li><a href="#" (click)="$event.preventDefault(); navigateTo('/vender')">Vende tu coche</a></li>
+  </ul>
+</nav>

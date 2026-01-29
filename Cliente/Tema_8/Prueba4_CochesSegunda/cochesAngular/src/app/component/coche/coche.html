@@ -1,0 +1,15 @@
+<article class="coche-card">
+  <div class="coche-img">
+    <img
+      [src]="getImagePath()"
+      [alt]="(coche?.marca || '') + ' ' + (coche?.modelo || '')"
+      (error)="onImgError($event)"
+    />
+  </div>
+  <div class="coche-body">
+    <h3 class="coche-title">
+      {{ coche?.marca || 'Marca' }} <span class="modelo">{{ coche?.modelo || '' }}</span>
+    </h3>
+    <button class="ver-btn">Ver detalles</button>
+  </div>
+</article>

@@ -1,0 +1,32 @@
+/* Layout for concesionario: grid of coche cards */
+.concesionario-page {
+  padding: 1rem;
+}
+
+.busqueda-area {
+  margin-bottom: 1rem;
+}
+
+.coches-area {
+  display: flex;
+  justify-content: center;
+}
+
+.coches-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Ensure each coche card stretches correctly */
+.coches-list app-coche {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .coches-list {
+    grid-template-columns: 1fr;
+  }
+}

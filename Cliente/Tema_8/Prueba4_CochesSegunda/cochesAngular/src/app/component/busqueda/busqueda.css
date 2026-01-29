@@ -1,0 +1,39 @@
+.search-form {
+  border: 1px solid #e6e6e6;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #fff;
+}
+.search-form .row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.search-form label {
+  flex: 1;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+.search-form input {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn-search {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+.btn-reset {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}

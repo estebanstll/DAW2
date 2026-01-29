@@ -1,0 +1,10 @@
+<div class="search-form">
+  <div class="row">
+    <label>Marca <input type="text" [(ngModel)]="marca" name="marca" /></label>
+    <label>Modelo <input type="text" [(ngModel)]="modelo" name="modelo" /></label>
+  </div>
+  <div class="actions">
+    <button type="button" class="btn-search" (click)="onSearch()">Buscar</button>
+    <button type="button" class="btn-reset" (click)="onReset()">Limpiar</button>
+  </div>
+</div>
