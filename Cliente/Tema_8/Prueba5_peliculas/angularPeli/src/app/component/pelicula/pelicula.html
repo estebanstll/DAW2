@@ -1,0 +1,17 @@
+@if (pelicula) {
+  <div class="card pelicula-card" style="width: 18rem">
+    <img
+      [src]="getImagePath()"
+      (error)="onImgError($event)"
+      class="card-img-top"
+      [alt]="pelicula.titulo"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ pelicula.titulo }}</h5>
+      <p class="card-text">Valoración: {{ pelicula.valoracion ?? 'N/D' }}</p>
+      <button class="btn btn-primary" (click)="onDetailsClick()">Detalles</button>
+    </div>
+  </div>
+} @else {
+  <p>No hay película seleccionada.</p>
+}

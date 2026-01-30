@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let user of users">{{ user }}</li>
+  @for (user of users) {
+    <li>{{ user }}</li>
+  }
 </ul>
 
 <a routerLink="/coches">Ver Coches</a>

@@ -1,0 +1,75 @@
+### Crear película 1
+POST http://localhost:3000/peliculas
+Content-Type: application/json
+
+{
+	"id": 1,
+	"titulo": "El viaje inesperado",
+	"anio": 2012,
+	"genero": "Aventura",
+	"valoracion": 8.1,
+	"plataforma": "Cine",
+	"img": "viaje.jpg"
+}
+
+### Crear película 2
+POST http://localhost:3000/peliculas
+Content-Type: application/json
+
+{
+	"id": 2,
+	"titulo": "Noche de estrellas",
+	"anio": 2018,
+	"genero": "Drama",
+	"valoracion": 7.4,
+	"plataforma": "Streaming",
+	"img": "estrellas.jpg"
+}
+
+### Crear película 3
+POST http://localhost:3000/peliculas
+Content-Type: application/json
+
+{
+	"id": 3,
+	"titulo": "Risas en serie",
+	"anio": 2020,
+	"genero": "Comedia",
+	"valoracion": 6.9,
+	"plataforma": "TV",
+	"img": "risas.jpg"
+}
+
+### Crear película 4
+POST http://localhost:3000/peliculas
+Content-Type: application/json
+
+{
+	"id": 4,
+	"titulo": "Código fuente",
+	"anio": 2021,
+	"genero": "Ciencia ficción",
+	"valoracion": 8.7,
+	"plataforma": "Streaming",
+	"img": "codigo.jpg"
+}
+
+### Crear película 5
+POST http://localhost:3000/peliculas
+Content-Type: application/json
+
+{
+	"id": 5,
+	"titulo": "Amanecer silencioso",
+	"anio": 2015,
+	"genero": "Thriller",
+	"valoracion": 7.9,
+	"plataforma": "Cine",
+	"img": "amanecer.jpg"
+}
+
+### Ver todas las películas (verificar)
+GET http://localhost:3000/peliculas
+Accept: application/json
+
+

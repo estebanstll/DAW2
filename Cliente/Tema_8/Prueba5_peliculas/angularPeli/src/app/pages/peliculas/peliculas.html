@@ -1,0 +1,25 @@
+<div class="peliculas-page">
+  <app-busqueda (search)="onSearch($event)"></app-busqueda>
+  <h2>Películas</h2>
+  <div class="page-actions">
+    <a class="btn" routerLink="/peliculas/form">Ir al formulario</a>
+  </div>
+
+  @if (loading) {
+    <div>Cargando películas...</div>
+  }
+
+  @if (error) {
+    <div class="text-danger">Error: {{ error }}</div>
+  }
+
+  @if (!loading && peliculas.length > 0) {
+    <div class="peliculas-list">
+      @for (p of peliculas; track p.id) {
+        <app-pelicula [pelicula]="p"></app-pelicula>
+      }
+    </div>
+  } @else {
+    <p>No hay películas disponibles.</p>
+  }
+</div>

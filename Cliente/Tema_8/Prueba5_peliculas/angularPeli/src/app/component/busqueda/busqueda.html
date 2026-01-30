@@ -1,0 +1,20 @@
+<div class="search-form">
+  <div class="row">
+    <label
+      >Título
+      <input type="text" [(ngModel)]="texto" name="texto" placeholder="Título de la película"
+    /></label>
+    <label
+      >plataforma
+      <input
+        type="text"
+        [(ngModel)]="plataforma"
+        name="plataforma"
+        placeholder="Plataforma de la película"
+    /></label>
+  </div>
+  <div class="actions">
+    <button type="button" class="btn-search" (click)="onSearch()">Buscar</button>
+    <button type="button" class="btn-reset" (click)="onReset()">Limpiar</button>
+  </div>
+</div>

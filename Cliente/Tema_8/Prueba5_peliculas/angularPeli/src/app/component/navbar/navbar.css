@@ -1,0 +1,21 @@
+/* Navbar basic styles */
+.navbar {
+  background: #333;
+  padding: 0.5rem 1rem;
+}
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-list a:hover {
+  text-decoration: underline;
+}

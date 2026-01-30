@@ -1,0 +1,66 @@
+<form class="pelicula-form" [formGroup]="form" (ngSubmit)="$event.preventDefault()">
+  <div class="row">
+    <label>
+      Id (solo para modificar)
+      <input type="text" formControlName="id" />
+    </label>
+  </div>
+
+  <div class="row">
+    <label>
+      Título
+      <input type="text" formControlName="titulo" />
+    </label>
+    @if (
+      form.get('titulo')?.invalid && (form.get('titulo')?.touched || form.get('titulo')?.dirty)
+    ) {
+      <div class="error">Título obligatorio</div>
+    }
+  </div>
+
+  <div class="row">
+    <label>
+      Año
+      <input type="number" formControlName="anio" />
+    </label>
+    <label>
+      Género
+      <input type="text" formControlName="genero" />
+    </label>
+  </div>
+
+  <div class="row">
+    <label>
+      Valoración
+      <input type="number" step="0.1" formControlName="valoracion" />
+    </label>
+    <label>
+      Plataforma
+      <input type="text" formControlName="plataforma" />
+    </label>
+  </div>
+
+  <div class="row">
+    <label>
+      Imagen (ruta)
+      <input type="text" formControlName="img" />
+    </label>
+  </div>
+
+  <div class="actions">
+    <button type="button" (click)="create()" [disabled]="loading">Crear</button>
+    <button type="button" (click)="modify()" [disabled]="loading">Modificar</button>
+    <button type="button" (click)="resetForm()">Limpiar</button>
+  </div>
+
+  @if (loading) {
+    <div>Procesando...</div>
+  }
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+</form>
+
+<div class="page-actions">
+  <a class="btn" routerLink="/">Volver a Películas</a>
+</div>

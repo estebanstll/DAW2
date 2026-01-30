@@ -5,7 +5,9 @@
 
   <section class="coches-area">
     <div class="coches-list">
-      <app-coche *ngFor="let c of filteredCoches" [coche]="c"></app-coche>
+      @for (c of filteredCoches; track c.id) {
+        <app-coche [coche]="c"></app-coche>
+      }
     </div>
   </section>
 </div>

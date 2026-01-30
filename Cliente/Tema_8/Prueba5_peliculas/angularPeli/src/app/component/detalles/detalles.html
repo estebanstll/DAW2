@@ -1,0 +1,34 @@
+<div class="detalles-card">
+  @if (id !== null) {
+    <h3>Detalles de la película</h3>
+    <p>ID: {{ id }}</p>
+
+    @if (loading) {
+      <div>Cargando...</div>
+    }
+    @if (error) {
+      <div class="text-danger">Error: {{ error }}</div>
+    }
+
+    @if (pelicula) {
+      <div class="detalles-grid">
+        <div class="detalles-img">
+          <img
+            [src]="'/assets/img/' + pelicula.img"
+            (error)="onImgError($event)"
+            [alt]="pelicula.titulo"
+          />
+        </div>
+        <div class="detalles-info">
+          <h4>{{ pelicula.titulo }}</h4>
+          <p><strong>Año:</strong> {{ pelicula.anio }}</p>
+          <p><strong>Género:</strong> {{ pelicula.genero }}</p>
+          <p><strong>Plataforma:</strong> {{ pelicula.plataforma }}</p>
+          <p><strong>Valoración:</strong> {{ pelicula.valoracion ?? 'N/D' }}</p>
+        </div>
+      </div>
+    }
+  } @else {
+    <p>ID de película no proporcionado.</p>
+  }
+</div>

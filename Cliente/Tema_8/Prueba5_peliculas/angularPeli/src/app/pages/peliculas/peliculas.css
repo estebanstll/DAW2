@@ -1,0 +1,22 @@
+/* Grid layout for peliculas page */
+.peliculas-page {
+  padding: 1rem;
+}
+
+.peliculas-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Ensure fallback list looks decent */
+.peliculas-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.peliculas-page li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #eee;
+}
