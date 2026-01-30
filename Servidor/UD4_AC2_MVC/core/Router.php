@@ -71,31 +71,43 @@ class Router
         if (isset($_GET['url']) && !empty($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
+            $url = trim($url, '/');
+            if ($url === '') {
+                return null;
+            }
             return explode('/', $url);
         }
 
         // Si no hay $_GET['url'], parsear desde REQUEST_URI
         $requestUri = $_SERVER['REQUEST_URI'] ?? '';
-        $basePath = '/Servidor/UD4_AC2_MVC/public/';
-        
-        // Quitar el base path
-        if (strpos($requestUri, $basePath) === 0) {
+        $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+
+        // Construir basePath dinámicamente a partir de SCRIPT_NAME (por ejemplo: /UD4_AC2_MVC/public/)
+        $basePath = rtrim(dirname($scriptName), '/');
+        if ($basePath === '\\' || $basePath === '.') {
+            $basePath = '';
+        }
+        $basePath = $basePath === '' ? '' : $basePath . '/';
+
+        // Quitar el base path si está presente
+        if ($basePath !== '' && strpos($requestUri, $basePath) === 0) {
             $url = substr($requestUri, strlen($basePath));
         } else {
             $url = $requestUri;
         }
-        
+
         // Quitar query string
         if (($pos = strpos($url, '?')) !== false) {
             $url = substr($url, 0, $pos);
         }
-        
-        $url = rtrim($url, '/');
-        
-        if (empty($url) || $url === 'index.php') {
+
+        // Normalizar: eliminar barras iniciales/finales
+        $url = trim($url, '/');
+
+        if ($url === '' || $url === 'index.php') {
             return null;
         }
-        
+
         return explode('/', $url);
     }
 }
