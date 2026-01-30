@@ -20,7 +20,7 @@ RewriteEngine On
 
 # Ejemplo: RewriteBase /mi_proyecto/public/
 
-RewriteBase /Servidor/UD4_ACMVC_Practica1/public/
+RewriteBase /UD6-API_REST/public/
 
 # Si el archivo o directorio existe, mostrarlo directamente
 

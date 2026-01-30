@@ -27,7 +27,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // En XAMPP/WAMP con subcarpeta: usa "/nombre_carpeta/public/"
 // En producción: usa "/" o la ruta correspondiente
 
-define("BASE_URL", "/Servidor/UD4_ACMVC_Practica1/public/");  // CAMBIA ESTO según tu entorno
+define("BASE_URL", "/UD6-API_REST/public/");  // CAMBIA ESTO según tu entorno
 // Ejemplo desarrollo: define("BASE_URL", "/mi_proyecto/public/");
 
 // ========================================

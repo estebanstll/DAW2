@@ -10,7 +10,8 @@ if (!defined('APP_ROOT')) {
 class Router
 {
     // Nombre del controlador (string)
-    protected string $controladorNombre = 'TrabajadoresController';
+    // Por defecto usar ApirestwebController para exponer la interfaz de pruebas
+    protected string $controladorNombre = 'ApirestwebController';
 
     // Instancia del controlador (objeto)
     protected object $controladorActual;
@@ -76,26 +77,35 @@ class Router
 
         // Si no hay $_GET['url'], parsear desde REQUEST_URI
         $requestUri = $_SERVER['REQUEST_URI'] ?? '';
-        $basePath = '/Servidor/UD4_ACMVC_Practica1/public/';
-        
-        // Quitar el base path
-        if (strpos($requestUri, $basePath) === 0) {
+        // Determinar base path dinámicamente desde SCRIPT_NAME (p. ej. /ApiRest/public)
+        $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+        if ($scriptDir === '.' || $scriptDir === '\\' || $scriptDir === '') {
+            $basePath = '/';
+        } else {
+            $basePath = $scriptDir;
+            if (substr($basePath, -1) !== '/') $basePath .= '/';
+        }
+
+        // Si la URI comienza por el basePath, quitarlo
+        if ($basePath !== '/' && strpos($requestUri, $basePath) === 0) {
             $url = substr($requestUri, strlen($basePath));
         } else {
             $url = $requestUri;
         }
-        
+
         // Quitar query string
         if (($pos = strpos($url, '?')) !== false) {
             $url = substr($url, 0, $pos);
         }
-        
-        $url = rtrim($url, '/');
-        
-        if (empty($url) || $url === 'index.php') {
+
+        // Normalizar: eliminar slashes iniciales y finales
+        $url = trim($url, '/');
+
+        if ($url === '' || $url === 'index.php') {
             return null;
         }
-        
+
+        // Devolver segmentos limpios
         return explode('/', $url);
     }
 }
