@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Music Library Manager (Mock)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f4f4;
+      }
+
+      nav {
+        background: #222;
+        color: white;
+        padding: 1rem;
+      }
+
+      nav a {
+        color: white;
+        margin-right: 1rem;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        background: white;
+      }
+
+      th,
+      td {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background: #eee;
+      }
+
+      button {
+        padding: 0.4rem 0.7rem;
+        cursor: pointer;
+      }
+
+      .stars {
+        cursor: pointer;
+        color: gold;
+      }
+
+      input,
+      select {
+        padding: 0.4rem;
+        margin-bottom: 0.5rem;
+        width: 200px;
+      }
+
+      form {
+        background: white;
+        padding: 1rem;
+        max-width: 400px;
+      }
+
+      .actions button {
+        margin-right: 0.3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#albums">Álbumes</a>
+    </nav>
+
+    <div class="container" id="app"></div>
+
+    <script>
+      /* ============================
+   DATOS MOCKEADOS
+============================ */
+
+      let albums = [
+        {
+          id: 1,
+          title: "Hybrid Theory",
+          artist: "Linkin Park",
+          year: 2000,
+          genre: "Rock",
+          numCanciones: 2,
+        },
+        {
+          id: 2,
+          title: "Random Access Memories",
+          artist: "Daft Punk",
+          year: 2013,
+          genre: "Electronic",
+          numCanciones: 1,
+        },
+      ];
+
+      let songs = [
+        {
+          id: 1,
+          title: "In the End",
+          duration: 216,
+          rating: 5,
+          listened: true,
+          albumId: 1,
+        },
+        {
+          id: 2,
+          title: "Crawling",
+          duration: 209,
+          rating: 4,
+          listened: false,
+          albumId: 1,
+        },
+        {
+          id: 3,
+          title: "Get Lucky",
+          duration: 369,
+          rating: 5,
+          listened: true,
+          albumId: 2,
+        },
+      ];
+
+      /* ============================
+   ROUTER SIMPLE
+============================ */
+
+      window.addEventListener("hashchange", render);
+      render();
+
+      function render() {
+        const route = location.hash || "#albums";
+
+        if (route === "#albums") renderAlbums();
+        else if (route === "#albums/new") renderAlbumForm();
+        else if (route.match(/^#albums\/\d+\/songs\/new$/)) {
+          const id = Number(route.split("/")[1]);
+          renderSongForm(id);
+        } else if (route.startsWith("#albums/")) {
+          const id = Number(route.split("/")[1]);
+          renderAlbumSongs(id);
+        }
+      }
+
+      /* ============================
+   ÁLBUMES
+============================ */
+
+      function renderAlbums() {
+        const app = document.getElementById("app");
+
+        app.innerHTML = `
+    <h2>Álbumes</h2>
+    <button onclick="location.hash='#albums/new'">➕ Nuevo álbum</button>
+
+    <br><br>
+    <label>Filtrar por género:</label><br>
+    <input id="genreFilter" placeholder="Rock, Electronic..." />
+
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Artista</th>
+          <th>Año</th>
+          <th>Género</th>
+          <th>Nº Canciones</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="albumTable"></tbody>
+    </table>
+  `;
+
+        document
+          .getElementById("genreFilter")
+          .addEventListener("input", renderAlbumRows);
+        renderAlbumRows();
+      }
+
+      function renderAlbumRows() {
+        const filter = document
+          .getElementById("genreFilter")
+          .value.toLowerCase();
+        const tbody = document.getElementById("albumTable");
+        tbody.innerHTML = "";
+
+        albums
+          .filter((a) => a.genre.toLowerCase().includes(filter))
+          .forEach((album) => {
+            tbody.innerHTML += `
+        <tr>
+          <td>${album.title}</td>
+          <td>${album.artist}</td>
+          <td>${album.year}</td>
+          <td>${album.genre}</td>
+          <td>${album.numCanciones}</td>
+          <td class="actions">
+            <button onclick="goToAlbum(${album.id})">Ver canciones</button>
+            <button onclick="deleteAlbum(${album.id})">Eliminar</button>
+          </td>
+        </tr>
+      `;
+          });
+      }
+
+      function goToAlbum(id) {
+        location.hash = `#albums/${id}`;
+      }
+
+      function deleteAlbum(id) {
+        if (songs.some((s) => s.albumId === id)) {
+          alert("No se puede borrar un álbum con canciones asociadas");
+          return;
+        }
+        albums = albums.filter((a) => a.id !== id);
+        renderAlbumRows();
+      }
+
+      /* ============================
+   FORMULARIO ÁLBUM
+============================ */
+
+      function renderAlbumForm() {
+        const app = document.getElementById("app");
+
+        app.innerHTML = `
+    <h2>Crear Álbum</h2>
+    <form onsubmit="createAlbum(event)">
+      <label>Título</label><br>
+      <input required id="title"><br>
+
+      <label>Artista</label><br>
+      <input required id="artist"><br>
+
+      <label>Año</label><br>
+      <input type="number" required id="year"><br>
+
+      <label>Género</label><br>
+      <input id="genre"><br><br>
+
+      <button type="submit">Guardar</button>
+      <button type="button" onclick="location.hash='#albums'">Cancelar</button>
+    </form>
+  `;
+      }
+
+      function createAlbum(event) {
+        event.preventDefault();
+
+        albums.push({
+          id: Date.now(),
+          title: title.value,
+          artist: artist.value,
+          year: Number(year.value),
+          genre: genre.value,
+          numCanciones: 0,
+        });
+
+        location.hash = "#albums";
+      }
+
+      /* ============================
+   CANCIONES POR ÁLBUM
+============================ */
+
+      function renderAlbumSongs(albumId) {
+        const album = albums.find((a) => a.id === albumId);
+        const albumSongs = songs.filter((s) => s.albumId === albumId);
+        const app = document.getElementById("app");
+
+        app.innerHTML = `
+    <h2>${album.title} - Canciones</h2>
+    <button onclick="location.hash='#albums'">⬅ Volver</button>
+    <button onclick="location.hash='#albums/${albumId}/songs/new'">➕ Nueva canción</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Duración</th>
+          <th>Rating</th>
+          <th>Escuchada</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="songTable"></tbody>
+    </table>
+  `;
+
+        const tbody = document.getElementById("songTable");
+        albumSongs.forEach((song) => {
+          tbody.innerHTML += `
+      <tr>
+        <td>${song.title}</td>
+        <td>${song.duration}</td>
+        <td>${renderStars(song)}</td>
+        <td>
+          <input type="checkbox" ${song.listened ? "checked" : ""} 
+            onchange="toggleListened(${song.id})">
+        </td>
+        <td>
+          <button onclick="deleteSong(${song.id}, ${albumId})">Eliminar</button>
+        </td>
+      </tr>
+    `;
+        });
+      }
+
+      /* ============================
+   FORMULARIO CANCIÓN
+============================ */
+
+      function renderSongForm(albumId) {
+        const album = albums.find((a) => a.id === albumId);
+        const app = document.getElementById("app");
+
+        app.innerHTML = `
+    <h2>Nueva canción – ${album.title}</h2>
+    <form onsubmit="createSong(event, ${albumId})">
+      <label>Título</label><br>
+      <input required id="title"><br>
+
+      <label>Duración (s)</label><br>
+      <input type="number" required id="duration"><br>
+
+      <label>Rating</label><br>
+      <select id="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br><br>
+
+      <button type="submit">Guardar</button>
+      <button type="button" onclick="location.hash='#albums/${albumId}'">Cancelar</button>
+    </form>
+  `;
+      }
+
+      function createSong(event, albumId) {
+        event.preventDefault();
+
+        songs.push({
+          id: Date.now(),
+          title: title.value,
+          duration: Number(duration.value),
+          rating: Number(rating.value),
+          listened: false,
+          albumId,
+        });
+
+        albums.find((a) => a.id === albumId).numCanciones++;
+        location.hash = `#albums/${albumId}`;
+      }
+
+      /* ============================
+   UTILIDADES
+============================ */
+
+      function renderStars(song) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+          stars += `<span class="stars" onclick="setRating(${song.id}, ${i})">
+      ${i <= song.rating ? "★" : "☆"}
+    </span>`;
+        }
+        return stars;
+      }
+
+      function setRating(songId, rating) {
+        songs.find((s) => s.id === songId).rating = rating;
+        render();
+      }
+
+      function toggleListened(songId) {
+        const song = songs.find((s) => s.id === songId);
+        song.listened = !song.listened;
+      }
+
+      function deleteSong(songId, albumId) {
+        songs = songs.filter((s) => s.id !== songId);
+        albums.find((a) => a.id === albumId).numCanciones--;
+        renderAlbumSongs(albumId);
+      }
+    </script>
+  </body>
+</html>

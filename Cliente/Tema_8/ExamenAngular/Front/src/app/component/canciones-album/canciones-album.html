@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Duración</th>
+      <th>Rating</th>
+      <th>Escuchada</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (song of songs; track song._id) {
+      <tr>
+        <td>{{ song.title }}</td>
+        <td>{{ song.duration }}s</td>
+        <td class="stars">
+          @for (star of renderStars(song.rating); track star) {
+            <span
+              class="star"
+              (click)="onSetRating(song._id, star)"
+              [style.color]="star <= song.rating ? 'gold' : 'gray'"
+            >
+              {{ star <= song.rating ? '★' : '☆' }}
+            </span>
+          }
+        </td>
+        <td>
+          <input type="checkbox" [checked]="song.listened" (change)="onToggleListened(song._id)" />
+        </td>
+        <td class="actions">
+          <button class="btn-delete" (click)="onDelete(song._id)">Eliminar</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

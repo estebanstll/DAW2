@@ -1,0 +1,24 @@
+@if (album) {
+  <h2>Nueva canción – {{ album.title }}</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Título</label>
+    <input type="text" formControlName="title" required />
+
+    <label>Duración (segundos)</label>
+    <input type="number" formControlName="duration" required />
+
+    <label>Rating</label>
+    <select formControlName="rating" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <div>
+      <button type="submit" [disabled]="!form.valid">Guardar</button>
+      <button type="button" class="btn-cancel" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+}

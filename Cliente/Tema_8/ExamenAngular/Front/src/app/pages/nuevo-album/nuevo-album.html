@@ -1,0 +1,19 @@
+<h2>Crear Álbum</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>Título</label>
+  <input type="text" formControlName="title" required />
+
+  <label>Artista</label>
+  <input type="text" formControlName="artist" required />
+
+  <label>Año</label>
+  <input type="number" formControlName="year" required />
+
+  <label>Género</label>
+  <input type="text" formControlName="genre" required />
+
+  <div>
+    <button type="submit" [disabled]="!form.valid">Guardar</button>
+    <button type="button" class="btn-cancel" (click)="onCancel()">Cancelar</button>
+  </div>
+</form>

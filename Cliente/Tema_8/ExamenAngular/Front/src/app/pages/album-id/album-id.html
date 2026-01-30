@@ -1,0 +1,14 @@
+@if (album) {
+  <h2>{{ album.title }} - Canciones</h2>
+  <button class="btn-back" (click)="goToAlbums()">⬅ Volver</button>
+  <button class="btn-new" (click)="goToNewSong()">➕ Nueva canción</button>
+
+  <app-canciones-album
+    [songs]="songs"
+    (listened)="onListenedChange($event)"
+    (ratingChanged)="onRatingChanged($event)"
+    (deleted)="onSongDeleted($event)"
+  ></app-canciones-album>
+} @else {
+  <p>Cargando álbum...</p>
+}

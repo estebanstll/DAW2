@@ -1,0 +1,42 @@
+<h2>Álbumes</h2>
+<button class="btn-new" (click)="goToNewAlbum()">➕ Nuevo álbum</button>
+
+<div class="filter-section">
+  <div>
+    <label>Filtrar por género:</label>
+    <input
+      type="text"
+      [(ngModel)]="genreFilter"
+      (ngModelChange)="onGenreFilterChange()"
+      placeholder="Rock, Electronic..."
+    />
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Artista</th>
+      <th>Año</th>
+      <th>Género</th>
+      <th>Nº Canciones</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (album of filteredAlbums; track album._id) {
+      <tr>
+        <td>{{ album.title }}</td>
+        <td>{{ album.artist }}</td>
+        <td>{{ album.year }}</td>
+        <td>{{ album.genre }}</td>
+        <td>{{ album.numCanciones }}</td>
+        <td class="actions">
+          <button (click)="onViewAlbum(album._id)">Ver canciones</button>
+          <button class="btn-delete" (click)="onDeleteAlbum(album._id)">Eliminar</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

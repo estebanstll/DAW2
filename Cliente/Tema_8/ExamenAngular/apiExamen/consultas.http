@@ -1,0 +1,127 @@
+@baseUrlAlbum = http://localhost:3000/albums
+@baseUrlcanciones = http://localhost:3000/canciones
+
+
+
+### GET 
+GET {{baseUrlAlbum}}
+
+### GET 
+GET {{baseUrlAlbum}}/697d041c4caae255339c685c
+
+### POST 
+POST {{baseUrlAlbum}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "titulo": "Abbey Road",
+  "artista": "The Beatles",
+  "anio": 1969,
+  "genero": "Rock",
+  "img": "https://example.com/abbeyroad.jpg"
+}
+### POST 
+POST {{baseUrlAlbum}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "titulo": "Fido",
+  "artista": "Fido",
+  "anio": 1969,
+  "genero": "DJ",
+  "img": "https://example.com/abbeyroad.jpg"
+}
+### POST 
+POST {{baseUrlAlbum}}
+Content-Type: application/json
+
+{
+  "id": 2,
+  "titulo": "Dark Side of the Moon",
+  "artista": "Pink Floyd",
+  "anio": 1973,
+  "genero": "Rock Progresivo",
+  "img": "https://example.com/darkside.jpg"
+}
+
+### PUT 
+PUT {{baseUrlAlbum}}/1
+Content-Type: application/json
+
+{
+  "titulo": "Abbey Road - Remastered",
+  "artista": "The Beatles",
+  "anio": 1969,
+  "genero": "Rock Clásico",
+  "img": "https://example.com/abbeyroad-remaster.jpg"
+}
+
+### DELETE 
+DELETE {{baseUrlAlbum}}/1
+
+
+
+### GET 
+GET {{baseUrlcanciones}}
+
+### GET 
+GET {{baseUrlcanciones}}/1
+
+### POST 
+POST {{baseUrlcanciones}}
+Content-Type: application/json
+
+{
+  "titulo": "Come Together",
+  "duracion": "4:19",
+  "rating": 5,
+  "albumID": "697d041c4caae255339c685c",
+  "escuchado": true
+}
+
+### POST 
+POST {{baseUrlcanciones}}
+Content-Type: application/json
+
+{
+  "titulo": "Something",
+  "duracion": "3:03",
+  "rating": 5,
+  "albumID": "697d041c4caae255339c685c",
+  "escuchado": true
+}
+
+### POST 
+POST {{baseUrlcanciones}}
+Content-Type: application/json
+
+{
+  "titulo": "Time",
+  "duracion": "7:03",
+  "rating": 5,
+  "albumID": "697d098f943c54a02f5dde9a",
+  "escuchado": false
+}
+
+### PUT 
+PUT {{baseUrlcanciones}}/1
+Content-Type: application/json
+
+{
+  "titulo": "Come Together - Remaster",
+  "duracion": "4:19",
+  "rating": 5,
+  "albumID": "697d041c4caae255339c685c",
+  "escuchado": true
+}
+
+### DELETE 
+DELETE {{baseUrlcanciones}}/1
+
+
+### GET albunes canciones
+GET {{baseUrlAlbum}}/1/songs
+
+

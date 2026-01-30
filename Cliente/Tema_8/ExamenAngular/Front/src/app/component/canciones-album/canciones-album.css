@@ -1,0 +1,14 @@
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: color 0.2s;
+}
+
+.star:hover {
+  color: orange !important;
+}

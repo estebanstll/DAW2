@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+nav {
+  background: #222;
+  color: white;
+  padding: 1rem;
+}
+
+nav a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container {
+  padding: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: white;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #eee;
+}
+
+button {
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  margin-right: 0.3rem;
+}
+
+button:hover {
+  background: #ccc;
+}
+
+.stars {
+  cursor: pointer;
+  color: gold;
+  margin: 0 2px;
+}
+
+input,
+select {
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  width: 200px;
+}
+
+form {
+  background: white;
+  padding: 1rem;
+  max-width: 400px;
+  border-radius: 6px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.btn-back {
+  background: #666;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-new {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #999;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter-section {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.filter-section label {
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.filter-section input {
+  width: 250px;
+}
