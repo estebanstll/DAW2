@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+    RewriteEngine On
+
+    # Bloquear acceso a carpetas sensibles si por error alguien llega aquí
+    RewriteRule ^(css|js|images)/ - [L]
+
+    # CONDICIÓN 1: Si el archivo solicitado NO existe físicamente (!-f)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    # CONDICIÓN 2: Si el directorio solicitado NO existe físicamente (!-d)
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # ENTONCES: Redirige todo a index.php pasando la URL
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>

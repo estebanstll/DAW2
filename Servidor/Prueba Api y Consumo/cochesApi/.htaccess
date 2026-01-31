@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Si la petición es hacia la carpeta public, no hagas nada (evita bucles)
+    RewriteRule ^public($|/) - [L]
+
+    # Redirige todo el resto hacia la carpeta "public"
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
