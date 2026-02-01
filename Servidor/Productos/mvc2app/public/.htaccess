@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+Options -Multiviews 
+RewriteEngine On 
+# Pasar header Authorization a PHP (para JWT)
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /Productos/mvc2app/public
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
