@@ -1,0 +1,48 @@
+# ========================================
+
+# CONFIGURACIÓN HTACCESS
+
+# ========================================
+
+# NOTA: Si estás en desarrollo local, comenta o elimina la línea RewriteBase
+
+# En producción, ajusta RewriteBase según la ruta de tu proyecto
+
+# ========================================
+
+# Habilitar motor de reescritura
+
+RewriteEngine On
+
+# Pasar el header Authorization a PHP (necesario para JWT)
+
+RewriteCond %{HTTP:Authorization} ^(._)
+RewriteRule ._ - [e=HTTP_AUTHORIZATION:%1]
+
+# CAMBIA ESTO si tu proyecto no está en la raíz del servidor
+
+# En desarrollo local (XAMPP/WAMP): comenta esta línea o ajusta la ruta
+
+# Ejemplo: RewriteBase /mi_proyecto/public/
+
+RewriteBase /Colegio/Api/public/
+
+# Si el archivo o directorio existe, mostrarlo directamente
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir todas las peticiones al index.php
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+# Prevenir acceso directo a archivos sensibles
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sql|env)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+# Prevenir listado de directorios
+
+Options -Indexes
