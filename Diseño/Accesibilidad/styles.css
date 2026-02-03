@@ -1,219 +1,150 @@
+/* RESET BÁSICO */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  color: #1a1a1a;
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
   line-height: 1.6;
 }
 
-/* --- LOGICA DE NAVEGACION DINAMICA --- */
+/* SKIP LINK */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: #ff6b35;
+  color: #000;
+  padding: 8px 12px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* HEADER */
+header {
+  background-color: #b52a1d;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+/* NAV */
 nav {
-  background: #222;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: #1f1f1f;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 nav a {
-  display: inline-block;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  padding: 16px 24px;
-  font-weight: 600;
-  transition: 0.3s;
+  padding: 1rem;
 }
 
-/* Cambia el color del menú según el ID activo en la URL */
-body:has(#tipos:target) nav a[href="#tipos"],
-body:has(#motores:target) nav a[href="#motores"],
-body:has(#comparativa:target) nav a[href="#comparativa"] {
-  background-color: #d63031;
+nav a:hover,
+nav a:focus-visible {
+  background-color: #ff6b35;
+  color: #000;
 }
 
-/* Marcar 'Tipos' por defecto si acabas de entrar a la web */
-body:not(:has(:target)) nav a[href="#tipos"] {
-  background-color: #d63031;
+/* FOCUS VISIBLE GLOBAL */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #ff6b35;
+  outline-offset: 3px;
 }
 
-nav a:hover {
-  background-color: #ff8c5a;
-}
-
-/* --- DISEÑO DE CABECERA Y SECCIONES --- */
-header {
-  background: linear-gradient(135deg, #ff6b35 0%, #d63031 100%);
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 3.5em;
-  margin-bottom: 10px;
-}
-
-.container {
+/* MAIN */
+main {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: auto;
+  padding: 2rem 1rem;
 }
 
-section h2 {
-  font-size: 2.5em;
-  color: white;
-  text-align: center;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
+section {
+  margin-bottom: 3rem;
 }
 
-section h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #ff6b35, #d63031);
+h2 {
+  margin-bottom: 1rem;
 }
 
-section > p {
-  color: white;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* --- DISEÑO DE TARJETAS --- */
-.tipos-grid {
+/* GRID */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
+/* CARDS */
 .card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.card-header {
-  background: linear-gradient(135deg, #ff6b35 0%, #d63031 100%);
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.card-content {
-  padding: 25px;
+  background: #ffffff;
+  color: #000000;
+  padding: 1.5rem;
+  border-radius: 8px;
 }
 
 .highlight {
   background: #fff3cd;
-  padding: 12px;
+  padding: 0.5rem;
   border-left: 4px solid #ff6b35;
-  border-radius: 4px;
-  margin-top: 15px;
-  font-weight: 500;
 }
 
-/* --- DISEÑO DE MOTORES Y SPECS --- */
-.motores-section {
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
+/* MOTORES */
+.motor {
+  background: #ffffff;
+  color: #000;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-.motor-item {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.motor-item h4 {
-  color: #ff6b35;
-  font-size: 1.4em;
-  margin-bottom: 15px;
-}
-
-.motor-specs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-top: 15px;
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.spec {
-  padding: 10px;
-  background: white;
-  border-left: 3px solid #ff6b35;
-  border-radius: 4px;
-}
-
-.spec-label {
-  color: #ff6b35;
-  font-weight: bold;
-  font-size: 0.8em;
-  text-transform: uppercase;
-}
-
-.spec-value {
-  color: #333;
-  font-size: 1em;
-}
-
-/* --- COMPARATIVA --- */
+/* COMPARATIVA */
 .comparativa {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.comparativa-item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  border-top: 4px solid #ff6b35;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.comparativa-item li::before {
-  content: "✓ ";
-  color: #ff6b35;
-  font-weight: bold;
-}
-.comparativa-item ul {
   list-style: none;
+  padding: 0;
 }
 
+.comparativa li {
+  background: #ffffff;
+  color: #000;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #ff6b35;
+}
+
+/* FOOTER */
 footer {
-  background: #222;
-  color: white;
+  background: #1f1f1f;
   text-align: center;
-  padding: 30px;
-  margin-top: 60px;
+  padding: 2rem 1rem;
+}
+
+/* REDUCCIÓN DE MOVIMIENTO */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto;
+  }
 }

@@ -5,215 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Guía completa sobre tipos de motos y tecnologías de motores."
+      content="Guía accesible sobre tipos de motos y tecnologías de motores."
     />
     <title>Motos - Tipos y Motores | Guía Accesible</title>
+
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Widget accesibilidad (complemento, no sustituto) -->
+    <script
+      src="https://cdn.userway.org/widget.js"
+      data-account="xC0HyIQ6G8"
+    ></script>
   </head>
+
   <body>
-    <header role="banner">
+    <a href="#contenido-principal" class="skip-link"
+      >Saltar al contenido principal</a
+    >
+
+    <header>
       <h1>El Mundo de las Motos</h1>
-      <p>Guía completa sobre tipos y tecnologías de motores más populares</p>
+      <p>Guía completa sobre tipos y tecnologías de motores</p>
     </header>
 
-    <nav role="navigation" aria-label="Navegación principal">
+    <nav aria-label="Navegación principal">
       <ul>
-        <li><a href="#tipos">Tipos de Motos</a></li>
+        <li><a href="#tipos">Tipos de motos</a></li>
         <li><a href="#motores">Motores</a></li>
         <li><a href="#comparativa">Comparativa</a></li>
       </ul>
     </nav>
 
-    <div class="container" id="contenido-principal" role="main">
-      <section id="tipos" aria-labelledby="heading-tipos">
-        <h2 id="heading-tipos">Tipos de Motos</h2>
-        <p>Las motocicletas se clasifican según su diseño y propósito:</p>
+    <main id="contenido-principal">
+      <section id="tipos">
+        <h2>Tipos de motos</h2>
+        <p>Clasificación según diseño y uso.</p>
 
-        <div class="tipos-grid">
-          <div class="card">
-            <div class="card-header"><h3>Street</h3></div>
-            <div class="card-content">
-              <p>
-                Motos diseñadas para carreteras urbanas y autopistas. Ofrecen
-                equilibrio entre rendimiento y comodidad.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Chasis ligero, motor potente,
-                posición deportiva.
-              </div>
-            </div>
-          </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Street</h3>
+            <p>Motos urbanas equilibradas.</p>
+            <p class="highlight">
+              <strong>Características:</strong> ligeras y cómodas.
+            </p>
+          </article>
 
-          <div class="card">
-            <div class="card-header"><h3>Deportiva</h3></div>
-            <div class="card-content">
-              <p>
-                Motos de alto rendimiento optimizadas para velocidad y
-                aceleración extrema.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Alta cilindrada, aerodinámica,
-                tecnología de punta.
-              </div>
-            </div>
-          </div>
+          <article class="card">
+            <h3>Deportiva</h3>
+            <p>Alto rendimiento y velocidad.</p>
+            <p class="highlight">
+              <strong>Características:</strong> aerodinámica avanzada.
+            </p>
+          </article>
 
-          <div class="card">
-            <div class="card-header"><h3>Crucero</h3></div>
-            <div class="card-content">
-              <p>
-                Motos cómodas y relajadas para viajes largos. Características
-                clásicas.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Asiento bajo, escape cromado,
-                motor torquero.
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><h3>Touring</h3></div>
-            <div class="card-content">
-              <p>
-                Diseñadas para viajes de larga distancia con máximo confort.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Asiento amplio, protección del
-                viento, almacenamiento.
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><h3>Naked</h3></div>
-            <div class="card-content">
-              <p>
-                Motos sin carenado que muestran el motor. Versátiles y
-                accesibles.
-              </p>
-              <div class="highlight">
-                <strong>Características:</strong> Motor visible, posición
-                vertical, mejor visibilidad.
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><h3>Off-Road</h3></div>
-            <div class="card-content">
-              <p>Especializadas para terrenos difíciles, barro y tierra.</p>
-              <div class="highlight">
-                <strong>Características:</strong> Suspensión larga, neumáticos
-                todoterreno, bajo peso.
-              </div>
-            </div>
-          </div>
+          <article class="card">
+            <h3>Crucero</h3>
+            <p>Diseñadas para viajes largos.</p>
+            <p class="highlight">
+              <strong>Características:</strong> asiento bajo.
+            </p>
+          </article>
         </div>
       </section>
 
-      <section id="motores" aria-labelledby="heading-motores">
-        <h2 id="heading-motores">Motores de Motos</h2>
-        <div class="motores-section">
-          <div class="motor-item">
-            <h4>Motor de 2 Tiempos</h4>
-            <p>
-              Completa un ciclo en dos movimientos. Potente pero menos
-              eficiente.
-            </p>
-            <div class="motor-specs">
-              <div class="spec">
-                <div class="spec-label">Potencia/Peso</div>
-                <div class="spec-value">Muy alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Consumo</div>
-                <div class="spec-value">Alto</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Sonido</div>
-                <div class="spec-value">Muy ruidoso</div>
-              </div>
-            </div>
-          </div>
+      <section id="motores">
+        <h2>Motores</h2>
 
-          <div class="motor-item">
-            <h4>Motor de 4 Tiempos</h4>
-            <p>
-              Admisión, compresión, explosión y escape. Duradero y eficiente.
-            </p>
-            <div class="motor-specs">
-              <div class="spec">
-                <div class="spec-label">Consumo</div>
-                <div class="spec-value">Bajo</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Durabilidad</div>
-                <div class="spec-value">Muy alta</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Emisiones</div>
-                <div class="spec-value">Bajas</div>
-              </div>
-            </div>
-          </div>
+        <article class="motor">
+          <h3>Motor de 2 tiempos</h3>
+          <ul>
+            <li>Potencia elevada</li>
+            <li>Consumo alto</li>
+          </ul>
+        </article>
 
-          <div class="motor-item">
-            <h4>Motor Eléctrico</h4>
-            <p>
-              Tecnología emergente de cero emisiones y mínimo mantenimiento.
-            </p>
-            <div class="motor-specs">
-              <div class="spec">
-                <div class="spec-label">Mantenimiento</div>
-                <div class="spec-value">Mínimo</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Ruido</div>
-                <div class="spec-value">Silencioso</div>
-              </div>
-              <div class="spec">
-                <div class="spec-label">Futuro</div>
-                <div class="spec-value">Prometedor</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <article class="motor">
+          <h3>Motor de 4 tiempos</h3>
+          <ul>
+            <li>Más eficiente</li>
+            <li>Mayor durabilidad</li>
+          </ul>
+        </article>
+
+        <article class="motor">
+          <h3>Motor eléctrico</h3>
+          <ul>
+            <li>Cero emisiones</li>
+            <li>Bajo mantenimiento</li>
+          </ul>
+        </article>
       </section>
 
-      <section id="comparativa" aria-labelledby="heading-comparativa">
-        <h2 id="heading-comparativa">Comparativa: Tipos vs Motores</h2>
-        <div class="comparativa">
-          <div class="comparativa-item">
-            <strong>🏍️ Deportivas</strong>
-            <ul>
-              <li>Motor I4 de 4 tiempos</li>
-              <li>Aceleración extrema</li>
-              <li>Manejo en pista</li>
-            </ul>
-          </div>
-          <div class="comparativa-item">
-            <strong>🪑 Crucero</strong>
-            <ul>
-              <li>Motor V-Twin</li>
-              <li>Torque a bajas RPM</li>
-              <li>Viajes relajados</li>
-            </ul>
-          </div>
-          <div class="comparativa-item">
-            <strong>⛰️ Off-Road</strong>
-            <ul>
-              <li>Monocilíndrico</li>
-              <li>Ligeras</li>
-              <li>Tracción excelente</li>
-            </ul>
-          </div>
-        </div>
+      <section id="comparativa">
+        <h2>Comparativa</h2>
+
+        <ul class="comparativa">
+          <li>
+            <span aria-hidden="true">🏍️</span>
+            <span>Deportivas: velocidad y precisión</span>
+          </li>
+          <li>
+            <span aria-hidden="true">🪑</span>
+            <span>Crucero: comodidad</span>
+          </li>
+          <li>
+            <span aria-hidden="true">⛰️</span>
+            <span>Off-road: terrenos difíciles</span>
+          </li>
+        </ul>
       </section>
-    </div>
+    </main>
 
     <footer>
-      <p>&copy; 2026 Guía de Motos. Conducción segura.</p>
+      <p>&copy; 2026 Guía de Motos</p>
     </footer>
   </body>
 </html>
