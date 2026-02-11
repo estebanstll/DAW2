@@ -1,0 +1,22 @@
+{
+  "name": "dwes/clinica",
+  "description": "Examen de recuperacion",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Dwes\\Clinica\\": [
+        "app/librerias",
+        "app/controladores",
+        "app/modelos"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "Esteban",
+      "email": "estebansantolallar@gmail.com",
+      "role": "Programador"
+    }
+  ],
+  "require": {}
+}
