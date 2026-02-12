@@ -46,7 +46,7 @@ class VeterinarioControlador extends Controlador{
             $_SESSION['email'] = $email;
             
             // Redirigir a dashboard o inicio
-            header('Location: ' . RUTA_URL.'/CochesControlador');
+            header('Location: ' . RUTA_URL.'/PersonasControlador');
             exit;
         } else {
             // Login fallido

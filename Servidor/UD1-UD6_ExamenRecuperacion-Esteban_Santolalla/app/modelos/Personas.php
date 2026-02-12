@@ -112,40 +112,34 @@
             $this->bd->bind("id", $id);
             $user = $this->bd->registro();
 
-            if ($user) {
-                return $user;
-            } else {
-                return false;
-            }
+            return $user ?:[];
         
         }
 
-        public function deleteByID(){
+        public function deleteByID($id){
 
-            if (is_null($this->id)) {
-                return false;
-            }
+            
 
             $this->bd->query("DELETE FROM personas WHERE id=:id");
-            $this->bd->bind("id", $this->id);
+            $this->bd->bind("id", $id);
             $this->bd->execute();
 
             return ($this->bd->rowCount() > 0) ? true : false;
 
         }
 
-        public function updateByID(){
+        public function updateByID($id,$nombre, $apellidos,$telefono,$email){
 
             if (is_null($this->id)) {
                 return false;
             }
 
             $this->bd->query("UPDATE personas SET nombre=:nombre, apellidos=:apellidos, telefono=:telefono, email=:email WHERE id=:id");
-            $this->bd->bind("nombre", $this->nombre);
-            $this->bd->bind("apellidos", $this->apellidos);
-            $this->bd->bind("telefono", $this->telefono);
-            $this->bd->bind("email", $this->email);
-            $this->bd->bind("id", $this->id);
+            $this->bd->bind("nombre", $nombre);
+            $this->bd->bind("apellidos", $apellidos);
+            $this->bd->bind("telefono", $telefono);
+            $this->bd->bind("email", $email);
+            $this->bd->bind("id", $id);
 
             $this->bd->execute();
 
@@ -153,13 +147,13 @@
 
         }
 
-        public function post(){
+        public function post($nombre, $apellidos,$telefono,$email){
 
             $this->bd->query("INSERT INTO personas (nombre, apellidos, telefono, email) VALUES (:nombre, :apellidos, :telefono, :email)");
-            $this->bd->bind("nombre", $this->nombre);
-            $this->bd->bind("apellidos", $this->apellidos);
-            $this->bd->bind("telefono", $this->telefono);
-            $this->bd->bind("email", $this->email);
+            $this->bd->bind("nombre", $nombre);
+            $this->bd->bind("apellidos", $apellidos);
+            $this->bd->bind("telefono", $telefono);
+            $this->bd->bind("email", $email);
 
             $this->bd->execute();
 
