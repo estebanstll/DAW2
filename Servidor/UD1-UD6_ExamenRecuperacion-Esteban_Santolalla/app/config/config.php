@@ -1,10 +1,10 @@
 <?php
 
 //Configuración acceso a base de datos
-define('DB_HOST', ''); //tu servidor de BD.
-define('DB_USUARIO', '');
-define('DB_PASSWORD', '');
-define('DB_NOMBRE', ''); // Tu base de datos
+define('DB_HOST', 'localhost'); //tu servidor de BD.
+define('DB_USUARIO', 'dwes');
+define('DB_PASSWORD', 'dwes');
+define('DB_NOMBRE', 'recuperacion'); // Tu base de datos
 
 
 
