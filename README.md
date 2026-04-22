@@ -1,7 +1,18 @@
 # Desarrollo de Aplicaciones Web (DAW)
 
-Este repositorio contiene el material, prácticas y proyectos correspondientes a las asignaturas del ciclo formativo **Desarrollo de Aplicaciones Web (DAW)**.  
-Cada carpeta representa una de las materias del grado, organizadas con sus respectivas subcarpetas de trabajo, documentación y recursos.
+Repositorio personal con prácticas, ejercicios y proyectos de 2º de DAW.
+Incluye desarrollo frontend con HTML, CSS y JavaScript, backend con PHP,
+APIs, bases de datos y despliegue de aplicaciones web.
+
+## Tecnologías principales
+PHP · JavaScript · HTML · CSS · TypeScript · MySQL
+
+## Qué vas a encontrar
+- Proyectos de cliente
+- Proyectos de servidor
+- Ejercicios de despliegue
+- Prácticas de diseño
+- Documentación técnica
 
 ---
 
